@@ -1,5 +1,5 @@
 i=1 
-until [i <= 20]
+until [[i <= 20]]
 do (($i % 3 && $i % 5))
 i=$(( i+1 ))
 echo $i
