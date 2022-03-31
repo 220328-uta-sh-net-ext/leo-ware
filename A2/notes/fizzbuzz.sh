@@ -1,5 +1,5 @@
 i=1 
-until [i <= 20], i++
+until [i <= 20]
 do (($i % 3)) && (($i % 5))
 i=$(( i+1 ))
 echo $i
@@ -15,6 +15,7 @@ break
 else
 echo $i
 fi
+done
 <<comment
 then
 echo
