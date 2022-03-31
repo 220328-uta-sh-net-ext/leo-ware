@@ -1,19 +1,19 @@
-i=1 
-until [[i <= 20]]
-do (($i % 3 && $i % 5))
-i=$(( i+1 ))
+read i 
+until [[$i <= 20]]
+do (($i%3 && $i%5))
+$i=$(( i++ ))
 echo $i
 then
- if (($i % 3 == 0))
+ if (($i%3 == 0))
  then
 echo 'fizz'
 break
   then
- if (($i % 5 == 0))
+ if (($i%5 == 0))
 echo 'buzz'
 break
   then
- if (($i % 3 == 0)) && (($i % 5 == 0))
+ if (($i%3 == 0)) && (($i%5 == 0))
 echo 'FizzBuzz'
 break
   then
