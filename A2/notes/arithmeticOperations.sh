@@ -74,7 +74,31 @@ chmod +x intmath.sh
 10 + 10 = 20
 0 + 10 = 10
 
+# Write a loop that displays only odd natural numbers from 1 to 99
+i=0
+for ((i=0; i< 99+1; i++))
+    do
+        if (( i%2 != true))
+            
+            then
+            
+            echo $i
+        fi
+    done
+# The output should print all odd numbers from 1 to 99 in the terminal    
 
+# Write a loop to display the natural numbers from 1 to 50
+i=1
+for ((i=1; i< 50+1; i++))
+    do
+        if (( i > 50 == false ))
+            
+            then
+            
+            echo $i
+        fi
+    done
+# The output should print numbers 1 to 50 in the terminal
 
 # You can create the constants variables using the readonly command or declare command.
 # The readonly buitin syntax is as follows:
@@ -127,3 +151,7 @@ comment1
 
 # Sample outputs
 ./varcheck.sh: line 3: 1: Error command line argument not passed
+
+
+((==,>,<,>=,<=,!=)) ||  [-eq,-gt...]
+if((x < y)) then do... this elif((x > y)) then do... else

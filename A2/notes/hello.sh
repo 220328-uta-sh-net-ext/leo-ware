@@ -24,6 +24,9 @@ echo My home directory id $HOME
 # User defined variables
 name=Leo
 echo "The name is $name"
+# Or
+read -r name
+echo Welcome $name
 
 # User defined variables, use A-Z, a-z, 0-9 or _
 # If you define a variable with a number as the first character in your variable name, it will not be read the variable correctly. 
