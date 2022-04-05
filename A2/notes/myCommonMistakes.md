@@ -118,8 +118,8 @@ fi
 # this loop will output the correct string :) Good Day.
 
 
-#while [ 1 <= $x ] [ $z <= 1000 ];
-#do
+# while [ 1 <= $x ] [ $z <= 1000 ];
+# do
 read x 
 read y 
 read z
@@ -131,5 +131,37 @@ elif [[ $x == $z ]] || [[ $y == $x ]] || [[ $z == $y ]]; then
     
     else
         echo "SCALENE"
-#done
+# done
 fi
+
+# ---------------------------------------------------------------------
+
+#                    RANDOM SEQUENCE LOOP TWO WAYS
+
+i in $seq[ 1..99..2 ] do echo $i > folderName
+
+for i in $(seq 1..2..99)
+do
+  echo $i
+done
+
+# The above methods are from my fellow peers.
+# My code, however, is below. Ummm... I tried XD
+# This is not the same 
+#i=1
+#sum=0
+#while [[ $i <= n && n <= 500
+#do read num fmt
+#echo sum / n bc -1
+#seq    average
+#Output Format
+#Display the average of the N integers, rounded off to three decimal places.
+#Input Constraints
+#1<= N <=500
+#-10000 <= x <= 10000
+ #(x refers to elements of the list of integers for which the average is to be computed
+ #The '4' in the first line indicates that there are four integers whose average is to be #computed.
+
+#The average = (1 + 2 + 9 + 8)/4 = 20/4 = 5.000 (correct to three decimal places).
+
+#Please include the zeroes even if they are redundant (e.g. 0.000 instead of 0).
