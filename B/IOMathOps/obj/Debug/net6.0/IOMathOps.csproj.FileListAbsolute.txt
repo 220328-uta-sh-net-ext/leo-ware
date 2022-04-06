@@ -1,0 +1,15 @@
+C:\Revature\leo-ware\B\IOMathOps\obj\Debug\net6.0\IOMathOps.csproj.AssemblyReference.cache
+C:\Revature\leo-ware\B\IOMathOps\obj\Debug\net6.0\IOMathOps.GeneratedMSBuildEditorConfig.editorconfig
+C:\Revature\leo-ware\B\IOMathOps\obj\Debug\net6.0\IOMathOps.AssemblyInfoInputs.cache
+C:\Revature\leo-ware\B\IOMathOps\obj\Debug\net6.0\IOMathOps.AssemblyInfo.cs
+C:\Revature\leo-ware\B\IOMathOps\obj\Debug\net6.0\IOMathOps.csproj.CoreCompileInputs.cache
+C:\Revature\leo-ware\B\IOMathOps\bin\Debug\net6.0\IOMathOps.exe
+C:\Revature\leo-ware\B\IOMathOps\bin\Debug\net6.0\IOMathOps.deps.json
+C:\Revature\leo-ware\B\IOMathOps\bin\Debug\net6.0\IOMathOps.runtimeconfig.json
+C:\Revature\leo-ware\B\IOMathOps\bin\Debug\net6.0\IOMathOps.dll
+C:\Revature\leo-ware\B\IOMathOps\bin\Debug\net6.0\IOMathOps.pdb
+C:\Revature\leo-ware\B\IOMathOps\obj\Debug\net6.0\IOMathOps.dll
+C:\Revature\leo-ware\B\IOMathOps\obj\Debug\net6.0\refint\IOMathOps.dll
+C:\Revature\leo-ware\B\IOMathOps\obj\Debug\net6.0\IOMathOps.pdb
+C:\Revature\leo-ware\B\IOMathOps\obj\Debug\net6.0\IOMathOps.genruntimeconfig.cache
+C:\Revature\leo-ware\B\IOMathOps\obj\Debug\net6.0\ref\IOMathOps.dll
