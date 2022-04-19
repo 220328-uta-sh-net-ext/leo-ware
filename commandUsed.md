@@ -1,6 +1,0 @@
-- git clone https://github.com/kaurrevature/leo-ware.git
-- cd leo-ware/
-- git checkout -b dev-branch-pushpinder
--  touch commandUsed.md
-- notepad commandUsed.md
-- 
