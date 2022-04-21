@@ -1,0 +1,15 @@
+C:\Revature\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\net6.0\HappySpoonUI.deps.json
+C:\Revature\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\net6.0\HappySpoonUI.dll
+C:\Revature\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\net6.0\HappySpoonUI.pdb
+C:\Revature\don'tPushYet\HappySpoon\HappySpoonUI\obj\Debug\net6.0\HappySpoonUI.csproj.AssemblyReference.cache
+C:\Revature\don'tPushYet\HappySpoon\HappySpoonUI\obj\Debug\net6.0\HappySpoonUI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Revature\don'tPushYet\HappySpoon\HappySpoonUI\obj\Debug\net6.0\HappySpoonUI.AssemblyInfoInputs.cache
+C:\Revature\don'tPushYet\HappySpoon\HappySpoonUI\obj\Debug\net6.0\HappySpoonUI.AssemblyInfo.cs
+C:\Revature\don'tPushYet\HappySpoon\HappySpoonUI\obj\Debug\net6.0\HappySpoonUI.csproj.CoreCompileInputs.cache
+C:\Revature\don'tPushYet\HappySpoon\HappySpoonUI\obj\Debug\net6.0\HappySpoonUI.dll
+C:\Revature\don'tPushYet\HappySpoon\HappySpoonUI\obj\Debug\net6.0\refint\HappySpoonUI.dll
+C:\Revature\don'tPushYet\HappySpoon\HappySpoonUI\obj\Debug\net6.0\HappySpoonUI.pdb
+C:\Revature\don'tPushYet\HappySpoon\HappySpoonUI\obj\Debug\net6.0\ref\HappySpoonUI.dll
+C:\Revature\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\net6.0\HappySpoonUI.exe
+C:\Revature\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\net6.0\HappySpoonUI.runtimeconfig.json
+C:\Revature\don'tPushYet\HappySpoon\HappySpoonUI\obj\Debug\net6.0\HappySpoonUI.genruntimeconfig.cache

@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "RestaurantApp/1.0.0": {
+        "dependencies": {
+          "HappySpoonUI": "1.0.0"
+        },
+        "runtime": {
+          "RestaurantApp.dll": {}
+        }
+      },
+      "HappySpoonUI/1.0.0": {
+        "runtime": {
+          "HappySpoonUI.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "RestaurantApp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "HappySpoonUI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
