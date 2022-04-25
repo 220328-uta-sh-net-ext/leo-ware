@@ -7,4 +7,8 @@
     <OutputType>Exe</OutputType>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HappySpoonDB\HappySpoonDL.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,11 +1,48 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "HappySpoonDL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "HappySpoonModels": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/HappySpoonDL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HappySpoonDL.dll": {}
+        }
+      },
+      "HappySpoonModels/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/HappySpoonModels.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HappySpoonModels.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "HappySpoonDL/1.0.0": {
+      "type": "project",
+      "path": "../HappySpoonDB/HappySpoonDL.csproj",
+      "msbuildProject": "../HappySpoonDB/HappySpoonDL.csproj"
+    },
+    "HappySpoonModels/1.0.0": {
+      "type": "project",
+      "path": "../HappySpoonModels/HappySpoonModels.csproj",
+      "msbuildProject": "../HappySpoonModels/HappySpoonModels.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "HappySpoonDL >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Leo\\.nuget\\packages\\": {},
@@ -38,7 +75,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Revature\\leo-ware\\Project-0\\don'tPushYet\\HappySpoon\\HappySpoonDB\\HappySpoonDL.csproj": {
+              "projectPath": "C:\\Revature\\leo-ware\\Project-0\\don'tPushYet\\HappySpoon\\HappySpoonDB\\HappySpoonDL.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

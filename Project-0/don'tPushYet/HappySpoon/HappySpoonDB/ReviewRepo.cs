@@ -1,6 +1,6 @@
 ﻿namespace HappySpoonDL
 {
-    public class User : UserInterface
+    public class ReviewRepo
     {
 
     }
