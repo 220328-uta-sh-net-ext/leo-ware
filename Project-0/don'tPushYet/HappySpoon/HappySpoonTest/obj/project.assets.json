@@ -5979,11 +5979,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Revature\\don'tPushYet\\HappySpoon\\HappySpoonTest\\HappySpoonTest.csproj",
+      "projectUniqueName": "C:\\Revature\\leo-ware\\Project-0\\don'tPushYet\\HappySpoon\\HappySpoonTest\\HappySpoonTest.csproj",
       "projectName": "HappySpoonTest",
-      "projectPath": "C:\\Revature\\don'tPushYet\\HappySpoon\\HappySpoonTest\\HappySpoonTest.csproj",
+      "projectPath": "C:\\Revature\\leo-ware\\Project-0\\don'tPushYet\\HappySpoon\\HappySpoonTest\\HappySpoonTest.csproj",
       "packagesPath": "C:\\Users\\Leo\\.nuget\\packages\\",
-      "outputPath": "C:\\Revature\\don'tPushYet\\HappySpoon\\HappySpoonTest\\obj\\",
+      "outputPath": "C:\\Revature\\leo-ware\\Project-0\\don'tPushYet\\HappySpoon\\HappySpoonTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

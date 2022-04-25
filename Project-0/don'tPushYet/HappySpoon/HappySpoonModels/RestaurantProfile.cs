@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HappySpoonModels
 {
-      internal class RestaurantProfile
+      public class RestaurantProfile
       {
       }
 }

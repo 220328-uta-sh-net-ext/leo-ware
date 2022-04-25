@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HappySpoonModels\HappySpoonModels.csproj" />
+  </ItemGroup>
+
 </Project>

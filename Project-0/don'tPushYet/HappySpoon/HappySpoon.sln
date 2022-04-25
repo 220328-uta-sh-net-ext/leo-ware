@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HappySpoonBL", "RestaurantApp\HappySpoonBL.csproj", "{1768785C-07D2-44E6-B6E3-FDCF375D8279}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HappySpoonModels", "HappySpoonModels\HappySpoonModels.csproj", "{02295864-A032-400C-AE39-84D165D2C021}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HappySpoonUI", "HappySpoonUI\HappySpoonUI.csproj", "{91F5C1E1-B984-43CA-9D23-1F490E2316DA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HappySpoonDL", "HappySpoonDB\HappySpoonDL.csproj", "{D222FC5A-1224-4D5E-B88D-21AB9D37F877}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HappySpoonTest", "HappySpoonTest\HappySpoonTest.csproj", "{F04D494B-BF9D-4506-B15A-F579D3F98A5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HappySpoonTest", "HappySpoonTest\HappySpoonTest.csproj", "{F04D494B-BF9D-4506-B15A-F579D3F98A5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HappySpoonBL", "HappySpoonBL\HappySpoonBL.csproj", "{8E3AB565-E771-4AFD-A6F9-AFB6544280B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1768785C-07D2-44E6-B6E3-FDCF375D8279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1768785C-07D2-44E6-B6E3-FDCF375D8279}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1768785C-07D2-44E6-B6E3-FDCF375D8279}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1768785C-07D2-44E6-B6E3-FDCF375D8279}.Release|Any CPU.Build.0 = Release|Any CPU
 		{02295864-A032-400C-AE39-84D165D2C021}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{02295864-A032-400C-AE39-84D165D2C021}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02295864-A032-400C-AE39-84D165D2C021}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{F04D494B-BF9D-4506-B15A-F579D3F98A5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F04D494B-BF9D-4506-B15A-F579D3F98A5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F04D494B-BF9D-4506-B15A-F579D3F98A5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E3AB565-E771-4AFD-A6F9-AFB6544280B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E3AB565-E771-4AFD-A6F9-AFB6544280B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E3AB565-E771-4AFD-A6F9-AFB6544280B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E3AB565-E771-4AFD-A6F9-AFB6544280B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

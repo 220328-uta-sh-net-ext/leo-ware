@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace HappySpoonUI
 {
       //Main Menu display and Main Menu choice interaction
-    public class MainMenu : MainMenuInterface
+    class MainMenu : MenuInterface
     {
-            public void MainMenuDisplay()
+            public void Display()
             {
                   Console.WriteLine("Welcome to Happy Spoon! ");
                   Console.WriteLine("Ready to find your new favorite restaurant?");
@@ -21,7 +21,7 @@ namespace HappySpoonUI
             }
 
 
-            public string MainMenuChoices()
+            public string UserChoices()
             {
                   string userInput = Console.ReadLine();
 

@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace HappySpoonUI
 {
-      public class LoginSignupMenu : LoginSignupInterface
+      public class LoginSignupMenu : MenuInterface
       {
             // Login / Signup Menu and Login / Signup Menu interaction program
-            public void LoginSignupMenuDisplay()
+            public void Display()
             {
                   Console.WriteLine("Press <1> Login");
                   Console.WriteLine("Press <2> Signup");
                   Console.WriteLine("Press <0> Back to Main Menu");
             }
 
-            public string LoginSignupChoices()
+            public string UserChoices()
             {
                   string userInput = Console.ReadLine();
                   switch (userInput)

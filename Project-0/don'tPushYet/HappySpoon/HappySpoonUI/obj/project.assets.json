@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Revature\\don'tPushYet\\HappySpoon\\HappySpoonUI\\HappySpoonUI.csproj",
+      "projectUniqueName": "C:\\Revature\\leo-ware\\Project-0\\don'tPushYet\\HappySpoon\\HappySpoonUI\\HappySpoonUI.csproj",
       "projectName": "HappySpoonUI",
-      "projectPath": "C:\\Revature\\don'tPushYet\\HappySpoon\\HappySpoonUI\\HappySpoonUI.csproj",
+      "projectPath": "C:\\Revature\\leo-ware\\Project-0\\don'tPushYet\\HappySpoon\\HappySpoonUI\\HappySpoonUI.csproj",
       "packagesPath": "C:\\Users\\Leo\\.nuget\\packages\\",
-      "outputPath": "C:\\Revature\\don'tPushYet\\HappySpoon\\HappySpoonUI\\obj\\",
+      "outputPath": "C:\\Revature\\leo-ware\\Project-0\\don'tPushYet\\HappySpoon\\HappySpoonUI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
