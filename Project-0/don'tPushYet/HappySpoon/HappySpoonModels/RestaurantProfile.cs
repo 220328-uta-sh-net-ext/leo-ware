@@ -8,5 +8,7 @@ namespace HappySpoonModels
 {
       public class RestaurantProfile
       {
+        name
+
       }
 }
