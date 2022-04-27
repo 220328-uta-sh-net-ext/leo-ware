@@ -5,8 +5,8 @@ namespace HappySpoonModels
 {
 	public class UserProfile
 	{
-		public string userName { get; set; }
-		public string userEmail { get; set; }
+		static string userName { get; set; }
+		static string userEmail { get; set; }
 
 		//private string UserPassword;
 		
