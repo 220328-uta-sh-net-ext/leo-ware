@@ -5,14 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using HappySpoonModels;
 
-namespace HappySpoonUI
+namespace HappySpoonDL
 {
-    public interface RestaurantInterface
+    public interface AddUserInterface
     {
-      
-            RestaurantProfile Restaurant();
+        UserProfile AddUser(UserProfile user);
 
-            List<RestaurantProfile> GetRestaurants();
+
+
+        List<UserProfile> GetUsers();
         
+
     }
 }

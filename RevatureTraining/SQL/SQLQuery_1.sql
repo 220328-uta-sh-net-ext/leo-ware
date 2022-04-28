@@ -72,7 +72,7 @@ WHERE Country = 'Brazil';
 
 -- 2. show all invoices together with the name of the sales agent of each one
 
-SELECT InvoiveId FROM Customer CROSS;
+SELECT InvoiceId FROM Customer;
 
 -- 3. show all playlists ordered by the total number of tracks they have
 

@@ -1,5 +1,7 @@
 ﻿using System;
 using HappySpoonUI;
+using HappySpoonDL;
+using HappySpoonModels;
 
 //Implementing main menu options with menu interface
 bool repeat = true;
@@ -19,7 +21,7 @@ while (repeat)
                   break;
             case "LoginSignup":
                   Console.WriteLine("Login / Signup in progress...");
-                  menu = new LoginSignupMenu();
+                  
                   break;
             //case "MainMenu":
             //menu = new MainMenu(); 
@@ -31,7 +33,7 @@ while (repeat)
                   Console.WriteLine("View not found");
                   Console.WriteLine("Please press <enter> to continue.");
                   Console.ReadLine();
-                  menu.Display();
+                  repeat = true;
                   break;
       }
 }

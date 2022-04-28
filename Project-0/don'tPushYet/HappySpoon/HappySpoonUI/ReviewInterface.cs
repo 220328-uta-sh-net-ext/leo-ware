@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HappySpoonDL;
 
 namespace HappySpoonUI
 {
     public interface ReviewInterface
     {
-        public interface ReviewInterface
-        {
-            Review AddReview(string name, string entry);
+            ReviewRepo AddReview(string name, string entry);
 
-            List<Review> GetReviews();
-        }
+            List<ReviewRepo> GetReviews();
     }
 }
