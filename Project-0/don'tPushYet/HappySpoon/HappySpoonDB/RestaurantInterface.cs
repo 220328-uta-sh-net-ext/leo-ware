@@ -10,7 +10,7 @@ namespace HappySpoonUI
     public interface RestaurantInterface
     {
       
-            RestaurantProfile Restaurant();
+            void Restaurant();
 
             List<RestaurantProfile> GetRestaurants();
         

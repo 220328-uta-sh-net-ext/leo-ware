@@ -1,13 +1,19 @@
-﻿namespace HappySpoonModels
-{
-    public class UserProfile
-	{
-		
-		static string userName { get; set; }
-		static string userEmail { get; set; }
+﻿using System;
 
-		private string userPassword { get; set; }
-		
+
+namespace HappySpoonModels
+{
+	public class UserProfile
+	{
+
+
+		public string V1 { get; }
+		public object userName { get; }
+		public string V2 { get; }
+		public object userEmail { get; }
+		public string V3 { get; }
+		public object userPassword { get; }
+
 		/*This is an attempted implementation of the password checker.
 		 * 
 		 * 
@@ -67,19 +73,22 @@
 					
             }
 		}*/
-		public UserProfile(string userName, string userEmail, string userPassword)
-        {
-			userName = "?";
-			userEmail = "?";
-			userPassword = "?";
-        }
 
-        public override string ToString()
-        {
 
-			return $"Username: {userName}\nEmail: {userEmail} \nPassword: {userPassword}";
-
+		public UserProfile(string v1, object userName1, string v2, object userEmail1, string v3, object userPassword1)
+		{
+			V1 = v1;
+			userName = userName1;
+			V2 = v2;
+			userEmail = userEmail1;
+			V3 = v3;
+			userPassword = userPassword1;
 		}
 
+
+
+        public override string ToString() => $"Username: {userName}\nEmail: {userEmail} \nPassword: {userPassword}";
     }
+		
 }
+

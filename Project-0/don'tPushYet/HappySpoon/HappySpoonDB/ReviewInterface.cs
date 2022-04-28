@@ -9,7 +9,7 @@ namespace HappySpoonUI
 {
     public interface ReviewInterface
     {
-            ReviewRepo AddReview(string name, string entry);
+            void AddReview(string name, string entry);
 
             List<ReviewRepo> GetReviews();
     }

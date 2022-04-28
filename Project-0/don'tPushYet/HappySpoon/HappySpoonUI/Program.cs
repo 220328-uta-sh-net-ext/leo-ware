@@ -23,9 +23,9 @@ while (repeat)
                   Console.WriteLine("Login / Signup in progress...");
                   
                   break;
-            //case "MainMenu":
-            //menu = new MainMenu(); 
-              //    break;
+            /*case "MainMenu":
+            menu = new MainMenu(); 
+                  break;*/
             case "Exit":
                   repeat = false;
                   break;
@@ -56,8 +56,7 @@ while (repeat)
             case "Signup":
                 break;
 
-            case "MainMenu":
-                menu = MainMenu();
+            case "SearchRestaurants":
                 break;
 
             default:
