@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HappySpoonBL;
+using HappySpoonDL;
 
 namespace HappySpoonUI
 {
-    internal class SearchRestaurants : MenuInterface
+    internal class SearchRestaurantsMenu : MenuInterface
     {
         RestaurantInterface repo = new RestaurantLogic();
 

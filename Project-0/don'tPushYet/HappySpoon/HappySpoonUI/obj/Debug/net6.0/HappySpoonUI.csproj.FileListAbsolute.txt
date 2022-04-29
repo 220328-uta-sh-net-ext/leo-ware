@@ -33,3 +33,4 @@ C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\ne
 C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\net6.0\HappySpoonDL.pdb
 C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\net6.0\HappySpoonModels.pdb
 C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\obj\Debug\net6.0\HappySpoonUI.csproj.CopyComplete
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\net6.0\CoverletSourceRootsMapping

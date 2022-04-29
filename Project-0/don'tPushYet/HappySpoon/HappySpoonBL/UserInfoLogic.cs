@@ -3,18 +3,24 @@ using HappySpoonModels;
 
 namespace HappySpoonBL
 {
-    public class UserInfoLogic
+    public class UserInfoLogic : UserInterface
     {
-
-        public void AddUser(string userName, string userEmail, string userPassword)
+        UserInterface repo = new SqlRepo();
+        public UserProfile AddUser(UserProfile user)
         {
 
-            var users = new UserRepo();
-            
-                userName = "?";
-                userEmail = "?";
-                userPassword = "?";
-            //users.AddUser();
+            Random ID = new Random();
+
+            user.userID = ID.Next(1, 200);
+
+            //Validation of new user information
+            //What are the constraints???
+            var users = repo.GetUsers();
+            //foreach (var user in users)
+            //{ }
+            //or
+            //if statement?
+            return repo.AddUser(user);
             
         }
 
@@ -26,6 +32,8 @@ namespace HappySpoonBL
 
         public List<UserProfile> GetUsers { get; }
         
+
+
     }
 
 

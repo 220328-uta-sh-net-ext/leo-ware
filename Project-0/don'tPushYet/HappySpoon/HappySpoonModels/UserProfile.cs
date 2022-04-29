@@ -3,7 +3,7 @@
     public class UserProfile
 	{
 
-
+		public int userID { get; set; }
 		public string V1 { get; }
 		public object userName { get; }
 		public string V2 { get; }
