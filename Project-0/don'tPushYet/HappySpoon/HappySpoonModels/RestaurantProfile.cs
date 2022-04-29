@@ -2,12 +2,15 @@
 {
     public class RestaurantProfile
       {
-        private string name { get; set; }
-        private string description { get; set; }
-        private string location { get; set; }
-        private string contactInfo { get; set; }
-        public string averageRating { get; set; }
-        static string reviews { get; set; }
+        private string Name { get; set; }
+        private string Description { get; set; }
+        private string Location { get; set; }
+        private string ContactInfo { get; set; }
+        public string AverageRating { get; set; }
+        static string Reviews { get; set; }
 
       }
+
+    List<RestaurantProfile> Restaurants
+    { }
 }

@@ -5,7 +5,7 @@
         private string filePath = "../PokemonDL/Database";
         private string jsonString;
 
-        public void GetUsers()
+        public void GetRestaurants()
         {
             jsonString = File.ReadAllText(filePath + "restaurants.json");
         }

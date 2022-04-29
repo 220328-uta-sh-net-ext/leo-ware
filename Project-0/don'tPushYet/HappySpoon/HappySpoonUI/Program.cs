@@ -19,12 +19,19 @@ while (repeat)
                   Console.WriteLine("Restaurant search in progress...");
                   menu = new SearchRestaurantsMenu();
                   break;
-            case "LoginSignup":
-                  Console.WriteLine("Login / Signup in progress...");
+            case "Login":
+                  Console.WriteLine("Login in progress...");
+                  menu = new AddUserMenu();
+                  break;
+            case "AddUser":
+                  Console.WriteLine("Login in progress...");
                   menu = new AddUserMenu();
                   break;
             case "MainMenu":
                   menu = new MainMenu(); 
+                  break;
+            case "AdminMenu":
+                  menu = new AdminMenu();
                   break;
             case "Exit":
                   repeat = false;

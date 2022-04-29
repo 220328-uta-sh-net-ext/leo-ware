@@ -13,14 +13,23 @@ namespace HappySpoonUI
     internal class AddUserMenu : MenuInterface
     {
         //static non-access modifier is needed to keep this variable consistent to all objects we create out of our AddPokeMenu
-        private static UserProfile newUser = new UserProfile();
+        static readonly UserProfile newUser = new UserProfile();  //(object userName, object userEmail);
 
         //private IRepository _repository = new Repository(); //UpCasting
-        private UserInterface _repository = new UserInfoLogic();
+        readonly UserInterface logic;
+
+        public AddUserMenu(UserInterface logic)
+        {
+            this.logic = logic;
+        }
+
+        public static object userName { get; set; }
+
+        public static object userEmail { get; set; }
         public void Display()
         {
             Console.WriteLine("Enter user information");
-            //feel free to add more options here like for Defense, Health etc....
+            //feel free to add more options here....
             Console.WriteLine("<1> Username - " + newUser.userName);
             Console.WriteLine("<2> Email - " + newUser.userEmail);
             Console.WriteLine("<3> Save");
@@ -30,15 +39,16 @@ namespace HappySpoonUI
         public string UserChoices()
         {
             string userInput = Console.ReadLine();
+          
             switch (userInput)
             {
                 case "0":
                     return "MainMenu";
-                case "1":
+                case "3":
                     try
                     {
-                        Log.Information("Adding your user... ");
-                        _repository.AddUser(newUser);
+                        Log.Information("Adding your user" + newUser.userName);
+                        return logic.AddUser(newUser);
                         Log.Information("User added successfully");
                     }
                     catch (Exception ex)
@@ -50,11 +60,11 @@ namespace HappySpoonUI
                     return "MainMenu";
                 case "2":
                     Console.Write("Please enter an email");
-                    newUser.userEmail = Convert.ToString(Console.ReadLine());
+                    newUser.userEmail = Console.ReadLine();
                     return "AddUser";
-                case "3":
+                case "1":
                     Console.Write("Please enter a username");
-                    newUser.userName = Convert.ToString(Console.ReadLine());
+                    newUser.userName = Console.ReadLine();
                     return "AddUser";
                 /// Add more cases for any other attributes of pokemon
                 default:

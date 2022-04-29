@@ -1,0 +1,5 @@
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonBL\obj\Debug\net6.0\HappySpoonBL.csproj.AssemblyReference.cache
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonBL\obj\Debug\net6.0\HappySpoonBL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonBL\obj\Debug\net6.0\HappySpoonBL.AssemblyInfoInputs.cache
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonBL\obj\Debug\net6.0\HappySpoonBL.AssemblyInfo.cs
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonBL\obj\Debug\net6.0\HappySpoonBL.csproj.CoreCompileInputs.cache
