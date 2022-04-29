@@ -1,4 +1,5 @@
-﻿using System;
+﻿global using Serilog;
+using System;
 using HappySpoonUI;
 using HappySpoonDL;
 using HappySpoonModels;
@@ -9,9 +10,9 @@ MenuInterface menu = new MainMenu();
 //LoginSignupInterface loginSignupMenu = new LoginSignupMenu();
 
 
-while (repeat)
-{
-      menu.Display();
+//while (repeat)
+//{
+      //menu.Display();
       string answer = menu.UserChoices();
 
       switch (answer)
@@ -30,40 +31,9 @@ while (repeat)
                   repeat = false;
                   break;
             default:
-                  Console.WriteLine("View not found");
-                  Console.WriteLine("Please press <enter> to continue.");
-                  Console.ReadLine();
-                  repeat = true;
+                  Console.WriteLine("View not found \nPlease press <enter> to continue.");
+                   //repeat = true;
+                   menu.Display();
                   break;
       }
-}
-
-
-//Implementation of login / signup menu
-{
-    while (repeat)
-    {
-        menu.Display();
-        //string answer = loginNavigation(loginSignup);
-        string answer = menu.UserChoices();
-
-        switch (answer)
-        {
-            case "Login":
-
-                break;
-
-            case "Signup":
-                break;
-
-            case "SearchRestaurants":
-                break;
-
-            default:
-                Console.WriteLine("View not found");
-                Console.WriteLine("Please press <enter> to continue.");
-                Console.ReadLine();
-                break;
-        }
-    }
- }
+//}

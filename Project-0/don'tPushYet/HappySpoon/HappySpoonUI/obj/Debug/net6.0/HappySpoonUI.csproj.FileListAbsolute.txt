@@ -28,3 +28,8 @@ C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\obj\Debug\ne
 C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\obj\Debug\net6.0\HappySpoonUI.pdb
 C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\obj\Debug\net6.0\HappySpoonUI.genruntimeconfig.cache
 C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\obj\Debug\net6.0\ref\HappySpoonUI.dll
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\net6.0\HappySpoonDL.dll
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\net6.0\HappySpoonModels.dll
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\net6.0\HappySpoonDL.pdb
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\net6.0\HappySpoonModels.pdb
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\obj\Debug\net6.0\HappySpoonUI.csproj.CopyComplete

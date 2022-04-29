@@ -7,14 +7,40 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "HappySpoonUI/1.0.0": {
+        "dependencies": {
+          "HappySpoonDL": "1.0.0"
+        },
         "runtime": {
           "HappySpoonUI.dll": {}
+        }
+      },
+      "HappySpoonDL/1.0.0": {
+        "dependencies": {
+          "HappySpoonModels": "1.0.0"
+        },
+        "runtime": {
+          "HappySpoonDL.dll": {}
+        }
+      },
+      "HappySpoonModels/1.0.0": {
+        "runtime": {
+          "HappySpoonModels.dll": {}
         }
       }
     }
   },
   "libraries": {
     "HappySpoonUI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "HappySpoonDL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "HappySpoonModels/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

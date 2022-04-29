@@ -13,4 +13,7 @@
     <SourceRoot Include="C:\Users\Leo\.nuget\packages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)coverlet.msbuild\3.1.2\build\coverlet.msbuild.props" Condition="Exists('$(NuGetPackageRoot)coverlet.msbuild\3.1.2\build\coverlet.msbuild.props')" />
+  </ImportGroup>
 </Project>

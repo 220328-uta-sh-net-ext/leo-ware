@@ -1,18 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HappySpoonModels;
+﻿using HappySpoonModels;
 
 namespace HappySpoonUI
 {
     public interface RestaurantInterface
     {
-      
-            void Restaurant();
+        RestaurantProfile AddRestaurant(RestaurantProfile restaurant);
 
-            List<RestaurantProfile> GetRestaurants();
-        
+
+        RestaurantProfile AddReview(RestaurantProfile review);
+
+
+        List<RestaurantProfile> SearchRestaurants(string name);
+
+    }
+
+    interface ISearchRestaurants
+    {
+        List<RestaurantProfile> GetRestaurants();
+
     }
 }

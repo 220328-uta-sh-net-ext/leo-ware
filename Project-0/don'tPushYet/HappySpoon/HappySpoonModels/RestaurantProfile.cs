@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HappySpoonModels
+﻿namespace HappySpoonModels
 {
-      public class RestaurantProfile
+    public class RestaurantProfile
       {
         private string name { get; set; }
         private string description { get; set; }

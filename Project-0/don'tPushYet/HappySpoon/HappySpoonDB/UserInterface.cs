@@ -7,15 +7,17 @@ using HappySpoonModels;
 
 namespace HappySpoonBL
 {
-     public interface UserInterface
-     {
-        void User();
+    public interface UserInterface
+    {
+       UserProfile AddUser(UserProfile user);
 
-        void AddUser();
+       
 
-        List<UserProfile> GetUser();
+    }
 
 
-     }
-    
+    interface ISearchUsers
+    {
+        List<UserProfile> GetUsers();
+    }
 }

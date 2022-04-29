@@ -2,7 +2,7 @@ using Xunit;
 
 namespace HappySpoonTest
 {
-      public class HappySpoonUnitTest
+    public class HappySpoonUnitTest
       {
             [Fact]
             public void Test1()

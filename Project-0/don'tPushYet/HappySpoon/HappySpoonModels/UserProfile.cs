@@ -1,9 +1,6 @@
-﻿using System;
-
-
-namespace HappySpoonModels
+﻿namespace HappySpoonModels
 {
-	public class UserProfile
+    public class UserProfile
 	{
 
 

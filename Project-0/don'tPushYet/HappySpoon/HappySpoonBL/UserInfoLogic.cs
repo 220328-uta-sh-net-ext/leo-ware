@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System;
-using HappySpoonDL;
+﻿using HappySpoonDL;
 using HappySpoonModels;
 
 namespace HappySpoonBL
@@ -18,7 +14,7 @@ namespace HappySpoonBL
                 userName = "?";
                 userEmail = "?";
                 userPassword = "?";
-            users.AddUser();
+            //users.AddUser();
             
         }
 
