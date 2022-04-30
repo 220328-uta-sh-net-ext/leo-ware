@@ -1,4 +1,5 @@
-﻿namespace HappySpoonDL
+﻿using HappySpoonModels;
+namespace HappySpoonDL
 {
     public class ReviewRepo
     {

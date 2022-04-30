@@ -3,10 +3,10 @@ namespace HappySpoonModels
 {
     public class UserProfile
 	{
-		private object UserPassword;
-		public object UserID { get; set; }
-		public object UserName { get; set; }
-		public object UserEmail { get; set; }
+		public string UserID { get; set; }
+		public string UserName { get; set; }
+		public string UserEmail { get; set; }
+		private int UserPassword { get; set; }
 
 		/*This is an attempted implementation of the password checker.
 		 * 
