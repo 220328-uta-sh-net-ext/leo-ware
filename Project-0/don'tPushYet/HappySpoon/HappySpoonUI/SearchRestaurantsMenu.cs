@@ -10,7 +10,7 @@ namespace HappySpoonUI
 {
     internal class SearchRestaurantsMenu : MenuInterface
     {
-        RestaurantInterface repo = new RestaurantLogic();
+        IRestaurant repo = new RestaurantLogic();
 
         public void Display()
         {

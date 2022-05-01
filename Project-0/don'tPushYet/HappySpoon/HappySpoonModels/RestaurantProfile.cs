@@ -9,31 +9,30 @@ namespace HappySpoonModels
         private string Location { get; set; }
         private string ContactInfo { get; set; }
         public double AverageRating { get; set; }
-        public List <ReviewRepo> GetReviews { get; set; }
+        public List<ReviewRepo> GetReviews { get; set; }
 
         public RestaurantProfile()
         {
             GetReviews = new List<ReviewRepo>()
             {
-                new ReviewRepo()
+                new Review()
             };
         }
 
-        public RestaurantProfile(string name)
+        public RestaurantProfile(string RestaurantName)
         {
-            RestaurantName = name;
-            GetReviews = new List<ReviewRepo>()
+            RestaurantName = new List<ReviewRepo>()
             {
-                new ReviewRepo()
+                new Review()
             };
+        }
 
-            public RestaurantProfile(RestaurantRow row)
-            {
-                RestaurantName = row.["RestaurantName"].ToString() ?? "";
-                Description = row.["Description"].ToString() ?? "";
-                Location = row.["Location"].ToString() ?? "";
-                ContactInfo = row.["ContactInfo"].ToString() ?? "";
-            }
+        public RestaurantProfile(RestaurantRow row)
+        {
+            RestaurantName = row.["RestaurantName"].ToString() ?? "";
+            Description = row.["Description"].ToString() ?? "";
+            Location = row.["Location"].ToString() ?? "";
+            ContactInfo = row.["ContactInfo"].ToString() ?? "";
         }
 
         public override string ToString()

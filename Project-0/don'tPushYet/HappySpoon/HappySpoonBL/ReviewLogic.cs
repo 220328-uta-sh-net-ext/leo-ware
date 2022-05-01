@@ -8,11 +8,11 @@ using HappySpoonUI;
 
 namespace HappySpoonBL
 {
-    internal class ReviewLogic : ReviewInterface
+    internal class ReviewLogic : IReview
     {
-        readonly ReviewInterface repo;
+        readonly IReview repo;
 
-        public ReviewLogic(ReviewInterface repo)
+        public ReviewLogic(IReview repo)
         {
             this.repo = repo;
         }

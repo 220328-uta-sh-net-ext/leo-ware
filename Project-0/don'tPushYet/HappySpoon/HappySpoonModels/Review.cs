@@ -24,11 +24,16 @@ namespace HappySpoonModels
 
         public Review(string Comments)
         {
-            userID=UserID;
+            userID = UserID;
             userName = UserName;
             averageRating = AverageRating;
             comments = Comments;
 
+        }
+
+        public override string ToString()
+        {
+            return $"{userID}\n{userName}\n{averageRating}\n{comments}";
         }
     }
 }

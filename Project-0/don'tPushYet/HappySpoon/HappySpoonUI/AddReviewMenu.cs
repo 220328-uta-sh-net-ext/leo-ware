@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HappySpoonBL;
 using HappySpoonDL;
 
 namespace HappySpoonUI
 {
     internal class AddReviewMenu : MenuInterface
     {
+        private static Rev
         public void Display()
         {
             Console.WriteLine("Thank you for contributing your valuable feedbak to our platform!");

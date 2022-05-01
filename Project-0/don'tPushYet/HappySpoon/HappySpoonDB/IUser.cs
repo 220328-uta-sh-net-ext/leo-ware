@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using HappySpoonModels;
 
-namespace HappySpoonBL
+namespace HappySpoonDL
 {
-    public interface UserInterface
+    public interface IUser
     {
        UserProfile AddUser(UserProfile user);
 

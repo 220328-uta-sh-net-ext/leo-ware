@@ -4,7 +4,7 @@ using HappySpoonUI;
 
 namespace HappySpoonBL
 {
-    public class RestaurantLogic : ReviewInterface
+    public class RestaurantLogic : IReview
     {
         public List<RestaurantProfile> { get; set; }
 
