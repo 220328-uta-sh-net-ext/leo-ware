@@ -1,27 +1,26 @@
-﻿using HappySpoonDL;
+﻿using System;
+using HappySpoonDL;
 using HappySpoonModels;
 
 namespace HappySpoonBL
 {
     public class UserInfoLogic : UserInterface
     {
-        readonly UserInterface repo;
+        readonly UserInterface repo = new UserRepo();
 
-        public UserInfoLogic(UserInterface repo)
+        public void AddUser(int UserID, string UserEmail, int Userpassword)
         {
-            this.repo = repo;
+            UserProfile newUser = new UserProfile();
+            newUser.UserID = new Random().Next(1, 200);
+            Console.Write("Enter a username: ");
+            newUser.UserName = Convert.ToString(Console.ReadLine());
+            Console.Write("Enter a password containing only four numbers: ");
+            newUser.UserPassword = Convert.ToString(Console.ReadLine());
+           
+            repo.AddUser(newUser);
         }
-        public UserProfile AddUser(UserProfile user)
-        {
-            var random = new Random();
-
-            user.UserID = random.Next(0, 200);
-
-            return repo.AddUser(user);
-
-            //return repo.AddUser(user);
-        }
-
+        
+        
     }
 
 }

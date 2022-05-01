@@ -3,43 +3,53 @@ namespace HappySpoonDL
 {
     public class RestaurantRepo : IRestaurant
     {
-        private string filePath = "../PokemonDL/Database";
+        private string filePath = "../HappySpoonDL/Database";
         private string jsonString;
 
-        
-        RestaurantRepo AddRestaurant(RestaurantRepo newRestaurant)
-        {
-            var restaurant = GetRestaurants();
-            restaurant.Add(newRestaurant);
+    
+        private RestaurantRepo AddRestaurant(RestaurantRepo newRestaurant)
+        {    
+            {
+                var restaurants = GetRestaurants();
+                restaurants.Add(newRestaurant);
+            }
+            public List<RestaurantRepo> GetRestaurants()
+            {
+                jsonString = File.ReadAllText(filePath + "restaurants.json");
+            }
         }
-        public List<RestaurantRepo> GetRestaurants()
-        {
-            jsonString = File.ReadAllText(filePath + "restaurants.json");
-        }
+
     }
 
-    public class ReviewRepo : IReview
-    {
-        private string filePath = "../PokemonDL/Database";
-        private string jsonString;
+    
 
+    public class ReviewRepo
+    {
+
+    
+        private string filePath = "../HappySpoonDL/Database";
+        private string jsonString;
         public ReviewRepo IReview.AddReview(string restaurantName, ReviewRepo newReview)
         {
             var restaurants = GetRestaurants();
-            foreach (var review in restaurants)
+            foreach (var restaurant in restaurants)
             {
-                if (review.RestaurantName == restaurantName)
+                if (restaurant.RestaurantName == restaurantName)
                 {
-                    review.Review.Add(newReview);
+                    restaurant.Review.Add(newReview);
                     break;
                 }
             }
             return newReview;
+            List<ReviewRepo> GetReviews()
+            {
+                jsonString = File.ReadAllText(filePath + "reviews.json");
+            }
+        
         }
 
-        public List<ReviewRepo> IReview.GetReviews()
-        {
-            jsonString = File.ReadAllText(filePath + "reviews.json");
-        }
+
     }
+
+
 }

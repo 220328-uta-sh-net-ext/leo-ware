@@ -13,6 +13,7 @@ namespace HappySpoonUI
         public void Display()
         {
             Console.WriteLine("Thank you for contributing your valuable feedbak to our platform!");
+
             Console.WriteLine("Press <1> Add Review");
             Console.WriteLine("Press <2> Add Rating");
             Console.WriteLine("Press <0> Exit Program");
