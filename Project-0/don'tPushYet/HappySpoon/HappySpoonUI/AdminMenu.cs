@@ -8,7 +8,7 @@ using HappySpoonDL;
 
 namespace HappySpoonUI
 {
-    internal class AdminMenu : MenuInterface
+    internal class AdminMenu : IMenu
     {
         public void Display()
         {

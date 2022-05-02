@@ -4,8 +4,7 @@ namespace HappySpoonDL
 {
     public interface IReview
     {
-        ReviewRepo AddReview(string restaurantName, Review newReview);
-        ReviewRepo AddReview(Review newReview);
-        List<ReviewRepo> GetReviews();
+        void AddReview(ReviewRepo newReview);
+        List<Review> GetReviews();
     }
 }

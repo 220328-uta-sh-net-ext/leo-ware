@@ -1,10 +1,8 @@
-﻿global using Serilog;
-using System;
-using HappySpoonUI;
+﻿using HappySpoonUI;
 
 //Implementing main menu options with menu interface
 bool repeat = true;
-MenuInterface menu = new MainMenu();
+IMenu menu = new MainMenu();
 //LoginSignupInterface loginSignupMenu = new LoginSignupMenu();
 
 
@@ -21,10 +19,10 @@ while (repeat)
                   break;
             case "Login":
                   Console.WriteLine("Login in progress...");
-                  menu = new AddUserMenu();
+                  menu = new LoginMenu();
                   break;
             case "AddUser":
-                  Console.WriteLine("Login in progress...");
+                  Console.WriteLine("Signup in progress...");
                   menu = new AddUserMenu();
                   break;
             case "MainMenu":

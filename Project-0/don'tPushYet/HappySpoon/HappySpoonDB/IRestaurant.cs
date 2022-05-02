@@ -4,19 +4,14 @@ namespace HappySpoonDL
 {
     public interface IRestaurant
     {
-        RestaurantRepo AddRestaurant(RestaurantProfile restaurantName);
+        void AddRestaurant(RestaurantRepo Restaurants);
 
 
-        
+        List<RestaurantProfile> GetRestaurants { get; }
 
 
-        List<RestaurantRepo> SearchRestaurants();
-
-    }
-
-    interface ISearchRestaurants
-    {
-        List<RestaurantRepo> GetRestaurants();
+        List<RestaurantProfile> SearchRestaurants();
 
     }
+
 }

@@ -9,7 +9,7 @@ using HappySpoonDL;
 namespace HappySpoonUI
 {
       //Main Menu display and Main Menu choice interaction
-    class MainMenu : MenuInterface
+    class MainMenu : IMenu
     {
         public void Display()
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HappySpoonUI
 {
-    internal class LoginMenu : MenuInterface
+    internal class LoginMenu : IMenu
     {
 
         public void Display()

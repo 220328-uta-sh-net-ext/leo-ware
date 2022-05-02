@@ -13,3 +13,4 @@ C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonDB\obj\Debug\ne
 C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonDB\obj\Debug\net6.0\refint\HappySpoonDL.dll
 C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonDB\obj\Debug\net6.0\HappySpoonDL.pdb
 C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonDB\obj\Debug\net6.0\ref\HappySpoonDL.dll
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonDB\bin\Debug\net6.0\CoverletSourceRootsMapping

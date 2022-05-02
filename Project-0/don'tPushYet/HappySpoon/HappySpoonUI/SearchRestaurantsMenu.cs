@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HappySpoonBL;
 using HappySpoonDL;
 
 namespace HappySpoonUI
 {
-    internal class SearchRestaurantsMenu : MenuInterface
+    internal class SearchRestaurantsMenu : IMenu
     {
-        IRestaurant repo = new RestaurantLogic();
+        IRestaurant repo = new RestaurantRepo();
 
         public void Display()
         {
@@ -30,7 +29,7 @@ namespace HappySpoonUI
                 case "1":
                     Console.Write("Please enter input");
                     string name = Console.ReadLine();
-                    var results = repo.SearchRestaurants(name);
+                    var results = repo.SearchRestaurants(Restaurants);
                     if (results.Count > 0)
                     {
                         foreach (var r in results)
@@ -43,10 +42,6 @@ namespace HappySpoonUI
                     {
                         Console.WriteLine($"Restaurant with {name} not found.");
                     }
-                    Console.WriteLine("Press <enter> to continue");
-                    Console.ReadLine();
-                    return "MainMenu";
-                    default:
                     Console.WriteLine("Please enter a valid input");
                     Console.WriteLine("Press <enter> to continue");
                     Console.ReadLine();

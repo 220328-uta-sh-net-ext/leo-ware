@@ -97,3 +97,15 @@ C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonTest\obj\Debug\
 C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonTest\obj\Debug\net6.0\HappySpoonTest.pdb
 C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonTest\obj\Debug\net6.0\HappySpoonTest.genruntimeconfig.cache
 C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonTest\obj\Debug\net6.0\ref\HappySpoonTest.dll
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonTest\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonTest\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonTest\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonTest\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonTest\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonTest\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonTest\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonTest\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonTest\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonTest\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonTest\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonTest\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll

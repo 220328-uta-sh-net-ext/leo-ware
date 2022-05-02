@@ -4,36 +4,41 @@ namespace HappySpoonModels
 {
     public class RestaurantProfile
     {
-        private string RestaurantName { get; set; }
-        private string Description { get; set; }
-        private string Location { get; set; }
-        private string ContactInfo { get; set; }
+        public int RestaurantID { get; set; }
+        public string RestaurantName { get; set; }
+        public string Description { get; set; }
+        public string Location { get; set; }
+        public string ContactInfo { get; set; }
         public double AverageRating { get; set; }
-        public List<ReviewRepo> GetReviews { get; set; }
+        public List<Review> GetReviews { get; set; }
 
         public RestaurantProfile()
         {
-            GetReviews = new List<ReviewRepo>()
+            GetReviews = new List<Review>()
             {
                 new Review()
             };
         }
 
-        public RestaurantProfile(string RestaurantName)
+        /*public RestaurantProfile(RestaurantID)
         {
-            RestaurantName = new List<ReviewRepo>()
+            RestaurantID = new List<Review> RestaurantID()
             {
                 new Review()
             };
-        }
+        }*/
 
+        /*<summary> row = RestaurnatRow </>
+         * Establishing where the data goes in the RestaurantProfile Table row
+         * 
         public RestaurantProfile(RestaurantRow row)
         {
+            RestaurantID = row.["RestaurantID"].ToString() ?? "";
             RestaurantName = row.["RestaurantName"].ToString() ?? "";
             Description = row.["Description"].ToString() ?? "";
             Location = row.["Location"].ToString() ?? "";
             ContactInfo = row.["ContactInfo"].ToString() ?? "";
-        }
+        }*/
 
         public override string ToString()
         {
