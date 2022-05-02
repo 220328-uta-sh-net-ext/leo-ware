@@ -3,46 +3,63 @@ namespace HappySpoonModels
 {
     public class UserProfile
 	{
-		public int UserID { get; set; }
-		public char UserName { get; set; }
-		public char UserEmail { get; set; }
-		public char UserPassword { get; set; }
+		public string UserID;
+		public string UserName;
+		public string UserEmail;
+		public string UserPassword;
 
 
 		public UserProfile()
 		{
 
-            _ = UserName;
+            UserName = "";
 			
-			_ = UserEmail;
+			UserEmail = "";
 
-			_ = UserID;
+			UserID = "";
 
-			_ = UserPassword;
+			UserPassword = "";
 			
 		}
 
-		
+		public string AddUser
+        {
+			//return UserID + " " + UserName + " " + UserEmail;
+			get
+            {
+				return UserID + UserName + UserEmail + UserPassword;
+            }
+            set
+            {
+				UserID = value;
+				UserName = value;
+				UserEmail = value;
+				UserPassword = value;
+            }
+        }
 
 
 		public override string ToString() => $"UserID: {UserID}\nUsername: {UserName}\nEmail: {UserEmail} \nPassword: {UserPassword}";
 
     }
 
-	public class Admin
+	internal class Admin
     {
-		private string UserName { get; set; }
-		private int UserPassword { get; set; }
+		private int UserID;
+		private string UserName;
+		private int UserPassword;
 
-		public Admin()
+		private Admin()
 		{
+			UserID = 1;
 			UserName = "El Jefe";
 			UserPassword = 1234;
 		}
 
-		public string ToString()
+		private string AdminUser()
         {
 			return $"Welcome back, {UserName}!";
+
         }
 	}
 
