@@ -18,7 +18,7 @@ namespace HappySpoonUI
         readonly IRepo repo;
         readonly UserInfoLogic logic;
         
-        public AddUserMenu(IRepo repo, UserInfoLogic logic)
+        public AddUserMenu(IRepo? repo, UserInfoLogic? logic)
         {
             this.repo = repo;
             this.logic = logic;
@@ -45,7 +45,7 @@ namespace HappySpoonUI
                         newUser.UserName = Console.ReadLine();
                         if (newUser.UserName != "")
                         {
-                            List<UserProfile> User = logic.GetUsersConnected(newUser.UserName);
+                            List<UserProfile> User = logic.GetConnectedUsers(newUser.UserName);
                             foreach (var user in User)
                             {
                                 if (user.UserName == newUser.UserName)

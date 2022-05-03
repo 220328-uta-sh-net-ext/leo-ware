@@ -9,14 +9,18 @@ namespace HappySpoonModels
     public class Review : RestaurantProfile
     {
         public int UserID { get; set; }
-        public string UserName { get; set; }
+        public UserProfile UserName { get; set; }
         public int Rating { get; set; }
         public string Comments { get; set; }
         public RestaurantProfile Name { get; set; }
 
-        public Review(RestaurantProfile name)
+        public Review(RestaurantProfile name, UserProfile username)
         {
-            Name = name;
+            Name = Name;
+            UserID = 0;
+            UserName = UserName;
+            Rating = 0;
+            Comments = "";
         }
 
 

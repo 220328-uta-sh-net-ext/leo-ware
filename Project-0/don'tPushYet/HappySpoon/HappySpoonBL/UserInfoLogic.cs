@@ -7,6 +7,12 @@ namespace HappySpoonBL
 {
     public class UserInfoLogic : ILogic
     {
+        readonly ILogic logic;
+        private ILogic Ulogic;
+        public UserInfoLogic(ILogic logic)
+        {
+            Ulogic = logic;
+        }
         public List<UserProfile> GetUsers { get; set; }
 
         public void UserProfile(UserProfile User)
@@ -59,13 +65,13 @@ namespace HappySpoonBL
 
         public List<UserProfile> GetUser(string userName)
         {
-            List<UserProfile> users = GetUsers.GetAllUsersConnected();
+            List<UserProfile> users = GetUsers.GetUsersConnected();
             var filteredUsers = users.Where(u => u.UserName.Contains(userName)).ToList();
         }
 
         public List<UserProfile> GetPassword(string passWord)
         {
-            List<UserProfile> passwords = GetUsers.GetAllUsersConnected();
+            List<UserProfile> passwords = GetUsers.GetUsersConnected();
             var filteredPasswords = passwords.Where(r => r.UserPassword.ToLower().Equals(passWord)).ToList();
             return filteredPasswords;
         }

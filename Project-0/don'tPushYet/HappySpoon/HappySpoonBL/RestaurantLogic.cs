@@ -4,12 +4,14 @@ using HappySpoonModels;
 
 namespace HappySpoonBL
 {
-    public class RestaurantLogic : ILogic
+    public class RestaurantLogic
     {
         readonly IRepo repo;
-        public RestaurantLogic(ILogic repo)
+        private ILogic Rlogic;
+
+        public RestaurantLogic(ILogic logic)
         {
-            this.repo = repo;
+            Rlogic = logic;
         }
         public List<RestaurantProfile> GetRestaurants { get; set; }
 
@@ -35,7 +37,7 @@ namespace HappySpoonBL
             GetRestaurants.Add(Restaurant);
         }*/
 
-        public List<RestaurantProfile> SearchAllRestaurants(string Name)
+        public void SearchAllRestaurants(string Name)
         {
             var Restaurant = GetRestaurants.FirstOrDefault(r => r.Name == Name);
             if (Restaurant == null)
@@ -48,7 +50,7 @@ namespace HappySpoonBL
             }
         }
 
-        public List<RestaurantProfile> SearchAllRestaurants()
+        public void SearchAllRestaurants()
         {
             foreach (var restaurants in GetRestaurants)
             {
@@ -56,7 +58,7 @@ namespace HappySpoonBL
             }
         }
 
-        public List<RestaurantProfile> SearchRestaurants(string phrase)
+        public void SearchRestaurants(string phrase)
         {
             var target = GetRestaurants.Where(r => r.Name.Contains(phrase)).ToList();
             foreach (var restaurant in target)
@@ -67,12 +69,13 @@ namespace HappySpoonBL
 
     }
 
-    public class ReviewLogic : ILogic
+    public class ReviewLogic
     {
         readonly IRepo repo;
-        public ReviewLogic(ILogic repo)
+        readonly ILogic logic;
+        public ReviewLogic(ILogic logic)
         {
-            this.repo = repo;
+            this.logic = logic;
         }
 
         public int AddRating(int stars)

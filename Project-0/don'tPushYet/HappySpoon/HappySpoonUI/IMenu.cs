@@ -15,11 +15,4 @@ namespace HappySpoonUI
         string UserChoices();
 
     }
-
-    interface IExtendedMenu
-    {
-        void Exit();
-
-        void Continue();
-    }
 }

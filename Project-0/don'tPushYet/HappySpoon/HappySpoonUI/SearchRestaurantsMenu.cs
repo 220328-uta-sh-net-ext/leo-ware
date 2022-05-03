@@ -14,7 +14,7 @@ namespace HappySpoonUI
         readonly RestaurantLogic logic;
         readonly IRepo repo;
 
-        public SearchRestaurantsMenu(RestaurantLogic logic, IRepo repo)
+        public SearchRestaurantsMenu(RestaurantLogic? logic, IRepo? repo)
         {
             this.logic = logic;
             this.repo = repo;

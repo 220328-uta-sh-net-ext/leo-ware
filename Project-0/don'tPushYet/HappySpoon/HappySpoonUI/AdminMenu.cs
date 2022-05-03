@@ -14,7 +14,7 @@ namespace HappySpoonUI
         readonly UserInfoLogic logic;
         readonly IRepo repo;
 
-        public AdminMenu(IRepo repo, UserInfoLogic logic)
+        public AdminMenu(IRepo? repo, UserInfoLogic? logic)
         {
             this.repo = repo;
             this.logic = logic;

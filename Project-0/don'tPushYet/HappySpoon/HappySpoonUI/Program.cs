@@ -1,8 +1,12 @@
-﻿using HappySpoonBL;
+﻿global using Serilog;
+using HappySpoonBL;
 using HappySpoonDL;
 using HappySpoonUI;
-IRepo repo = new SqlRepo(connectionString);
-ILogic logic();
+
+
+ILogic logic;
+
+
 //Implementing main menu options with menu interface
 bool repeat = true;
     IMenu menu = new MainMenu();
@@ -13,20 +17,20 @@ while (repeat)
 {
     menu.Display();
     string answer = menu.UserChoices();
-
+    
     switch (answer)
     {
         case "SearchRestaurants":
             Console.WriteLine("Restaurant search in progress...");
-            menu = new SearchRestaurantsMenu(logic, repo);
+            menu = new SearchRestaurantsMenu(repo, logic);
             break;
         case "Login":
             Console.WriteLine("Login in progress...");
-            menu = new LoginMenu();
+            menu = new LoginMenu(UserInfoLogic logic);
             break;
         case "AddUser":
             Console.WriteLine("Signup in progress...");
-            menu = new AddUserMenu();
+            menu = new AddUserMenu(repo);
             break;
         case "MainMenu":
             menu = new MainMenu();
