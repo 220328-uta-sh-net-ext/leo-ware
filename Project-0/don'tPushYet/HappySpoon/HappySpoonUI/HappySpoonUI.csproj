@@ -19,7 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\HappySpoonBL\HappySpoonBL.csproj" />
     <ProjectReference Include="..\HappySpoonDB\HappySpoonDL.csproj" />
+    <ProjectReference Include="..\HappySpoonModels\HappySpoonModels.csproj" />
   </ItemGroup>
 
 </Project>

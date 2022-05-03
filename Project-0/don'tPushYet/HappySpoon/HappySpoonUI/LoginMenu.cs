@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HappySpoonBL;
+using HappySpoonModels;
 
 namespace HappySpoonUI
 {
     internal class LoginMenu : IMenu
     {
-        IMenu menu = new LoginMenu();
+        readonly UserInfoLogic logic;
+        public LoginMenu(UserInfoLogic logic)
+        {
+            this.logic = logic;
+        }
         public void Display()
         {
             Console.WriteLine("Welcome back, user!");

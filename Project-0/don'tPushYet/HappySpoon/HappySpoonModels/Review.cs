@@ -6,18 +6,21 @@ using System.Threading.Tasks;
 
 namespace HappySpoonModels
 {
-    public class Review
+    public class Review : RestaurantProfile
     {
         public int UserID { get; set; }
         public string UserName { get; set; }
-        public int ReviewID { get; set; }
         public int Rating { get; set; }
         public string Comments { get; set; }
+        public RestaurantProfile Name { get; set; }
 
-        public int RestaurantID { get; set; }
-        public RestaurantProfile Restaurant { get; set; }
-      
-        
+        public Review(RestaurantProfile name)
+        {
+            Name = name;
+        }
+
+
+
         /*public Review()
         {
             userID = UserID;

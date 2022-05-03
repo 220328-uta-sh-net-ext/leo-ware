@@ -1,7 +1,10 @@
-﻿using HappySpoonUI;
-
-    //Implementing main menu options with menu interface
-    bool repeat = true;
+﻿using HappySpoonBL;
+using HappySpoonDL;
+using HappySpoonUI;
+IRepo repo = new SqlRepo(connectionString);
+ILogic logic();
+//Implementing main menu options with menu interface
+bool repeat = true;
     IMenu menu = new MainMenu();
 //LoginSignupInterface loginSignupMenu = new LoginSignupMenu();
 
@@ -15,7 +18,7 @@ while (repeat)
     {
         case "SearchRestaurants":
             Console.WriteLine("Restaurant search in progress...");
-            menu = new SearchRestaurantsMenu();
+            menu = new SearchRestaurantsMenu(logic, repo);
             break;
         case "Login":
             Console.WriteLine("Login in progress...");
@@ -27,9 +30,6 @@ while (repeat)
             break;
         case "MainMenu":
             menu = new MainMenu();
-            break;
-        case "AdminMenu":
-            menu = new AdminMenu();
             break;
         case "Exit":
             repeat = false;

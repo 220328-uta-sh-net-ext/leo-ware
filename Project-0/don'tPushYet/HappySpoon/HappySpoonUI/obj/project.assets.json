@@ -837,6 +837,22 @@
           }
         }
       },
+      "HappySpoonBL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "HappySpoonDL": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "6.0.4",
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.4",
+          "Serilog.Sinks.File": "5.0.0"
+        },
+        "compile": {
+          "bin/placeholder/HappySpoonBL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HappySpoonBL.dll": {}
+        }
+      },
       "HappySpoonDL/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -3011,6 +3027,11 @@
         "version.txt"
       ]
     },
+    "HappySpoonBL/1.0.0": {
+      "type": "project",
+      "path": "../HappySpoonBL/HappySpoonBL.csproj",
+      "msbuildProject": "../HappySpoonBL/HappySpoonBL.csproj"
+    },
     "HappySpoonDL/1.0.0": {
       "type": "project",
       "path": "../HappySpoonDB/HappySpoonDL.csproj",
@@ -3024,7 +3045,9 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "HappySpoonBL >= 1.0.0",
       "HappySpoonDL >= 1.0.0",
+      "HappySpoonModels >= 1.0.0",
       "Microsoft.Data.SqlClient >= 4.1.0",
       "Microsoft.EntityFrameworkCore >= 6.0.4",
       "Microsoft.EntityFrameworkCore.Relational >= 6.0.4",
@@ -3064,8 +3087,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "C:\\Revature\\leo-ware\\Project-0\\don'tPushYet\\HappySpoon\\HappySpoonBL\\HappySpoonBL.csproj": {
+              "projectPath": "C:\\Revature\\leo-ware\\Project-0\\don'tPushYet\\HappySpoon\\HappySpoonBL\\HappySpoonBL.csproj"
+            },
             "C:\\Revature\\leo-ware\\Project-0\\don'tPushYet\\HappySpoon\\HappySpoonDB\\HappySpoonDL.csproj": {
               "projectPath": "C:\\Revature\\leo-ware\\Project-0\\don'tPushYet\\HappySpoon\\HappySpoonDB\\HappySpoonDL.csproj"
+            },
+            "C:\\Revature\\leo-ware\\Project-0\\don'tPushYet\\HappySpoon\\HappySpoonModels\\HappySpoonModels.csproj": {
+              "projectPath": "C:\\Revature\\leo-ware\\Project-0\\don'tPushYet\\HappySpoon\\HappySpoonModels\\HappySpoonModels.csproj"
             }
           }
         }

@@ -5,7 +5,7 @@ namespace HappySpoonModels
     public class RestaurantProfile
     {
         public int RestaurantID { get; set; }
-        public string RestaurantName { get; set; }
+        public string Name { get; set; }
         public string Description { get; set; }
         public string Location { get; set; }
         public string ContactInfo { get; set; }
@@ -14,10 +14,7 @@ namespace HappySpoonModels
 
         public RestaurantProfile()
         {
-            GetReviews = new List<Review>()
-            {
-                new Review()
-            };
+            
         }
 
         /*public RestaurantProfile(RestaurantID)
@@ -42,7 +39,7 @@ namespace HappySpoonModels
 
         public override string ToString()
         {
-            return $"{RestaurantName}\n{Description}\n{Location}\n{ContactInfo}\n{AverageRating}";
+            return $"{Name}\n{Description}\n{Location}\n{ContactInfo}\n{AverageRating}\n\n{GetReviews}";
         }
         
 

@@ -5,9 +5,9 @@ using HappySpoonModels;
 
 namespace HappySpoonBL
 {
-    public class UserInfoLogic : IUser
+    public class UserInfoLogic : ILogic
     {
-        private List<UserProfile> GetUsers { get; set; }
+        public List<UserProfile> GetUsers { get; set; }
 
         public void UserProfile(UserProfile User)
         {
@@ -55,6 +55,19 @@ namespace HappySpoonBL
             {
                 UserProfile(targetUser);
             }
+        }
+
+        public List<UserProfile> GetUser(string userName)
+        {
+            List<UserProfile> users = GetUsers.GetAllUsersConnected();
+            var filteredUsers = users.Where(u => u.UserName.Contains(userName)).ToList();
+        }
+
+        public List<UserProfile> GetPassword(string passWord)
+        {
+            List<UserProfile> passwords = GetUsers.GetAllUsersConnected();
+            var filteredPasswords = passwords.Where(r => r.UserPassword.ToLower().Equals(passWord)).ToList();
+            return filteredPasswords;
         }
 
     }

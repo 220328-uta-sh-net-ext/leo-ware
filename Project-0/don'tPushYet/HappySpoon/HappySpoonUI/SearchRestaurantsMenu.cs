@@ -3,19 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HappySpoonBL;
 using HappySpoonDL;
+using HappySpoonModels;
 
 namespace HappySpoonUI
 {
     internal class SearchRestaurantsMenu : IMenu
     {
-        IMenu menu = new SearchRestaurantsMenu();
+        readonly RestaurantLogic logic;
+        readonly IRepo repo;
 
-        public void Display()
+        public SearchRestaurantsMenu(RestaurantLogic logic, IRepo repo)
+        {
+            this.logic = logic;
+            this.repo = repo;
+        }
+            public void Display()
         {
             Console.WriteLine("Please enter input to search restaurants");
-            Console.WriteLine("Press <1> By Name");
-            Console.WriteLine("Press <0> Back to Main Menu");
+            Console.WriteLine("<1> See all restaurants");
+            Console.WriteLine("<2> Search restaurants by name");
+            Console.WriteLine("<0> Back to Main Menu");
         }
 
         public string UserChoices()
@@ -24,26 +33,46 @@ namespace HappySpoonUI
 
             switch (userInput)
             {
-                case "0":
-                    return "MainMenu";
                 case "1":
-                    Console.Write("Please enter input");
-                    name = Console.ReadLine();
-                    if (results.Count > 0)
+                    Console.WriteLine(" ");
+                    Console.WriteLine("********************~ SHOWING ALL RESTAURANTS ~**********************");
+                    List<RestaurantProfile>  restaurants= repo.GetRestaurantsConnected();
+                    foreach (var restaurant in restaurants)
                     {
-                        foreach (var r in results)
+                        Console.WriteLine(" ");
+                        Console.WriteLine(restaurant);
+                    }
+                    return "SearchRestaurants";
+                case "2":
+                    Console.WriteLine("**************************************");
+                    Console.WriteLine("Search by Type for restaurant");
+                    Console.WriteLine("Enter: Name, City, State or Zipcode to search by that option");
+                    string searchType = Console.ReadLine().ToLower().Trim();
+                    if (searchType == "name")
+                    {
+                        Console.WriteLine("Enter Name of Restaurant");
+                        string restaurantName = Console.ReadLine().Trim();
+                        List<RestaurantProfile> restaurant = logic.GetRestaurants(restaurantName);
+                        if (restaurant.Count > 0)
                         {
-                            Console.WriteLine("============");
-                            Console.WriteLine(r.ToString());
+                            foreach (var result in restaurant)
+                            {
+                                Console.WriteLine("**************************************");
+                                Console.WriteLine(result);
+                                return "Search Restaurants";
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine($"No Restaurants with the name {restaurantName}");
+                            goto case "2";
                         }
                     }
-                    else
-                    {
-                        Console.WriteLine($"Restaurant with {name} not found.");
-                    }
+                case "0":
+                    return "MainMenu";
+                default:
                     Console.WriteLine("Please enter a valid input");
                     Console.WriteLine("Press <enter> to continue");
-                    Console.ReadLine();
                     return "SearchRestaurants";
             }
         }

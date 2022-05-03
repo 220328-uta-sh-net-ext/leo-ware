@@ -3,14 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using HappySpoonBL;
 using HappySpoonDL;
+using HappySpoonModels;
 
 namespace HappySpoonUI
 {
     internal class AdminMenu : IMenu
     {
-        IMenu menu = new AdminMenu();
+        readonly UserInfoLogic logic;
+        readonly IRepo repo;
+
+        public AdminMenu(IRepo repo, UserInfoLogic logic)
+        {
+            this.repo = repo;
+            this.logic = logic;
+        }
         public void Display()
         {
             Console.WriteLine("You have unlocked the Admin Menu.\nWhat would you like to do?");

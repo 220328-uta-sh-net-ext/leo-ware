@@ -3,20 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HappySpoonBL;
 using HappySpoonDL;
 using HappySpoonModels;
 namespace HappySpoonUI
 {
     internal class AddReviewMenu : IMenu
     {
-        IMenu menu = new AddReviewMenu();
+        private readonly Review newUser = new Review();
+        readonly ReviewLogic logic;
+        readonly IRepo repo;
+        public AddReviewMenu(IRepo repo, ReviewLogic logic)
+        {
+            this.repo = repo;
+            this.logic = logic;
+        }
         public void Display()
         {
             Console.WriteLine("Thank you for contributing your valuable feedbak to our platform!");
 
             Console.WriteLine("Press <1> Add Review");
             Console.WriteLine("Press <2> Add Rating");
-            Console.WriteLine("Press <3> Save");
+            Console.WriteLine("Press <3> ");
             Console.WriteLine("Press <4> Back to Main Menu");
             Console.WriteLine("Press <0> Exit Program");
         }
@@ -32,7 +40,7 @@ namespace HappySpoonUI
                     return "AddReview";
                 case "2":
                     Rating = Console.ReadLine();
-                    return "AddRating";
+                    return "AddReview";
                 case "3":
                     try
                     {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HappySpoonBL;
 using HappySpoonDL;
 using HappySpoonModels;
 
@@ -12,23 +13,21 @@ namespace HappySpoonUI
     public class AddUserMenu : IMenu
     {
         //static non-access modifier is needed to keep this variable consistent to all objects we create out of our AddUserMenu
-       
-        readonly UserRepo repo = new UserRepo();
-        UserProfile User = new UserProfile();
 
-
-        IMenu menu = new AddUserMenu();
-
+        private readonly UserProfile newUser = new UserProfile();
+        readonly IRepo repo;
+        readonly UserInfoLogic logic;
+        
+        public AddUserMenu(IRepo repo, UserInfoLogic logic)
+        {
+            this.repo = repo;
+            this.logic = logic;
+        }
 
         public void Display()
         {
-            Console.WriteLine("Enter user information");
-            //feel free to add more options here....
-            Console.WriteLine("<1> Username - ");// + User.UserName
-            Console.WriteLine("<2> Email - ");// + User.UserEmail
-            Console.WriteLine("<3> Password - ");//+ User.UserPassword
-            Console.WriteLine("<4> Save");//+ User.UserID
-            Console.WriteLine("<0> Back to MainMenu");
+            Console.WriteLine("<1> Enter user information");
+            Console.WriteLine("<0> Back to Main Menu");
         }
 
         public string UserChoices()
@@ -39,42 +38,83 @@ namespace HappySpoonUI
           
             switch (userInput)
             {
-                case "0":
-                    return "MainMenu";
-                case "4":
-                    User.UserID = Convert.ToString(i);
-                    try
-                    {
-                        Log.Information("Adding new user information" + User.AddUser);//.UserID + UserProfile.UserName + UserProfile.UserEmail + UserProfile.UserPassword);
-                        Console.WriteLine("Welcome to the HappySpoon community!");
-                        Log.Information("User added successfully");
-                        
-                        
-                        return "AddUser";
-                    }
-                    catch (Exception ex)
-                    {
-                        Log.Warning("Failed to add user information");
-                        Console.WriteLine(ex.Message);
-
-                    }
-                    return "AddUser";
-                case "3":
-                    Console.Write("Please enter 5 numbers.This will be your password going forward");
-                    User.UserPassword = Console.ReadLine();
-                    return "AddUser";
-                case "2":
-                    Console.Write("Please enter an email");
-                   User.UserEmail = Console.ReadLine();
-                    return "AddUser";
                 case "1":
-                    Console.Write("Please enter a username");
-                    User.UserName = Console.ReadLine();
-                    return "AddUser";
-                /// Add more cases for any other attributes of pokemon
+                    while (true)
+                    {
+                        Console.WriteLine("Enter a username: ");
+                        newUser.UserName = Console.ReadLine();
+                        if (newUser.UserName != "")
+                        {
+                            List<UserProfile> User = logic.GetUsersConnected(newUser.UserName);
+                            foreach (var user in User)
+                            {
+                                if (user.UserName == newUser.UserName)
+                                {
+                                    Console.WriteLine("Sorry. That username is taken...");
+                                    goto case "1";
+                                }
+                                else break;
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Username can not be Empty");
+                            goto case "1";
+                        }
+                        CreatePassword:
+                        Console.WriteLine("Enter a password: ");
+                        newUser.UserPassword = Console.ReadLine();
+                        if (newUser.UserPassword.Length > 3 && newUser.UserPassword.Length < 10)
+                        {
+                            List<UserProfile> UserProfile = logic.GetUser(newUser.UserPassword);
+                            foreach (var user in UserProfile)
+                            {
+                                if (user.UserPassword == newUser.UserPassword)
+                                {
+                                    Console.WriteLine("Sorry. That password is taken...");
+                                    goto CreatePassword;
+                                }
+                                else break;
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Password length may not be less than 4 or greater than 10");
+                            goto CreatePassword;
+                        }
+                        
+                    EnterEmail:
+                        Console.WriteLine("Enter your email: ");
+                        newUser.UserEmail = Console.ReadLine();
+                        if (newUser.UserEmail.Contains("@."))
+                        {
+                            List<UserProfile> UserProfile = logic.GetUser(newUser.UserPassword);
+                            Console.WriteLine($"Congratulations {newUser.UserName}! Your account has been created :D");
+                            try
+                            {
+                                Log.Information("Creating new user profile: " + newUser.UserName);
+                                repo.AddUser(newUser);
+                                return "LoginMenu";
+                            }
+                            catch (Exception ex)
+                            {
+                                Log.Information("Failed to Create Account");
+                                Console.WriteLine(ex.Message);
+                                goto case "1";
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Please enter a valid email address");
+                            goto EnterEmail;
+
+                        }
+                    }
+                case "0":
+                    Console.Write("*************Loading Main Menu*************");
+                    return "MainMenu";
                 default:
-                    Console.WriteLine("Please input a valid response");
-                    Console.WriteLine("Please press <Enter> to continue");
+                    Console.WriteLine("Please input a valid response\nPress <Enter> to continue");
                     return "AddUser";
             }
         }
