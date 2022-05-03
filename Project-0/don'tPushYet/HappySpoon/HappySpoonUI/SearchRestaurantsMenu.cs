@@ -9,7 +9,7 @@ namespace HappySpoonUI
 {
     internal class SearchRestaurantsMenu : IMenu
     {
-        IRestaurant repo = new RestaurantRepo();
+        IMenu menu = new SearchRestaurantsMenu();
 
         public void Display()
         {
@@ -28,8 +28,7 @@ namespace HappySpoonUI
                     return "MainMenu";
                 case "1":
                     Console.Write("Please enter input");
-                    string name = Console.ReadLine();
-                    var results = repo.SearchRestaurants(Restaurants);
+                    name = Console.ReadLine();
                     if (results.Count > 0)
                     {
                         foreach (var r in results)

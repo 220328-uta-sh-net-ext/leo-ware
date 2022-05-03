@@ -7,75 +7,56 @@ namespace HappySpoonBL
 {
     public class UserInfoLogic : IUser
     {
-        private readonly IUser repo = new List<UserProfile>();
+        private List<UserProfile> GetUsers { get; set; }
 
-        public UserProfile AddUser(UserProfile user)
+        public void UserProfile(UserProfile User)
         {
-            return repo.AddUser(user);
+            Console.WriteLine($"User ID: {User.UserID}\nUsername: {User.UserName}");
         }
 
-        public List<UserProfile> GetUsers(char UserName, char UserPassword)
+        public void UserProfile(List<UserProfile> Users)
         {
-            return repo.GetUsers(UserName, UserPassword);
-        }
-
-        public UserProfile GetUsers()
-        {
-            return repo.GetUsers();
-        }
-
-        public string SearchUsers(string name, string password)
-        {
-            UserProfile user = repo.GetUsers();
-            string results = "";
-            char filteredUser = Convert.ToChar(name);
-            while (filteredUser == user.UserName)
+            foreach (var user in GetUsers)
             {
-                //foreach (var target in filteredUser)
-                //{
-                    if (user.UserPassword == Convert.ToChar(password) && user.UserName == Convert.ToChar("El Jefe"))
-                    {
-                        results = "Admin";
-                        break;
-                    }
-                    if (user.UserPassword == Convert.ToChar(password) && user.UserName != Convert.ToChar("El Jefe"))
-                    {
-                        results = "UserProfile";
-                        break;
-                    }
-                    else
-                    {
-                        results = "Sorry, user was not found";
-                    }
-                //}
-                return results;
+                UserProfile(user);
             }
-            
         }
 
-        public void SearchUsers(UserProfile user)
+        public void AddUser(UserProfile User)
         {
-            var targetUser = repo.GetUsers();
-            if (targetUser == user)
+            GetUsers.Add(User);
+        }
+
+        public void SearchAllUsers(string ID, string UserName)
+        {
+            var User = GetUsers.FirstOrDefault(u => u.UserName == UserName);
+            if (User == null)
             {
-                Console.WriteLine($"User ID: {user.UserID}\nUsername: {user.UserName}");
+                Console.WriteLine($"Sorry, {User} was not found.\nPlease check your input and try again.");
             }
             else
             {
-                Console.WriteLine("Sorry, that user doesn't exist in our database");
+                UserProfile(User);
             }
-
         }
 
-        public void SearchUsers()
+        public void SearchAllUsers()
         {
-            repo.SearchUsers();
+            foreach (var user in GetUsers)
+            {
+                UserProfile(user);
+            }
         }
 
-        public bool SearchUsers(char UserName)
+        public void SearchUsers(string phrase)
         {
-            return repo.SearchUsers(UserName);
+            var targetUser = GetUsers.Where(u => u.UserName.Contains(phrase)).ToList();
+            foreach (var user in targetUser)
+            {
+                UserProfile(targetUser);
+            }
         }
+
     }
 
 }

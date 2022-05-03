@@ -8,11 +8,13 @@ namespace HappySpoonUI
 {
     internal class LoginMenu : IMenu
     {
-
+        IMenu menu = new LoginMenu();
         public void Display()
         {
             Console.WriteLine("Welcome back, user!");
             Console.WriteLine("Please log in to continue");
+            Console.WriteLine("Press <1> Enter your user information");
+            Console.WriteLine("Press <2> Back to Main Menu");
             Console.WriteLine("Press <0> Exit Program");
         }
 
@@ -22,6 +24,14 @@ namespace HappySpoonUI
 
             switch (userInput)
             {
+                case "1":
+                    //Console.Write(Enter username: );
+
+                    Console.ReadLine();
+                    return "LoginMenu";
+                case "2":
+                    
+                    return "MainMenu";
                 case "0":
                     return "ExitProgram";
                 default:

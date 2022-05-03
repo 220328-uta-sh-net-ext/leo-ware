@@ -11,10 +11,12 @@ namespace HappySpoonUI
       //Main Menu display and Main Menu choice interaction
     class MainMenu : IMenu
     {
+        
         public void Display()
         {
             Console.WriteLine("Welcome to Happy Spoon! ");
             Console.WriteLine("Ready to find your new favorite restaurant?");
+            Console.WriteLine("Please choose from the following options");
             Console.WriteLine("Press <1> Search Restaurants");
             Console.WriteLine("Press <2> Login");
             Console.WriteLine("Press <3> Signup");
@@ -44,9 +46,9 @@ namespace HappySpoonUI
                 default:
                     Console.WriteLine("Please enter a valid option.");
                     Console.WriteLine("Press <Enter> to continue");
-                    Console.ReadLine();
                     return "MainMenu";
             }
+
         }
             // ~***********************************End of Main Menu Program***************************************
 

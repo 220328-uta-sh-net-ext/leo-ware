@@ -15,23 +15,23 @@ namespace HappySpoonUI
        
         readonly UserRepo repo = new UserRepo();
         UserProfile User = new UserProfile();
-        
-        
+
+
         IMenu menu = new AddUserMenu();
 
 
-        void IMenu.Display()
+        public void Display()
         {
             Console.WriteLine("Enter user information");
             //feel free to add more options here....
-            Console.WriteLine("<1> Username - " + User.UserName);
-            Console.WriteLine("<2> Email - " + User.UserEmail);
-            Console.WriteLine("<3> Password - " + User.UserPassword);
-            Console.WriteLine("<4> Save" + User.UserID);
+            Console.WriteLine("<1> Username - ");// + User.UserName
+            Console.WriteLine("<2> Email - ");// + User.UserEmail
+            Console.WriteLine("<3> Password - ");//+ User.UserPassword
+            Console.WriteLine("<4> Save");//+ User.UserID
             Console.WriteLine("<0> Back to MainMenu");
         }
 
-        string IMenu.UserChoices()
+        public string UserChoices()
         {
             int i = 0;
             i++;
@@ -48,7 +48,9 @@ namespace HappySpoonUI
                         Log.Information("Adding new user information" + User.AddUser);//.UserID + UserProfile.UserName + UserProfile.UserEmail + UserProfile.UserPassword);
                         Console.WriteLine("Welcome to the HappySpoon community!");
                         Log.Information("User added successfully");
-                        return repo.AddUser(User);
+                        
+                        
+                        return "AddUser";
                     }
                     catch (Exception ex)
                     {

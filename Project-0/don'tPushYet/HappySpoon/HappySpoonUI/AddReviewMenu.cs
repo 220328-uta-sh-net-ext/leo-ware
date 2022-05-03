@@ -9,8 +9,8 @@ namespace HappySpoonUI
 {
     internal class AddReviewMenu : IMenu
     {
-        
-        void IMenu.Display()
+        IMenu menu = new AddReviewMenu();
+        public void Display()
         {
             Console.WriteLine("Thank you for contributing your valuable feedbak to our platform!");
 
@@ -37,7 +37,7 @@ namespace HappySpoonUI
                     try
                     {
                         Log.Information("Adding your user" + Comments + Rating);
-                        return repo.AddReview();
+                        return AddReview();
                         Log.Information("User feedback added successfully");
                     }
                     catch (Exception ex)
