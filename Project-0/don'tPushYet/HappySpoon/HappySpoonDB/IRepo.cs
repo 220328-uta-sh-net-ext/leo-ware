@@ -7,28 +7,29 @@ using HappySpoonModels;
 
 namespace HappySpoonDL
 {
-    public interface IRepo
+    public interface IRestaurant
     {
-        List<UserProfile> GetUsers(); 
-
-        List<UserProfile> GetUsersConnected();
-
-        void AddUser(UserProfile User);
-
-
-
         //**************************************~ RESTAURANT INTERFACE ~****************************************
 
         List<RestaurantProfile> GetRestaurants();
-        void AddRestaurant(RestaurantProfile restaurant);
-        List<RestaurantProfile> GetRestaurantsConnected();
+        RestaurantProfile AddRestaurant(RestaurantProfile newRestaurant);
+        List<RestaurantProfile> GetAllRestaurants();
         
 
 
-        //***************************************~ REVIEW INTERFACE ~********************************************
+        //***************************************~ REVIEW ~********************************************
 
-        List<Review> GetReviews();
-        Review AddReview(Review review);
+        //List<Review> GetReviews();
+        void AddReview(string RestaurantID, int newReview);
+    }
+
+    public interface IUser
+    {
+        List<UserProfile> GetUsers();
+
+        List<UserProfile> GetAllUsers();
+
+        UserProfile AddUser(UserProfile newUser);
     }
 
 }

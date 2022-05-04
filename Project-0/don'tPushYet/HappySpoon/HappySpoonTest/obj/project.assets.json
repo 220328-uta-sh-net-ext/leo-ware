@@ -6512,8 +6512,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Leo\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Leo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -6524,12 +6523,8 @@
       "packagesPath": "C:\\Users\\Leo\\.nuget\\packages\\",
       "outputPath": "C:\\Revature\\leo-ware\\Project-0\\don'tPushYet\\HappySpoon\\HappySpoonTest\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
         "C:\\Users\\Leo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

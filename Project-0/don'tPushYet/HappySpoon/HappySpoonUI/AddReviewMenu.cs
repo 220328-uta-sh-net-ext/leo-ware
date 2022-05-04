@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HappySpoonBL;
-using HappySpoonDL;
 using HappySpoonModels;
 namespace HappySpoonUI
 {
     internal class AddReviewMenu : IMenu
     {
-        private static RestaurantProfile Name = Name;
+        /*private static RestaurantProfile Name = Name;
         public static UserProfile UserName = UserName;
         private readonly Review newReview = new Review(Name, UserName);
         readonly ReviewLogic logic;
@@ -19,7 +17,7 @@ namespace HappySpoonUI
         {
             this.repo = repo;
             this.logic = logic;
-        }
+        }*/
         public void Display()
         {
             Console.WriteLine("Thank you for contributing your valuable feedbak to our platform!");
@@ -38,7 +36,7 @@ namespace HappySpoonUI
             {
                 case "1":
                     Console.WriteLine("Enter your username: ");
-                    newReview.UserName = Console.ReadLine();
+                    /*newReview.UserName = Console.ReadLine();
                     Console.WriteLine("Enter the Restaurant:");
                     newReview.Name = Console.ReadLine();
                     Console.WriteLine("Enter a Rating (1-5):");
@@ -46,13 +44,13 @@ namespace HappySpoonUI
                     Console.WriteLine("Enter a Review (200 character limit):");
                     newReview.Comments = Console.ReadLine();
                     Console.WriteLine("Adding Review and Rating");
-                    repo.AddReview(newReview);
+                    repo.AddReview(newReview);*/
                     return "AddReviewMenu";
                 case "2":
-                    Console.WriteLine("Enter the Restaurant Name:");
-                    Name = Console.ReadLine();
+                    Console.WriteLine("Enter the restaurant's name:");
+                    /*Name = Console.ReadLine();
                     Console.WriteLine("***********~ REVIEWS ~***********");
-                    List<Review> Name = logic.GetRestaurants(Name);
+                    List<Review> Name = logic.GetRestaurants(Name);*/
                     return "AddReviewMenu";
                 case "3":
                     return "MainMenu";

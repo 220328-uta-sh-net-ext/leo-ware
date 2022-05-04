@@ -23,24 +23,6 @@ namespace HappySpoonModels
             Comments = "";
         }
 
-
-
-        /*public Review()
-        {
-            userID = UserID;
-            userName = UserName;
-            averageRating = AverageRating;
-        }*/
-
-        /*public Review(string Comments)
-        {
-            userID = UserID;
-            userName = UserName;
-            averageRating = AverageRating;
-            comments = Comments;
-
-        }*/
-
         public override string ToString()
         {
             return $"{UserID}\n{UserName}\n{Rating}\n{Comments}";

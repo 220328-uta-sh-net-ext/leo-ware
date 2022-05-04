@@ -8,9 +8,9 @@ using HappySpoonModels;
 
 namespace HappySpoonDL
 {
-    internal class SqlRepository : IRepo
+    /*public class SqlRepository : IRepo
     {
-        readonly string connectionString;
+        public string connectionString;
 
         public SqlRepository(string connectionString)
         {
@@ -181,6 +181,6 @@ namespace HappySpoonDL
 
             return user;
         }
-    }
+    }*/
 
 }

@@ -7,19 +7,26 @@ using HappySpoonModels;
 
 namespace HappySpoonBL
 {
-    public interface ILogic
+    
+    public interface IRestaurantLogic
     {
+        void GetReview(string Comments, int Stars);
+    List<RestaurantProfile> GetAllRestaurants();
+    }
+
+    public interface IUserLogic
+    {
+        UserProfile GetUsers(string username);
         List<UserProfile> SearchAllUsers();
+
+    }
+        
+   
         List<UserProfile> SearchUsers();
-        List<UserProfile> GetUsers(string username);
+        
         List<UserProfile> GetPassword(string password);
 
         List<RestaurantProfile> SearchAllRestaurants();
         List<RestaurantProfile> SearchRestaurants();
-        List<RestaurantProfile> AverageRating(int ratings);
-
-
-        List<Review> GetReviews(string comments);
-        List<Review> GetRatings(int stars);
+       
     }
-}

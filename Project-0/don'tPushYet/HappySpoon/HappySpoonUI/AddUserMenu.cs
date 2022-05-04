@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HappySpoonBL;
-using HappySpoonDL;
+using HappySpoonUI;
 using HappySpoonModels;
 
 
@@ -14,7 +13,7 @@ namespace HappySpoonUI
     {
         //static non-access modifier is needed to keep this variable consistent to all objects we create out of our AddUserMenu
 
-        private readonly UserProfile newUser = new UserProfile();
+        /*private readonly UserProfile newUser = new UserProfile();
         readonly IRepo repo;
         readonly UserInfoLogic logic;
         
@@ -22,7 +21,7 @@ namespace HappySpoonUI
         {
             this.repo = repo;
             this.logic = logic;
-        }
+        }*/
 
         public void Display()
         {
@@ -39,7 +38,8 @@ namespace HappySpoonUI
             switch (userInput)
             {
                 case "1":
-                    while (true)
+                    Console.WriteLine("Creating new user profile...");
+                    /*while (true)
                     {
                         Console.WriteLine("Enter a username: ");
                         newUser.UserName = Console.ReadLine();
@@ -109,13 +109,14 @@ namespace HappySpoonUI
                             goto EnterEmail;
 
                         }
-                    }
+                    }*/
+                    return "AddUserMenu";
                 case "0":
-                    Console.Write("*************Loading Main Menu*************");
+                    Console.Write("*************~ Loading Main Menu ~*************");
                     return "MainMenu";
                 default:
                     Console.WriteLine("Please input a valid response\nPress <Enter> to continue");
-                    return "AddUser";
+                    return "AddUserMenu";
             }
         }
     }

@@ -3,22 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HappySpoonBL;
-using HappySpoonDL;
+using HappySpoonUI;
 using HappySpoonModels;
 
 namespace HappySpoonUI
 {
     internal class AdminMenu : IMenu
     {
-        readonly UserInfoLogic logic;
+        /*readonly UserInfoLogic logic;
         readonly IRepo repo;
 
         public AdminMenu(IRepo? repo, UserInfoLogic? logic)
         {
             this.repo = repo;
             this.logic = logic;
-        }
+        }*/
         public void Display()
         {
             Console.WriteLine("You have unlocked the Admin Menu.\nWhat would you like to do?");
@@ -37,18 +36,16 @@ namespace HappySpoonUI
             switch (userInput)
             {
                 case "1":
-                    Console.WriteLine();
-                    Console.ReadLine();
+                    Console.WriteLine("Searching users...");
                     return "SearchUser";
                 case "2":
-                    Console.WriteLine();
-                    Console.ReadLine();
+                    Console.WriteLine("Searching restaurants.....");
                     return "SearchRestaurants";
                 case "3":
-                    Console.WriteLine();
-                    Console.ReadLine();
+                    Console.WriteLine("Adding new restaurant....");
                     return "AddRestaurant";
                 case "0":
+                    Console.WriteLine("Returning to Main Menu...");
                     return "MainMenu";
                 case "":
                     return "ExitProgram";

@@ -3,3 +3,15 @@ C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonBL\obj\Debug\ne
 C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonBL\obj\Debug\net6.0\HappySpoonBL.AssemblyInfoInputs.cache
 C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonBL\obj\Debug\net6.0\HappySpoonBL.AssemblyInfo.cs
 C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonBL\obj\Debug\net6.0\HappySpoonBL.csproj.CoreCompileInputs.cache
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonBL\bin\Debug\net6.0\HappySpoonBL.deps.json
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonBL\bin\Debug\net6.0\HappySpoonBL.dll
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonBL\bin\Debug\net6.0\HappySpoonBL.pdb
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonBL\bin\Debug\net6.0\HappySpoonDL.dll
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonBL\bin\Debug\net6.0\HappySpoonModels.dll
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonBL\bin\Debug\net6.0\HappySpoonDL.pdb
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonBL\bin\Debug\net6.0\HappySpoonModels.pdb
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonBL\obj\Debug\net6.0\HappySpoonBL.csproj.CopyComplete
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonBL\obj\Debug\net6.0\HappySpoonBL.dll
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonBL\obj\Debug\net6.0\refint\HappySpoonBL.dll
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonBL\obj\Debug\net6.0\HappySpoonBL.pdb
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonBL\obj\Debug\net6.0\ref\HappySpoonBL.dll

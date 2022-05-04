@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HappySpoonBL;
 using HappySpoonDL;
+using HappySpoonUI;
 
 namespace HappySpoonUI
 {
@@ -33,7 +35,7 @@ namespace HappySpoonUI
             switch (userInput)
             {
                 case "1":
-                    return "SearchRestaurants";
+                    return "SearchRestaurantsMenu";
                 case "2":
                     return "LoginMenu";
                 case "3":
@@ -47,7 +49,7 @@ namespace HappySpoonUI
             }
 
         }
-            // ~***********************************End of Main Menu Program***************************************
+            // ************************************End of Main Menu Program***************************************
 
 
     }

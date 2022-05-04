@@ -4,14 +4,12 @@ using HappySpoonDL;
 using HappySpoonUI;
 
 
-ILogic logic;
-
-
 //Implementing main menu options with menu interface
 bool repeat = true;
-    IMenu menu = new MainMenu();
+IMenu menu = new MainMenu();
+//string connect server string stuff from text file goes her. PLEASE PUT THIS STRING IN THE GITIGNORE FILE FIRST!!!
 //LoginSignupInterface loginSignupMenu = new LoginSignupMenu();
-
+//adding
 
 while (repeat)
 {
@@ -20,22 +18,22 @@ while (repeat)
     
     switch (answer)
     {
-        case "SearchRestaurants":
+        case "SearchRestaurantsMenu":
             Console.WriteLine("Restaurant search in progress...");
-            menu = new SearchRestaurantsMenu(repo, logic);
+            menu = new SearchRestaurantsMenu();
             break;
-        case "Login":
+        case "LoginMenu":
             Console.WriteLine("Login in progress...");
-            menu = new LoginMenu(UserInfoLogic logic);
+            menu = new LoginMenu();
             break;
-        case "AddUser":
+        case "AddUserMenu":
             Console.WriteLine("Signup in progress...");
-            menu = new AddUserMenu(repo);
+            menu = new AddUserMenu();
             break;
         case "MainMenu":
             menu = new MainMenu();
             break;
-        case "Exit":
+        case "ExitProgram":
             repeat = false;
             break;
         default:

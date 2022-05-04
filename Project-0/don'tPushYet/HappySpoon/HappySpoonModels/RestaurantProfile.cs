@@ -1,6 +1,4 @@
-﻿
-
-namespace HappySpoonModels
+﻿namespace HappySpoonModels
 {
     public class RestaurantProfile
     {
@@ -9,13 +7,26 @@ namespace HappySpoonModels
         public string Description { get; set; }
         public string Location { get; set; }
         public string ContactInfo { get; set; }
-        public double AverageRating { get; set; }
-        public List<Review> GetReviews { get; set; }
+        public double Stars { get; set; }
+        public string Reviews { get; set; }
+        public int NumOfReviews { get; set; }
+
+        //Rating / (Reviews * 5) -- Calculating average rating
 
         public RestaurantProfile()
         {
+            RestaurantID = 0;
+            Name = "";
+            Description = "";
+            Location = "";
+            ContactInfo = "";
+            Stars = 0;
+            Reviews = "";
+            NumOfReviews = 0;
             
         }
+
+
 
         /*public RestaurantProfile(RestaurantID)
         {
@@ -39,7 +50,7 @@ namespace HappySpoonModels
 
         public override string ToString()
         {
-            return $"{Name}\n{Description}\n{Location}\n{ContactInfo}\n{AverageRating}\n\n{GetReviews}";
+            return $"{Name}\n{Description}\n{Location}\n{ContactInfo}\n{Stars}\n\n{Reviews}";
         }
         
 

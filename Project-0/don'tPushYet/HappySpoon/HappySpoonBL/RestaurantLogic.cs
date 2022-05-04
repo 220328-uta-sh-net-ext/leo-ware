@@ -4,24 +4,23 @@ using HappySpoonModels;
 
 namespace HappySpoonBL
 {
-    public class RestaurantLogic
+    public class RestaurantLogic : IRestaurantLogic
     {
-        readonly IRepo repo;
-        private ILogic Rlogic;
+        readonly IRestaurant repo;
+        public RestauarantRepo
 
-        public RestaurantLogic(ILogic logic)
+        public List<RestaurantProfile> GetAllRestaurants()
         {
-            Rlogic = logic;
+            List<RestaurantProfile> restaurants = repo.GetAllRestaurants();
         }
-        public List<RestaurantProfile> GetRestaurants { get; set; }
-
-        public List<Review> GetReviews { get; set; }
-
-        public List<Review> GetRatings { get; set; }
+        public void GetReview(string Comments, int Stars)
+        {
+            throw new NotImplementedException();
+        }
 
         public void RestaurantProfile(RestaurantProfile Restaurant)
         {
-                Console.WriteLine($"Restaurant Name: {Restaurant.Name}\nDescription: {Restaurant.Description}\nLocation: {Restaurant.Location}\n ContactInfo: {Restaurant.ContactInfo}\nAverage Rating: {Restaurant.AverageRating}\nReviews: {Restaurant.GetReviews}");
+                Console.WriteLine($"Restaurant Name: {Restaurant.Name}\nDescription: {Restaurant.Description}\nLocation: {Restaurant.Location}\n ContactInfo: {Restaurant.ContactInfo}\nRating: {Restaurant.Stars}\nReviews: {Restaurant.Reviews}");
         }
 
         public void RestaurantProfile(List<RestaurantProfile> Restaurants)
@@ -67,18 +66,9 @@ namespace HappySpoonBL
             }
         }
 
-    }
 
-    public class ReviewLogic
-    {
-        readonly IRepo repo;
-        readonly ILogic logic;
-        public ReviewLogic(ILogic logic)
-        {
-            this.logic = logic;
-        }
-
-        public int AddRating(int stars)
+        // ***************************************** TRYING TO CALCULATE RATING ************************************************
+        public int AddReview(int stars)
         {
             while (true)
             {
@@ -100,6 +90,28 @@ namespace HappySpoonBL
             }
         }
 
+        public void AddReview(string Comments, int Stars) //maybe add RestaurantProfile Restaurant // GetStars??? instead of AddReview here?
+        {
+            
+            // database : name (id = StoreId)  <-find the restaurant
+            // set (newReview : Stars + newReview) (NumOfReviews = NumOfReviews + 1) insted of number of reviews I think I have to use number of stars.
+            //numofreviews / Stars = 
+            //float i = Stars / (numofreviews * 5) i = 0.6
+            //if(i <= 0.2) = 1; if(0.4) = 2; if(0.6) = 3; if(0.8) = 4; else 5
+            //if (i < 0.2)
+            //{
+                //repo.AddReview(Comments, Stars);
+                //throw new NotImplementedException();
+            //}
+            
+        }
+
+        
+    }
+
+    
+    
+        
 
         /*public void AddReview(Review Comments, List<RestaurantProfile> Name)
         {
@@ -114,19 +126,19 @@ namespace HappySpoonBL
 
         }*/
 
-        public List<Review> GetRestaurants(RestaurantProfile Name)
+        /*public List<Review> GetRestaurants(RestaurantProfile Name)
         {
             List<Review> restaurant = repo.GetReviews();
             var filteredRestaurants = restaurant.Where(r => r.Name.Contains(Name)).ToList();
             return filteredRestaurants;
-        }
+        }*/
 
-        public List<Review> GetReviews(string review, int stars)
+        /*public List<Review> GetReviews(string review, int stars)
         {
             List<Review> reviews = repo.GetReviews();
-            var filterReviews = reviews.Where(r => r.Comments.ToLower().Equals(review) || r.Rating.Equals(stars)).ToList();
-            return filterReviews;
-        }
+            var filterReviews = review.Where(r => r.Comments.ToLower().Equals(review) || r.Rating.Equals(stars)).ToList();
+            return filteredReviews;
+        }*/
 
     }
 

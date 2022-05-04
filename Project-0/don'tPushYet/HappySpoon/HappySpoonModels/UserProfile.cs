@@ -1,5 +1,4 @@
-﻿
-namespace HappySpoonModels
+﻿namespace HappySpoonModels
 {
     public class UserProfile
 	{
