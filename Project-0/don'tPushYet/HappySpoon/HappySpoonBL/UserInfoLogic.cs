@@ -17,7 +17,7 @@ namespace HappySpoonBL
             return User.UserName
         }
 
-        List<UserProfile> IUserLogic.SearchAllUsers()
+        List<UserProfile> IUserLogic.GetAllUsers()
         {
             throw new NotImplementedException();
         }

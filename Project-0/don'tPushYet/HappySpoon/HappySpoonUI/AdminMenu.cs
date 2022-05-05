@@ -40,7 +40,7 @@ namespace HappySpoonUI
                     return "SearchUser";
                 case "2":
                     Console.WriteLine("Searching restaurants.....");
-                    return "SearchRestaurants";
+                    return "SearchRestaurantsMenu";
                 case "3":
                     Console.WriteLine("Adding new restaurant....");
                     return "AddRestaurant";

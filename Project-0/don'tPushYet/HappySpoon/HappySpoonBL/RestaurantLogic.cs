@@ -6,12 +6,15 @@ namespace HappySpoonBL
 {
     public class RestaurantLogic : IRestaurantLogic
     {
-        readonly IRestaurant repo;
-        public RestauarantRepo
+        readonly IRestaurant RPrepo;
+        public RestauarantLogic(IRestaurant repo)
+        {
+            RPrepo = repo;
+        }
 
         public List<RestaurantProfile> GetAllRestaurants()
         {
-            List<RestaurantProfile> restaurants = repo.GetAllRestaurants();
+            List<RestaurantProfile> restaurants = RPrepo.GetAllRestaurants();
         }
         public void GetReview(string Comments, int Stars)
         {
@@ -36,7 +39,7 @@ namespace HappySpoonBL
             GetRestaurants.Add(Restaurant);
         }*/
 
-        public void SearchAllRestaurants(string Name)
+        public void GetAllRestaurants(string Name)
         {
             var Restaurant = GetRestaurants.FirstOrDefault(r => r.Name == Name);
             if (Restaurant == null)
@@ -49,7 +52,7 @@ namespace HappySpoonBL
             }
         }
 
-        public void SearchAllRestaurants()
+        public void GetAllRestaurants()
         {
             foreach (var restaurants in GetRestaurants)
             {
@@ -57,7 +60,7 @@ namespace HappySpoonBL
             }
         }
 
-        public void SearchRestaurants(string phrase)
+        public void GetRestaurants(string phrase)
         {
             var target = GetRestaurants.Where(r => r.Name.Contains(phrase)).ToList();
             foreach (var restaurant in target)

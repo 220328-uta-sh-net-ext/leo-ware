@@ -7,7 +7,7 @@ using HappySpoonUI;
 //Implementing main menu options with menu interface
 bool repeat = true;
 IMenu menu = new MainMenu();
-//string connect server string stuff from text file goes her. PLEASE PUT THIS STRING IN THE GITIGNORE FILE FIRST!!!
+//string connect server string stuff from text file goes her. PLEASE PUT THIS STRING IN THE .GITIGNORE FILE FIRST!!!
 //LoginSignupInterface loginSignupMenu = new LoginSignupMenu();
 //adding
 
