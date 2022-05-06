@@ -40,7 +40,7 @@ while (repeat)
             Console.WriteLine("View not found \nPlease press <enter> to continue.");
             break;
     }
-    Console.WriteLine("Please choose from the following options");
+    
     answer = Console.ReadLine();
 }
 

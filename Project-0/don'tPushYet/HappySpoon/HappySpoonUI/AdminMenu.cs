@@ -52,7 +52,7 @@ namespace HappySpoonUI
                 default:
                     Console.WriteLine("Please enter a valid option.");
                     Console.WriteLine("Press <Enter> to continue");
-                    Console.ReadLine();
+                    //Console.ReadLine();
                     return "Admin";
             }
         }
