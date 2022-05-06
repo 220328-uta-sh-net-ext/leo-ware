@@ -2,10 +2,10 @@
 {
     public class UserProfile
 	{
-		public string UserID;
-		public string UserName;
-		public string UserEmail;
-		public string UserPassword;
+		public int UserID { get; set; }
+		public string UserName { get; set; }
+		public string UserEmail { get; set; }
+		public string UserPassword { get; set; }
 
 
 		public UserProfile()
@@ -15,28 +15,11 @@
 			
 			UserEmail = "";
 
-			UserID = "";
+			UserID = 1;
 
 			UserPassword = "";
 			
 		}
-
-		public string AddUser
-        {
-			//return UserID + " " + UserName + " " + UserEmail;
-			get
-            {
-				return UserID + UserName + UserEmail + UserPassword;
-            }
-            set
-            {
-				UserID = value;
-				UserName = value;
-				UserEmail = value;
-				UserPassword = value;
-            }
-        }
-
 
 		public override string ToString() => $"UserID: {UserID}\nUsername: {UserName}\nEmail: {UserEmail} \nPassword: {UserPassword}";
 
@@ -44,9 +27,9 @@
 
 	internal class Admin
     {
-		private int UserID;
-		private string UserName;
-		private int UserPassword;
+		private int UserID { get; set; }
+		private string UserName { get; set; }
+		private int UserPassword { get; set; }
 
 		private Admin()
 		{

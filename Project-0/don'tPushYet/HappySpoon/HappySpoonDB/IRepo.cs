@@ -10,9 +10,7 @@ namespace HappySpoonDL
     public interface IRestaurant
     {
         //**************************************~ RESTAURANT INTERFACE ~****************************************
-
-        List<RestaurantProfile> GetRestaurants();
-        RestaurantProfile AddRestaurant(RestaurantProfile newRestaurant);
+        RestaurantProfile AddRestaurant(RestaurantProfile Restaurant);
         List<RestaurantProfile> GetAllRestaurants();
         
 
@@ -21,15 +19,17 @@ namespace HappySpoonDL
 
         //List<Review> GetReviews();
         void AddReview(string RestaurantID, int newReview);
+
+        void RemoveReview(string RestaurantID);
+
+
     }
 
     public interface IUser
     {
-        List<UserProfile> GetUsers();
-
         List<UserProfile> GetAllUsers();
 
-        UserProfile AddUser(UserProfile newUser);
+        UserProfile AddUser(UserProfile User);
     }
 
 }

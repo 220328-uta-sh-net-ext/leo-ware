@@ -1,148 +1,69 @@
-﻿using HappySpoonDL;
+﻿using HappySpoonBL;
+using HappySpoonDL;
 using HappySpoonModels;
-
+using System.Collections.Generic;
 
 namespace HappySpoonBL
 {
     public class RestaurantLogic : IRestaurantLogic
     {
         readonly IRestaurant RPrepo;
-        public RestauarantLogic(IRestaurant repo)
+
+        public RestaurantLogic()
+        {
+
+        }
+
+        public RestaurantLogic(IRestaurant repo)
         {
             RPrepo = repo;
         }
 
-        public List<RestaurantProfile> GetAllRestaurants()
+
+        public RestaurantProfile AddRestaurant(RestaurantProfile Restaurant)
         {
-            List<RestaurantProfile> restaurants = RPrepo.GetAllRestaurants();
+            return RPrepo.AddRestaurant(Restaurant);
         }
-        public void GetReview(string Comments, int Stars)
+
+
+        public void RestaurantProfile(string Comments, int Stars)
+        {
+            
+        }
+
+        public List<RestaurantProfile> GetRestaurants()
+        {
+            return RPrepo.GetAllRestaurants();
+        }
+
+        public List<RestaurantProfile> SearchRestaurants(string name)
         {
             throw new NotImplementedException();
         }
 
-        public void RestaurantProfile(RestaurantProfile Restaurant)
+        public void AddReview(string Comments, int Stars)
         {
-                Console.WriteLine($"Restaurant Name: {Restaurant.Name}\nDescription: {Restaurant.Description}\nLocation: {Restaurant.Location}\n ContactInfo: {Restaurant.ContactInfo}\nRating: {Restaurant.Stars}\nReviews: {Restaurant.Reviews}");
+            throw new NotImplementedException();
         }
 
-        public void RestaurantProfile(List<RestaurantProfile> Restaurants)
+        public List<RestaurantProfile> GetAllRestaurants()
         {
-            foreach (var restaurant in GetRestaurants)
-            {
-                RestaurantProfile(restaurant);
-            }
+            throw new NotImplementedException();
         }
 
-        /*public void AddRestaurant(RestaurantProfile Restaurant)
-        {
-            GetRestaurants.Add(Restaurant);
-        }*/
-
-        public void GetAllRestaurants(string Name)
-        {
-            var Restaurant = GetRestaurants.FirstOrDefault(r => r.Name == Name);
-            if (Restaurant == null)
-            {
-                Console.WriteLine($"Sorry, {Restaurant} was not found.\nPlease check your input and try again.");
-            }
-            else
-            {
-                RestaurantProfile(Restaurant);
-            }
-        }
-
-        public void GetAllRestaurants()
-        {
-            foreach (var restaurants in GetRestaurants)
-            {
-                RestaurantProfile(restaurants);
-            }
-        }
-
-        public void GetRestaurants(string phrase)
+        /*public void SearchRestaurants(string phrase)
         {
             var target = GetRestaurants.Where(r => r.Name.Contains(phrase)).ToList();
             foreach (var restaurant in target)
             {
-                RestaurantProfile(target);
+                return RPrepo.GetRestaurants(restaurant);
             }
-        }
+        }*/
 
 
         // ***************************************** TRYING TO CALCULATE RATING ************************************************
-        public int AddReview(int stars)
-        {
-            while (true)
-            {
-                Console.WriteLine("Choose a rating from 1 to 5,\n5 is the highest rating and 1 is the lowest rating");
-                string input = Console.ReadLine();
-
-                if (int.TryParse(input, out stars))
-                {
-                    if (stars >= 1 && stars <= 5)
-                    {
-                        Console.WriteLine($"You've rated this restaurant {stars} stars. Thank you for your feedback.");
-                        return stars;
-                    }
-                    else
-                        Console.WriteLine("We appreciate your enthusiasm,\nbut you may only give restaurants a rating from 1 to 5");
-                }
-                else
-                    Console.WriteLine("Your input was invalid. Please try entering a number.");
-            }
-        }
-
-        public void AddReview(string Comments, int Stars) //maybe add RestaurantProfile Restaurant // GetStars??? instead of AddReview here?
-        {
-            
-            // database : name (id = StoreId)  <-find the restaurant
-            // set (newReview : Stars + newReview) (NumOfReviews = NumOfReviews + 1) insted of number of reviews I think I have to use number of stars.
-            //numofreviews / Stars = 
-            //float i = Stars / (numofreviews * 5) i = 0.6
-            //if(i <= 0.2) = 1; if(0.4) = 2; if(0.6) = 3; if(0.8) = 4; else 5
-            //if (i < 0.2)
-            //{
-                //repo.AddReview(Comments, Stars);
-                //throw new NotImplementedException();
-            //}
-            
-        }
-
-        
-    }
-
-    
-    
-        
-
-        /*public void AddReview(Review Comments, List<RestaurantProfile> Name)
-        {
-            var reviews = GetReviews.Where(u => u.Comments.Contains(Name)).ToList();
-            foreach (var review in reviews)
-            {
-                //RestaurantProfile(review);
-                return GetReviews.Add(review);
-            }
-
-            Console.WriteLine($"How was your experience at {Name}?");
-
-        }*/
-
-        /*public List<Review> GetRestaurants(RestaurantProfile Name)
-        {
-            List<Review> restaurant = repo.GetReviews();
-            var filteredRestaurants = restaurant.Where(r => r.Name.Contains(Name)).ToList();
-            return filteredRestaurants;
-        }*/
-
-        /*public List<Review> GetReviews(string review, int stars)
-        {
-            List<Review> reviews = repo.GetReviews();
-            var filterReviews = review.Where(r => r.Comments.ToLower().Equals(review) || r.Rating.Equals(stars)).ToList();
-            return filteredReviews;
-        }*/
 
     }
+
 
 }

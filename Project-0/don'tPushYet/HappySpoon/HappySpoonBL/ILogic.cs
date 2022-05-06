@@ -10,17 +10,15 @@ namespace HappySpoonBL
     
     public interface IRestaurantLogic
     {
-        void GetReview(string Comments, int Stars);
+        RestaurantProfile AddRestaurant(RestaurantProfile Restaurant);
+        void AddReview(string Comments, int Stars);
         List<RestaurantProfile> GetAllRestaurants();
     }
 
     public interface IUserLogic
     {
-        UserProfile GetUsers(string UserName);
-        void GetEmail(string UserEmail);
-        void GetPassword(string UserPassword);
-        List<UserProfile> GetAllUsers();
-
+        UserProfile AddUser(UserProfile User);
+        List<UserProfile> SearchAllUsers();
     }
        
 }

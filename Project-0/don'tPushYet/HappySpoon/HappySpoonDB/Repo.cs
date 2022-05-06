@@ -4,30 +4,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//using System.Data.SqlClient;
 using Microsoft.Data.SqlClient;
 using HappySpoonModels;
 
 namespace HappySpoonDL
 {
     
-    public class RestaurantRepo
+    public class RestaurantRepo : IRestaurant
     {
         readonly string connectionString;
-
         RestaurantRepo(string connectionString)
         {
             this.connectionString = connectionString;
         }
-        public RestaurantProfile AddRestaurant(RestaurantProfile newRestaurant)
+
+        public RestaurantProfile AddRestaurant(RestaurantProfile Restaurant)
         {
             string selectCommandString = "INSERT INTO";
             using SqlConnection connection = new (connectionString);
             using SqlCommand command = new(selectCommandString, connection);
-            command.Parameters.AddWithValue("@name", newRestaurant.Name);
+            command.Parameters.AddWithValue("@name", Restaurant.Name);
             connection.Open();
             command.ExecuteNonQuery();
-            return newRestaurant;
+            return Restaurant;
         }
 
         public void AddReview(string RestaurantID, int newReview)
@@ -64,6 +63,13 @@ namespace HappySpoonDL
         {
             throw new NotImplementedException();
         }
+
+        public void RemoveReview(string RestaurantID)
+        {
+            throw new NotImplementedException();
+        }
+
+
     }
 
     public class UserRepo : IUser
@@ -74,7 +80,7 @@ namespace HappySpoonDL
         {
             this.connectionString = connectionString;
         }
-        public UserProfile AddUser(UserProfile newUser)
+        public UserProfile AddUser(UserProfile User)
         {
             throw new NotImplementedException();
         }
@@ -84,9 +90,7 @@ namespace HappySpoonDL
             throw new NotImplementedException();
         }
 
-        public List<UserProfile> GetUsers()
-        {
-            throw new NotImplementedException();
-        }
+
     }
+
 }
