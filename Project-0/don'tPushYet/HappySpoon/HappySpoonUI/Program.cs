@@ -7,17 +7,18 @@ using HappySpoonUI;
 //Implementing main menu options with menu interface
 
 IMenu menu = new MainMenu();
+bool repeat = true;
 //string connect server string stuff from text file goes her. PLEASE PUT THIS STRING IN THE .GITIGNORE FILE FIRST!!!
 //LoginSignupInterface loginSignupMenu = new LoginSignupMenu();
 //adding
 string connectionStringFilePath = "C:/Revature/leo-ware/Project-0/don'tPushYet/HappySpoon/HappySpoonDB/Secrets.txt";
 string connectionString = File.ReadAllText(connectionStringFilePath);
-IUserLogic uLogic = new IUserLogic(connectionString);
-RestaurantLogic rLogic = new RestaurantLogic(connectionString);
+UserInfoLogic uLogic = new UserInfoLogic();
+RestaurantLogic rLogic = new RestaurantLogic();
 Log.Logger = new LoggerConfiguration()
     .WriteTo.File("C:/Revature/leo - ware/Project - 0/don'tPushYet/HappySpoon/HappySpoonUI/LogCabin.txt").MinimumLevel.Information()
     .CreateLogger();
-bool repeat = true;
+
 while (repeat)
 {
     menu.Display();
