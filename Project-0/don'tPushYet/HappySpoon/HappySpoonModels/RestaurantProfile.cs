@@ -50,7 +50,7 @@
 
         public override string ToString()
         {
-            return $"{Name}\n{Description}\n{Location}\n{ContactInfo}\n{Stars}\n\n{Reviews}";
+            return $"{Name}\n{Description}\n{Location}\n{ContactInfo}\n{AverageStars}\n\n{Reviews}";
         }
         
 

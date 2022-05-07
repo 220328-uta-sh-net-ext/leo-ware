@@ -6,3 +6,4 @@
 Server=tcp:leo-net-training.database.windows.net,1433;Initial Catalog=HappySpoonRestaurantReviewApp;Persist Security Info=False;User ID=leoware;Password=986fuckOFF!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30
 secret.txt
 LogCabin.txt
+/Project-0/don'tPushYet/HappySpoon/HappySpoonDB/Secrets.txt

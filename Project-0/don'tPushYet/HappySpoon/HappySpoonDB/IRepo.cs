@@ -18,11 +18,10 @@ namespace HappySpoonDL
         //***************************************~ REVIEW ~********************************************
 
         //List<Review> GetReviews();
-        void AddReview(string RestaurantID, int newReview);
+        Review AddReview(Review newReview);
 
         void RemoveReview(string RestaurantID);
-
-
+        List<Review> AverageStars { get; }
     }
 
     public interface IUser

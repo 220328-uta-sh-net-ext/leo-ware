@@ -5,18 +5,25 @@ using HappySpoonUI;
 
 
 //Implementing main menu options with menu interface
-bool repeat = true;
+
 IMenu menu = new MainMenu();
 //string connect server string stuff from text file goes her. PLEASE PUT THIS STRING IN THE .GITIGNORE FILE FIRST!!!
 //LoginSignupInterface loginSignupMenu = new LoginSignupMenu();
 //adding
-
+string connectionStringFilePath = "C:/Revature/leo-ware/Project-0/don'tPushYet/HappySpoon/HappySpoonDB/Secrets.txt";
+string connectionString = File.ReadAllText(connectionStringFilePath);
+IUserLogic uLogic = new IUserLogic(connectionString);
+RestaurantLogic rLogic = new RestaurantLogic(connectionString);
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.File("C:/Revature/leo - ware/Project - 0/don'tPushYet/HappySpoon/HappySpoonUI/LogCabin.txt").MinimumLevel.Information()
+    .CreateLogger();
+bool repeat = true;
 while (repeat)
 {
     menu.Display();
-    string answer = menu.UserChoices();
+    string userInput = menu.UserChoices();
     
-    switch (answer)
+    switch (userInput)
     {
         case "SearchRestaurantsMenu":
             menu = new SearchRestaurantsMenu();
@@ -38,7 +45,7 @@ while (repeat)
             break;
     }
     
-    answer = Console.ReadLine();
+    userInput = Console.ReadLine();
 
     ///<summary>
     ///* I set the "answer" variable outside of the while loop so that it would stop repeating my main menu and being weird.

@@ -18,26 +18,52 @@ namespace HappySpoonDL
             this.connectionString = connectionString;
         }
 
-        public RestaurantProfile AddRestaurant(RestaurantProfile Restaurant)
+        public RestaurantProfile AddRestaurant(RestaurantProfile Restaurants)
         {
             string selectCommandString = "INSERT INTO";
             using SqlConnection connection = new (connectionString);
             using SqlCommand command = new(selectCommandString, connection);
-            command.Parameters.AddWithValue("@name", Restaurant.Name);
+            command.Parameters.AddWithValue("@name", Restaurants.Name);
             connection.Open();
             command.ExecuteNonQuery();
-            return Restaurant;
+            return Restaurants;
         }
 
-        public void AddReview(string RestaurantID, int newReview)
+        public Review AddReview(Review newReview)
         {
-            throw new NotImplementedException();
-            string selectCommandString = $"UPDATE ResstaurantProfiile SET Review = Review + @stars, NumStars = NumStars + 1 WHERE RestaurantId = '{RestaurantID}'";
+            string selectCommandString = $"INSERT INTO Review (Stars, Comments, Restaurant)" + "VALUES (@stars, @comments, @restaurant;";
+            //string selectCommandString = $"UPDATE Restaurants SET AverageStars = AverageStars + @stars WHERE Restaurants = '{AverageStars}";
             using SqlConnection connection = new (connectionString);
             using SqlCommand command = new(selectCommandString, connection);
-            command.Parameters.AddWithValue("@stars", newReview);
+            command.Parameters.AddWithValue("@stars", newReview.Stars);
+            command.Parameters.AddWithValue("@comments", newReview.Comments);
+            command.Parameters.AddWithValue("@restaurant", newReview.Restaurant);
             connection.Open();
             command.ExecuteNonQuery();
+            return newReview;
+        }
+
+        public List<Review> AverageStars
+        {
+            get
+            {
+                string selectCommandString = $"SELECT AVG(Stars) as AverageStarRating FROM Review GROUP BY Restaurant";
+                using SqlConnection connection = new(connectionString);
+                using SqlCommand command = new SqlCommand(selectCommandString, connection);
+                connection.Open();
+                using SqlDataReader reader = command.ExecuteReader();
+
+                var averageStars = new List<RestaurantProfile>();
+
+                while (reader.Read())
+                {
+                    averageStars.Add(new RestaurantProfile
+                    {
+                        AverageStars = reader.GetDouble(0),//Change the number here to the column of AverageStars in the RestaurantProfile table
+                    });
+                }
+                return AverageStars;
+            }
         }
 
         public List<RestaurantProfile> GetAllRestaurants()

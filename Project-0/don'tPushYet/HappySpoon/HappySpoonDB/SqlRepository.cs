@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,13 +10,14 @@ using HappySpoonModels;
 
 namespace HappySpoonDL
 {
-    /*public class SqlRepository : IRepo
+    public class SqlRepository
     {
-        public string connectionString;
+        private const string connectionStringFilePath = "C:/Revature/leo-ware/Project-0/don'tPushYet/HappySpoon/HappySpoonDB/Secrets.txt";
+        private readonly string connectionString;
 
-        public SqlRepository(string connectionString)
+        public SqlRepository()
         {
-            this.connectionString = connectionString;
+            connectionString = File.ReadAllText(connectionStringFilePath);
         }
 
         public List<RestaurantProfile> GetRestaurantsConnected()
@@ -34,7 +37,7 @@ namespace HappySpoonDL
                     Description = reader.GetString(2),
                     Location = reader.GetString(3),
                     ContactInfo = reader.GetString(4),
-                    AverageRating = reader.GetInt32(5)
+                    AverageStars = reader.GetInt32(5)
                     
                 });
             }
@@ -60,7 +63,7 @@ namespace HappySpoonDL
                     Description = (string)row[2],
                     Location = (string)row[3],
                     ContactInfo = (string)row[4],
-                    AverageRating = (int)row[5]
+                    AverageStars = (int)row[5]
 
                 });
             }
@@ -113,38 +116,36 @@ namespace HappySpoonDL
 
         public List<Review> GetReviews()
         {
-            string commandString = "SELECT * FROM Reviews";
+            string commandString = "SELECT * FROM Review GROUP BY Restaurant;";
             using SqlConnection connection = new(connectionString);
             using SqlCommand command = new SqlCommand(@commandString, connection);
-            IDataAdapter adapter1 = new SqlDataAdapter(command);
-            DataSet dataset = new();
-            connection.Open(0);
-            adapter1.Fill(dataset);
-            connection.Close();
-            var review = new List<Review>();
-            foreach (DataRow row in dataset.Tables[0].Rows)
+            connection.Open();
+            using SqlDataReader reader = command.ExecuteReader();
+
+            var reviews = new List<Review>();
+            while (reader.Read())
             {
-                review.Add(new Review
+                reviews.Add(new Review
                 {
-                    UserName = (string)row[0],
-                    Name = (string)row[1],
-                    Comments = (string)row[2],
-                    Rating = (int)row[3]
+                    UserName = reader.GetString(1),
+                    Restaurant = reader.GetString(2),
+                    Comments = reader.GetString(3),
+                    Stars = reader.GetDouble(4)
                 });
             }
-            return review;
+            return reviews;
         }
 
         public Review AddReview(Review review)
         {
-            string commandString = "INSERT INTO dbo.Reviews VALUES (@username, @restaurantname, @review, @rating)";
+            string commandString = "INSERT INTO dbo.Reviews VALUES (@username, @restaurant, @comments, @stars)";
 
             using SqlConnection connection = new(connectionString);
             using SqlCommand command = new SqlCommand(commandString, connection);
             command.Parameters.AddWithValue("@username", review.UserName);
-            command.Parameters.AddWithValue("@restaurantname", review.Name);
-            command.Parameters.AddWithValue("@review", review.Comments);
-            command.Parameters.AddWithValue("@rating", review.Rating);
+            command.Parameters.AddWithValue("@restaurant", review.Restaurant);
+            command.Parameters.AddWithValue("@comments", review.Comments);
+            command.Parameters.AddWithValue("@stars", review.Stars);
             connection.Open();
             command.ExecuteNonQuery();
 
@@ -161,7 +162,7 @@ namespace HappySpoonDL
             command.Parameters.AddWithValue("@description", restaurant.Description);
             command.Parameters.AddWithValue("@location", restaurant.Location);
             command.Parameters.AddWithValue("@contactinfo", restaurant.ContactInfo);
-            command.Parameters.AddWithValue("@averagerating", restaurant.AverageRating);
+            command.Parameters.AddWithValue("@averagerating", restaurant.AverageStars);
             connection.Open();
             command.ExecuteNonQuery();
 
@@ -181,6 +182,6 @@ namespace HappySpoonDL
 
             return user;
         }
-    }*/
+    }
 
 }
