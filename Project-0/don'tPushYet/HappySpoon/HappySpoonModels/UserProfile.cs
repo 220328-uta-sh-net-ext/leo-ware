@@ -15,7 +15,7 @@
 			
 			UserEmail = "";
 
-			UserID = 1;
+			UserID = UserID++;
 
 			UserPassword = "";
 			

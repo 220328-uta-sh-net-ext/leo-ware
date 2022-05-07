@@ -36,15 +36,6 @@ namespace HappySpoonUI
             {
                 case "1":
                     Console.WriteLine("Enter your username: ");
-                    /*newReview.UserName = Console.ReadLine();
-                    Console.WriteLine("Enter the Restaurant:");
-                    newReview.Name = Console.ReadLine();
-                    Console.WriteLine("Enter a Rating (1-5):");
-                    newReview.Rating = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("Enter a Review (200 character limit):");
-                    newReview.Comments = Console.ReadLine();
-                    Console.WriteLine("Adding Review and Rating");
-                    repo.AddReview(newReview);*/
                     return "AddReviewMenu";
                 case "2":
                     Console.WriteLine("Enter the restaurant's name:");

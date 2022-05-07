@@ -19,15 +19,12 @@ while (repeat)
     switch (answer)
     {
         case "SearchRestaurantsMenu":
-            Console.WriteLine("Restaurant search in progress...");
             menu = new SearchRestaurantsMenu();
             break;
         case "LoginMenu":
-            Console.WriteLine("Login in progress...");
             menu = new LoginMenu();
             break;
         case "AddUserMenu":
-            Console.WriteLine("Signup in progress...");
             menu = new AddUserMenu();
             break;
         case "MainMenu":
@@ -42,6 +39,11 @@ while (repeat)
     }
     
     answer = Console.ReadLine();
+
+    ///<summary>
+    ///* I set the "answer" variable outside of the while loop so that it would stop repeating my main menu and being weird.
+    ///* Make sure that the cases match what you've named your cases in the Main Menu class
+    ///</summary>
 }
 
 

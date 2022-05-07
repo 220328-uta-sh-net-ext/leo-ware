@@ -7,7 +7,7 @@
         public string Description { get; set; }
         public string Location { get; set; }
         public string ContactInfo { get; set; }
-        public double Stars { get; set; }
+        public double AverageStars { get; set; }
         public string Reviews { get; set; }
         public int NumOfReviews { get; set; }
 
@@ -15,14 +15,14 @@
 
         public RestaurantProfile()
         {
-            RestaurantID = 0;
+            RestaurantID = RestaurantID ++;
             Name = "";
             Description = "";
             Location = "";
             ContactInfo = "";
-            Stars = 0;
+            AverageStars = 0;
             Reviews = "";
-            NumOfReviews = 0;
+            NumOfReviews = Reviews.Length;
             
         }
 

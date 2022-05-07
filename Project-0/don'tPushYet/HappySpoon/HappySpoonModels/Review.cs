@@ -6,26 +6,26 @@ using System.Threading.Tasks;
 
 namespace HappySpoonModels
 {
-    public class Review : RestaurantProfile
+    public class Review
     {
         public int UserID { get; set; }
         public UserProfile UserName { get; set; }
-        public int Rating { get; set; }
+        public double Stars { get; set; }
         public string Comments { get; set; }
         public RestaurantProfile Name { get; set; }
 
         public Review(RestaurantProfile name, UserProfile username)
         {
-            Name = Name;
+            name = Name;
             UserID = 0;
-            UserName = UserName;
-            Rating = 0;
+            username = UserName;
+            Stars = 0;  //if (Stars = null) {return null;}
             Comments = "";
         }
 
         public override string ToString()
         {
-            return $"{UserID}\n{UserName}\n{Rating}\n{Comments}";
+            return $"{UserName}\n{Stars}\n{Comments}";
         }
     }
 }
