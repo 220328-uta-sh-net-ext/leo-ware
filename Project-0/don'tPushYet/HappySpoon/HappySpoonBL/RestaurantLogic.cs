@@ -20,16 +20,11 @@ namespace HappySpoonBL
         }
 
 
-        public RestaurantProfile AddRestaurant(RestaurantProfile Restaurant)
+        public RestaurantProfile AddRestaurant(RestaurantProfile restaurant)
         {
-            return RPrepo.AddRestaurant(Restaurant);
+            return RPrepo.AddRestaurant(restaurant);
         }
 
-
-        public void RestaurantProfile(string Comments, int Stars)
-        {
-            
-        }
 
         public List<RestaurantProfile> GetRestaurants()
         {
@@ -38,17 +33,18 @@ namespace HappySpoonBL
 
         public List<RestaurantProfile> SearchRestaurants(string name)
         {
-            throw new NotImplementedException();
+            return RPrepo.GetAllRestaurants();
         }
 
-        public void AddReview(string Comments, int Stars)
+        public Review AddReview(Review newReview)
         {
             throw new NotImplementedException();
+            return RPrepo.AddReview(newReview);
         }
 
         public List<RestaurantProfile> GetAllRestaurants()
         {
-            throw new NotImplementedException();
+            return RPrepo.GetAllRestaurants();
         }
 
         /*public void SearchRestaurants(string phrase)

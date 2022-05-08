@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HappySpoonBL;
 using HappySpoonModels;
 using HappySpoonUI;
 
 namespace HappySpoonUI
 {
-    internal class SearchRestaurantsMenu : IMenu
+    public class SearchRestaurantsMenu : IMenu
     {
-        //readonly RestaurantLogic logic;
-        //readonly IRepo repo;
+        private RestaurantLogic rLogic;
 
-        /*public SearchRestaurantsMenu(RestaurantLogic? logic, IRepo? repo)
+        public SearchRestaurantsMenu(RestaurantLogic rLogic)
         {
-            this.logic = logic;
-            this.repo = repo;
-        }*/
-            public void Display()
+            this.rLogic = rLogic;
+        }
+
+        public void Display()
         {
             Console.WriteLine("Please enter input to search restaurants");
             Console.WriteLine("<1> See all restaurants");
@@ -35,38 +35,11 @@ namespace HappySpoonUI
                 case "1":
                     Console.WriteLine(" ");
                     Console.WriteLine("********************~ SHOWING ALL RESTAURANTS ~**********************");
-                    /*List<RestaurantProfile>  restaurants= repo.GetRestaurantsConnected();
-                    foreach (var restaurant in restaurants)
-                    {
-                        Console.WriteLine(" ");
-                        Console.WriteLine(restaurant);
-                    }*/
                     return "SearchRestaurants";
                 case "2":
                     Console.WriteLine("**************************************");
                     Console.WriteLine("Search by Type for restaurant");
                     Console.WriteLine("Enter: Name, City, State or Zipcode to search by that option");
-                    /*string searchType = Console.ReadLine().ToLower().Trim();
-                    if (searchType == "name")
-                    {
-                        Console.WriteLine("Enter Name of Restaurant");
-                        string restaurantName = Console.ReadLine().Trim();
-                        List<RestaurantProfile> restaurant = logic.GetRestaurants(restaurantName);
-                        if (restaurant.Count > 0)
-                        {
-                            foreach (var result in restaurant)
-                            {
-                                Console.WriteLine("**************************************");
-                                Console.WriteLine(result);
-                                return "Search Restaurants";
-                            }
-                        }
-                        else
-                        {
-                            Console.WriteLine($"No Restaurants with the name {restaurantName}");
-                            goto case "2";
-                        }
-                    }*/
                     return "SearchRestaurants";
                 case "0":
                     return "MainMenu";

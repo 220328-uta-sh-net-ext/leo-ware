@@ -42,7 +42,7 @@ namespace HappySpoonUI
                 case "3":
                     return "AddUserMenu";
                 case "4":
-                    return "Admin";
+                    return "AdminMenu";
                 case "0":
                     return "ExitProgram";
                 default:

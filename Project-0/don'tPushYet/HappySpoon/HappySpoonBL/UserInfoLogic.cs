@@ -19,12 +19,13 @@ namespace HappySpoonBL
             urepo = repo;
         }
 
-        public UserInfoLogic AddUser(UserProfile User)
+        public UserProfile AddUser(UserProfile User)
         {
-            throw new NotImplementedException();
+            return urepo.AddUser(User);
         }
 
-        public List<UserProfile> SearchAllUSers()
+
+        public List<UserProfile> GetAllUsers()
         {
             throw new NotImplementedException();
         }
@@ -34,10 +35,8 @@ namespace HappySpoonBL
             throw new NotImplementedException();
         }
 
-        UserProfile IUserLogic.AddUser(UserProfile User)
-        {
-            throw new NotImplementedException();
-        }
+
+
     }
 
 }

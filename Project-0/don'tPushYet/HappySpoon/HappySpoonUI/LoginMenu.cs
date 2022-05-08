@@ -5,16 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using HappySpoonUI;
 using HappySpoonModels;
+using HappySpoonBL;
 
 namespace HappySpoonUI
 {
-    internal class LoginMenu : IMenu
+    public class LoginMenu : IMenu
     {
-        /*readonly UserInfoLogic logic;
-        public LoginMenu(UserInfoLogic? logic)
+        private UserInfoLogic uLogic;
+
+        public LoginMenu(UserInfoLogic uLogic)
         {
-            this.logic = logic;
-        }*/
+            this.uLogic = uLogic;
+        }
+
         public void Display()
         {
             Console.WriteLine("Welcome back, user!");
@@ -31,7 +34,6 @@ namespace HappySpoonUI
             switch (userInput)
             {
                 case "1":
-                    //Console.Write(Enter username: );
                     Console.WriteLine("Logging in...");
                     return "LoginMenu";
                 case "2":

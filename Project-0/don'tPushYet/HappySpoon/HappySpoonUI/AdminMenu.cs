@@ -3,29 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HappySpoonBL;
+using HappySpoonDL;
 using HappySpoonUI;
 using HappySpoonModels;
 
 namespace HappySpoonUI
 {
-    internal class AdminMenu : IMenu
+    public class AdminMenu : IMenu
     {
-        /*readonly UserInfoLogic logic;
-        readonly IRepo repo;
+        private UserInfoLogic uLogic;
+        private RestaurantLogic rLogic;
+        public SearchRestaurantsMenu rMenu;
 
-        public AdminMenu(IRepo? repo, UserInfoLogic? logic)
+        public AdminMenu(UserInfoLogic uLogic, RestaurantLogic rLogic)
         {
-            this.repo = repo;
-            this.logic = logic;
-        }*/
+            this.uLogic = uLogic;
+            this.rLogic = rLogic;
+        }
+
+        //readonly IUser urepo;
+
         public void Display()
         {
             Console.WriteLine("You have unlocked the Admin Menu.\nWhat would you like to do?");
-            Console.WriteLine("Search Users");
-            Console.WriteLine("Search Restaurants");
-            Console.WriteLine("Add Restaurant Profile");
-            Console.WriteLine("Back to Main Menu");
-            Console.WriteLine("Exit Program");
+            Console.WriteLine("<1> Enter Admin information");
+            Console.WriteLine("<2>Search Users");
+            Console.WriteLine("<3>Search Restaurants");
+            Console.WriteLine("<4>Add Restaurant Profile");
+            Console.WriteLine("<5>Back to Main Menu");
+            Console.WriteLine("<0>Exit Program");
         }
 
         public string UserChoices()
@@ -36,24 +43,27 @@ namespace HappySpoonUI
             switch (userInput)
             {
                 case "1":
+                    Console.WriteLine("");
+                    return "AdminMenu";
+                case "2":
                     Console.WriteLine("Searching users...");
                     return "SearchUser";
-                case "2":
+                case "3":
                     Console.WriteLine("Searching restaurants.....");
                     return "SearchRestaurantsMenu";
-                case "3":
+                case "4":
                     Console.WriteLine("Adding new restaurant....");
                     return "AddRestaurant";
-                case "0":
+                case "5":
                     Console.WriteLine("Returning to Main Menu...");
                     return "MainMenu";
-                case "":
+                case "0":
                     return "ExitProgram";
                 default:
                     Console.WriteLine("Please enter a valid option.");
                     Console.WriteLine("Press <Enter> to continue");
-                    //Console.ReadLine();
-                    return "Admin";
+                    Console.ReadLine();
+                    return "AdminMenu";
             }
         }
     }

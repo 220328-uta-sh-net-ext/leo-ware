@@ -18,15 +18,15 @@ namespace HappySpoonDL
             this.connectionString = connectionString;
         }
 
-        public RestaurantProfile AddRestaurant(RestaurantProfile Restaurants)
+        public RestaurantProfile AddRestaurant(RestaurantProfile restaurants)
         {
             string selectCommandString = "INSERT INTO";
             using SqlConnection connection = new (connectionString);
             using SqlCommand command = new(selectCommandString, connection);
-            command.Parameters.AddWithValue("@name", Restaurants.Name);
+            command.Parameters.AddWithValue("@name", restaurants.Name);
             connection.Open();
             command.ExecuteNonQuery();
-            return Restaurants;
+            return restaurants;
         }
 
         public Review AddReview(Review newReview)
