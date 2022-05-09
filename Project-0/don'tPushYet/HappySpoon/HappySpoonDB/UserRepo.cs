@@ -17,7 +17,11 @@ namespace HappySpoonDL
             this.connectionString = connectionString;
         }
 
-
+        /// <summary>
+        /// Method to add new users to the UserProfile collection
+        /// </summary>
+        /// <param name="User"></param>
+        /// <returns> a new row to Users database</returns>
         public UserProfile AddUser(UserProfile User)
         {
             string commandString = "INSERT INTO Users (AccessID, UserId, Username, Email, Password) VALUES " + "(@access, @userid, @username, @useremail, @password);";
@@ -36,7 +40,11 @@ namespace HappySpoonDL
             return User;
 
         }
-
+        /// <summary>
+        /// Displays aaaall of the users
+        /// </summary>
+        /// <params> </params>
+        /// <returns>Gets all existing users from the database</returns>
         public List<UserProfile> GetAllUsers()
         {
             string commandString = "SELECT * FROM Users;";

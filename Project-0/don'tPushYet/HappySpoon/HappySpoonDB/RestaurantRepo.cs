@@ -19,7 +19,11 @@ namespace HappySpoonDL
         {
             this.connectionString = connectionString;
         }
-
+        /// <summary>
+        /// Method to add a new restaurant
+        /// </summary>
+        /// <param name="restaurant"></param>
+        /// <returns> Returns a new Restaurant Profile into the Restaurants database </returns>
         public RestaurantProfile AddRestaurant(RestaurantProfile restaurant)
         {
             string commandString = "INSERT INTO Restaurants (RestaurantId, Name, Description, Location, ContactInfo, AverageStars) VALUES " + "(@restaurantid, @restaurantname, @description, @location, @contactinfo, @averagestars)";
@@ -50,7 +54,11 @@ namespace HappySpoonDL
             return GetAllRestaurants();
         }
 
-
+        /// <summary>
+        /// Method to add a new review
+        /// </summary>
+        /// <param name="newReview"></param>
+        /// <returns> A new review in the form of comments and stars </returns>
         public Review AddReview(Review newReview)
         {
             return AddReview(newReview);
@@ -59,3 +67,4 @@ namespace HappySpoonDL
 
 
 }
+//C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoon.sln

@@ -30,7 +30,13 @@ namespace HappySpoonBL
         {
             return urepo.GetAllUsers();
         }
-
+        /// <summary>
+        /// Method to 
+        /// </summary>
+        /// <param name="uName"></param>
+        /// <param name="uPassword"></param>
+        /// <returns></returns>
+        /// <exception cref="InvalidDataException"></exception>
         public List<UserProfile> GetUser(string uName, string uPassword)
         {
             List<UserProfile>? users = urepo.GetAllUsers();

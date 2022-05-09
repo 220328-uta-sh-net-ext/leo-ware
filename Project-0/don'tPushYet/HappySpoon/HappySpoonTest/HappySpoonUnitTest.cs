@@ -1,5 +1,8 @@
+using HappySpoonBL;
+using HappySpoonDL;
 using HappySpoonModels;
 using HappySpoonUI;
+using System;
 using System.Collections.Generic;
 using Xunit;
 
@@ -7,9 +10,13 @@ namespace HappySpoonTest
 {
     public class HappySpoonUnitTest
     {
+        private readonly IUserLogic logic;
+        private IUser repo;
+
         [Fact]
         public void AddUserTest()
         {
+
             UserProfile User = new UserProfile
             {
                 UserName = "flubber",
@@ -49,12 +56,10 @@ namespace HappySpoonTest
         [Fact]
         public void SearchRestaurantsTest()
         {
-            RestaurantProfile restaurant = new RestaurantProfile
-            {   
-                Name = "Bobs Burgers"
+            List<RestaurantProfile> restaurant = new List<RestaurantProfile>()
+            {
+               // var rp = Name.Where(s => s.Contains("Bobs Burgers"))
             };
-
-            Assert.Equal("Bobs Burgers", restaurant.Name);
         }
 
         [Fact]
@@ -89,6 +94,22 @@ namespace HappySpoonTest
             Assert.Equal("4049123791", rp.ContactInfo);
             Assert.Equal(5, rp.AverageStars);
         }
+
+        /*[Theory]
+        [InlineData("AmericaChavez", UserName)]
+        public void SearchUserTest()
+        {
+            List<UserProfile> user = new List<UserProfile>();
+            IUser repo = this.repo;
+
+                user.UserName = Console.ReadLine();
+                foreach (var i in user.UserName)
+                {
+                    if (i.Equals(user.UserName))
+                     repo.GetUser();
+                }
+                
+        }*/
 
     }
 }
