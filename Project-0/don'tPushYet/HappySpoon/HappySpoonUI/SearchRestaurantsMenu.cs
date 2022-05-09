@@ -13,7 +13,6 @@ namespace HappySpoonUI
     public class SearchRestaurantsMenu : IMenu
     {
         readonly IRestaurantLogic logic;
-        private SqlRepository sqlRepository = new SqlRepository();
 
         public SearchRestaurantsMenu(IRestaurantLogic logic)
         {

@@ -23,9 +23,9 @@ namespace HappySpoonUI
         public void Display()
         {
             Console.WriteLine("Enter user information");
-            Console.WriteLine("<1> Enter your username" + User.UserName);
-            Console.WriteLine("<2> Enter your password" + User.UserPassword);
-            Console.WriteLine("<3> Enter your email" + User.UserEmail);
+            Console.WriteLine("<1> Enter your username        " + User.UserName);
+            Console.WriteLine("<2> Enter your password        " + User.UserPassword);
+            Console.WriteLine("<3> Enter your email           " + User.UserEmail);
             Console.WriteLine("<4> Save your information");
             Console.WriteLine("<0> Back to Main Menu");
         }
@@ -55,7 +55,7 @@ namespace HappySpoonUI
                     try
                     {
                         Log.Information("Prompting user to add a new password: " + User.UserPassword);
-                        Console.Write("Enter your username: ");
+                        Console.Write("Enter your password: ");
                         User.UserPassword = Console.ReadLine();
                         Log.Information("Password accepted...");
                     }
@@ -83,6 +83,7 @@ namespace HappySpoonUI
                     try
                     {
                         Log.Information("Saving to HappySpoon User database");
+                        Console.WriteLine($"User was saved! Welcome, {User.UserName}");
                         logic.AddUser(User);
                     }
                     catch (Exception ex)

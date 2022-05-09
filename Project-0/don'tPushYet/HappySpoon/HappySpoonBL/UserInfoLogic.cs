@@ -15,6 +15,11 @@ namespace HappySpoonBL
             urepo = repo;
         }
 
+        public void AddRestaurant(RestaurantProfile rp)
+        {
+            throw new NotImplementedException();
+        }
+
         public UserProfile AddUser(UserProfile User)
         {
 

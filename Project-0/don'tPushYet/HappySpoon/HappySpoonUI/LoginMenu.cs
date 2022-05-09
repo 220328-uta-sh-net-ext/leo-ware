@@ -40,23 +40,29 @@ namespace HappySpoonUI
                     Log.Debug("Prompting password");
                     Console.WriteLine("Enter Password: ");
                     string uPassword = Console.ReadLine();
-                    List<UserProfile> info = logic.GetUser(uName, uPassword);
-                    if (uName.Equals(info) && uPassword.Equals(info))
+                    var info = logic.GetAllUsers();
+                    foreach(var i in info)
                     {
-                        if (uName == "El Jefe" && uPassword == "1234")
+                        if (uName == i.UserName && uPassword == i.UserPassword)
                         {
-                            Log.Debug($"Admin {uName}, has logged in.");
+                            Log.Debug($"User, {uName}, has logged in");
+                            return "AddReviewMenu";
+                        }
+                        else if (uName == i.AdminName && uPassword == i.AdminPassword)
+                        {
+                            Log.Debug($"What's up, {uName}?!");
                             return "AdminMenu";
                         }
-                        Log.Debug($"User, {uName}, has logged in");
+                        else
+                        {
+                            Log.Debug("User login failed");
+                            Console.WriteLine("UserName or Password is invalid. Try again...");
+                            return "LoginMenu";
+                        }
                         return "AddReviewMenu";
                     }
-                    else
-                    {
-                        Log.Debug("User login failed");
-                        Console.WriteLine("UserName or Password is invalid. Try again...");
-                        return "LoginMenu";
-                    }
+                    return "AddReviewMenu";
+
                 case "2":
                     Log.Debug("Returning user to main menu");
                 Console.WriteLine("Returning to Main Menu.....");

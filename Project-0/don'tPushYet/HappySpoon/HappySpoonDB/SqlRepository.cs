@@ -10,19 +10,19 @@ using HappySpoonModels;
 
 namespace HappySpoonDL
 {
-    public class SqlRepository : IRestaurant, IUser
+    public class SqlRepository : IRestaurant//, IUser
     {
         private const string connectionStringFilePath = "C:/Revature/leo-ware/Project-0/don'tPushYet/HappySpoon/HappySpoonDB/Secrets.txt";
         private readonly string connectionString;
 
-        public SqlRepository()
+        public SqlRepository(string connectionString)
         {
             connectionString = File.ReadAllText(connectionStringFilePath);
         }
 
         public List<RestaurantProfile> GetRestaurants()
         {
-            string commandString = "SELECT * FROM dbo.Restaurants;";
+            string commandString = "SELECT * FROM Restaurants;";
             using SqlConnection connection = new(connectionString);
             using IDbCommand command = new SqlCommand(commandString, connection);
             connection.Open();
@@ -45,7 +45,7 @@ namespace HappySpoonDL
         }
         public List<RestaurantProfile> GetAllRestaurants()
         {
-            string commandString = "SELECT * FROM dbo.Restaurants;";
+            string commandString = "SELECT * FROM Restaurants;";
             using SqlConnection connection = new(connectionString);
             using SqlCommand command = new SqlCommand(commandString, connection);
             IDataAdapter adapter = new SqlDataAdapter(command);
@@ -111,7 +111,7 @@ namespace HappySpoonDL
 
         public RestaurantProfile AddRestaurant(RestaurantProfile restaurant)
         {
-            string commandString = "INSERT INTO dbo.Restaurants (Name, Description, Location, ContactInfo, AverageStars) VALUES (@restaurantname, @description, @location, @contactinfo, @averagestars)";
+            string commandString = "INSERT INTO Restaurants (RestaurantId, Name, Description, Location, ContactInfo, AverageStars) VALUES " + "(@restaurantname, @description, @location, @contactinfo, @averagestars)";
 
             using SqlConnection connection = new(connectionString);
             using SqlCommand command = new SqlCommand(commandString, connection);
@@ -126,11 +126,11 @@ namespace HappySpoonDL
 
             return restaurant;
         }
-        public List<UserProfile> GetAllUsers()
+        /*public List<UserProfile> GetAllUsers()
         {
-            string commandString = "SELECT * FROM dbo.Users;";
+            string commandString = "SELECT * FROM Users;";
             using SqlConnection connection = new(connectionString);
-            using IDbCommand command = new SqlCommand(commandString, connection);
+            using SqlCommand command = new SqlCommand(commandString, connection);
             connection.Open();
             using IDataReader reader = command.ExecuteReader();
             var user = new List<UserProfile>();
@@ -145,10 +145,10 @@ namespace HappySpoonDL
                 });
             }
             return user;
-        }
-        public List<UserProfile> GetUser()
+        }*/
+        /*public List<UserProfile> GetUser()
         {
-            string commandString = "SELECT * FROM dbo.Users;";
+            string commandString = "SELECT * FROM Users;";
             using SqlConnection connection = new(connectionString);
             using SqlCommand command = new SqlCommand(commandString, connection);
             IDataAdapter adapter = new SqlDataAdapter(command);
@@ -168,24 +168,26 @@ namespace HappySpoonDL
                 });
             }
             return users;
-        }
+        }*/
        
 
-        public UserProfile AddUser(UserProfile user)
+       /* public UserProfile AddUser(UserProfile user)
         {
-            string commandString = "INSERT INTO dbo.Users (UserID, Username, UserEmail, Password) VALUES" + "(@userid, @username, @useremail, @password)";
+            string commandString = "INSERT INTO Users (AccessID, UserId, Username, Email, Password) VALUES " + "(@access, @userid, @username, @useremail, @password);";
 
             using SqlConnection connection = new(connectionString);
             using SqlCommand command = new SqlCommand(commandString, connection);
+            command.Parameters.AddWithValue("@access", user.UserAccess);
             command.Parameters.AddWithValue("@userid", user.UserID);
             command.Parameters.AddWithValue("@username", user.UserName);
             command.Parameters.AddWithValue("@useremail", user.UserEmail);
             command.Parameters.AddWithValue("@password", user.UserPassword);
             connection.Open();
             command.ExecuteNonQuery();
+            connection.Close();
 
             return user;
-        }
+        }*/
     }
 
 }

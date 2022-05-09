@@ -22,8 +22,8 @@ CREATE TABLE [dbo].[Users]
 GO
 CREATE TABLE [dbo].[Restaurants]
 (
-   [RestaurantId] INT NOT NULL PRIMARY KEY,
-   [Name] NVARCHAR(30) NULL,
+   [RestaurantId] INT NULL,
+   [Name] NVARCHAR(30) NOT NULL PRIMARY KEY,
    [Description] NVARCHAR(100) NULL,
    [Location] VARCHAR(40) NULL,
    [ContactInfo] VARCHAR(80) NULL,
@@ -44,3 +44,21 @@ INSERT INTO Users (AccessID, UserId, Username, Email,Password) VALUES
 ('A', '1', 'El Jefe', 'happyspoon@spoonies.com', '1234');
 
 SELECT * FROM Users;
+INSERT INTO Users (AccessID, UserId, Username, Email, Password) VALUES (null, 0, 't', 'r.r', 'pass');
+DELETE FROM Users WHERE UserId = 0;
+
+INSERT INTO Restaurants (RestaurantId, Name, Description, Location, ContactInfo, AverageStars) VALUES (1, 'Bobs Burgers', 'All American fan fare', 'Boston', '1-800-BURGERS', 5);
+SELECT * FROM Restaurants;
+DROP TABLE IF EXISTS Restaurants;
+
+CREATE TABLE [dbo].[Restaurants]
+(
+   [RestaurantId] INT NULL,
+   [Name] NVARCHAR(30) NOT NULL PRIMARY KEY,
+   [Description] NVARCHAR(100) NULL,
+   [Location] VARCHAR(40) NULL,
+   [ContactInfo] VARCHAR(80) NULL,
+   [AverageStars] INT NULL
+);
+INSERT INTO Restaurants (RestaurantId, Name, Description, Location, ContactInfo, AverageStars) VALUES (1, 'Bobs Burgers', 'All American fan fare', 'Boston', '1-800-BURGERS', 5);
+SELECT * FROM Restaurants;

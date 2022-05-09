@@ -18,6 +18,7 @@ namespace HappySpoonBL
         {
             RestaurantProfile restaurant = new RestaurantProfile
             {
+                RestaurantID = rp.RestaurantID,
                 Name = rp.Name,
                 Description = rp.Description,
                 Location = rp.Location,

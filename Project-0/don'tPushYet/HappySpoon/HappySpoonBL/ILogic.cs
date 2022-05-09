@@ -22,8 +22,7 @@ namespace HappySpoonBL
         List<UserProfile> GetAllUsers();
         List<UserProfile> SearchAllUsers(string uName, string input);
         List<UserProfile> GetUser(string uName, string uPassword);
-
-
+        void AddRestaurant(RestaurantProfile rp);
     }
        
 }

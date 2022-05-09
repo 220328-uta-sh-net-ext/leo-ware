@@ -20,10 +20,23 @@ namespace HappySpoonDL
             this.connectionString = connectionString;
         }
 
-        public RestaurantProfile AddRestaurant(RestaurantProfile Restaurant)
+        public RestaurantProfile AddRestaurant(RestaurantProfile restaurant)
         {
-            throw new NotImplementedException();
-            return AddRestaurant(Restaurant);
+            string commandString = "INSERT INTO Restaurants (RestaurantId, Name, Description, Location, ContactInfo, AverageStars) VALUES " + "(@restaurantid, @restaurantname, @description, @location, @contactinfo, @averagestars)";
+
+            using SqlConnection connection = new(connectionString);
+            using SqlCommand command = new SqlCommand(commandString, connection);
+            command.Parameters.AddWithValue("@restaurantid", restaurant.RestaurantID);
+            command.Parameters.AddWithValue("@restaurantname", restaurant.Name);
+            command.Parameters.AddWithValue("@description", restaurant.Description);
+            command.Parameters.AddWithValue("@location", restaurant.Location);
+            command.Parameters.AddWithValue("@contactinfo", restaurant.ContactInfo);
+            command.Parameters.AddWithValue("@averagestars", restaurant.AverageStars);
+            connection.Open();
+            command.ExecuteNonQuery();
+            connection.Close();
+
+            return restaurant;
         }
         public List<RestaurantProfile> SearchRestaurants()
         {
