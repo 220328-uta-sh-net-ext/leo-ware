@@ -8,53 +8,50 @@ namespace HappySpoonBL
     public class RestaurantLogic : IRestaurantLogic
     {
         readonly IRestaurant RPrepo;
-
-        public RestaurantLogic()
-        {
-
-        }
-
         public RestaurantLogic(IRestaurant repo)
         {
             RPrepo = repo;
         }
 
 
-        public RestaurantProfile AddRestaurant(RestaurantProfile restaurant)
+        public RestaurantProfile AddRestaurant(RestaurantProfile rp)
         {
-            return RPrepo.AddRestaurant(restaurant);
+            RestaurantProfile restaurant = new RestaurantProfile
+            {
+                Name = rp.Name,
+                Description = rp.Description,
+                Location = rp.Location,
+                ContactInfo = rp.ContactInfo,
+                AverageStars = 0
+            };
+            return RPrepo.AddRestaurant(rp);
         }
 
 
-        public List<RestaurantProfile> GetRestaurants()
+        public List<RestaurantProfile> SearchRestaurants(string name, string input)
         {
-            return RPrepo.GetAllRestaurants();
-        }
-
-        public List<RestaurantProfile> SearchRestaurants(string name)
-        {
-            return RPrepo.GetAllRestaurants();
+            List<RestaurantProfile>? restaurants = RPrepo.GetAllRestaurants();
+            var filterRP = restaurants;
+            if(input == name)
+                filterRP = restaurants.Where(x => x.Name == input).ToList();
+            return filterRP;
         }
 
         public Review AddReview(Review newReview)
         {
-            throw new NotImplementedException();
             return RPrepo.AddReview(newReview);
         }
 
         public List<RestaurantProfile> GetAllRestaurants()
         {
-            return RPrepo.GetAllRestaurants();
-        }
-
-        /*public void SearchRestaurants(string phrase)
-        {
-            var target = GetRestaurants.Where(r => r.Name.Contains(phrase)).ToList();
-            foreach (var restaurant in target)
+           List<RestaurantProfile> restaurants = RPrepo.GetAllRestaurants();
+            foreach(var restaurant in restaurants)
             {
-                return RPrepo.GetRestaurants(restaurant);
+                return restaurants;
             }
-        }*/
+
+            throw new Exception("There are no restaurants by that name");
+        }
 
 
         // ***************************************** TRYING TO CALCULATE RATING ************************************************

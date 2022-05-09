@@ -8,12 +8,8 @@ namespace HappySpoonBL
 {
     public class UserInfoLogic : IUserLogic
     {
-       readonly IUser urepo;
         
-        public UserInfoLogic()
-        {
-        }
-
+        readonly IUser urepo;
         public UserInfoLogic(IUser repo)
         {
             urepo = repo;
@@ -21,18 +17,50 @@ namespace HappySpoonBL
 
         public UserProfile AddUser(UserProfile User)
         {
+
             return urepo.AddUser(User);
         }
 
-
         public List<UserProfile> GetAllUsers()
         {
-            throw new NotImplementedException();
+            return urepo.GetAllUsers();
         }
 
-        public List<UserProfile> SearchAllUsers()
+        public List<UserProfile> GetUser(string uName, string uPassword)
         {
-            throw new NotImplementedException();
+            List<UserProfile>? users = urepo.GetAllUsers();
+            foreach(var u in users)
+            {
+                if (uName == u.UserName && uPassword == u.UserPassword)
+                {
+                    return users;
+                }
+                else if (u.AdminName.Equals("El Jefe") && u.AdminPassword.Equals(1234))
+                {
+                        return users;
+                }
+                else
+                    throw new InvalidDataException("Please input a valid username and password to use this feature");
+
+            }
+            return users;
+        }
+
+        /// <summary>
+        /// Search users by username.
+        /// </summary>
+        /// <param name="uName"></param>
+        /// <param name="input"></param>
+        /// <returns>
+        /// filters users by username.
+        /// </returns>
+        public List<UserProfile> SearchAllUsers(string uName, string input)
+        {
+            List<UserProfile>? users = urepo.GetAllUsers();
+            var filterRP = users;
+            if (input == "name")
+                filterRP = users.Where(x => x.UserName == input).ToList();
+            return filterRP;
         }
 
 

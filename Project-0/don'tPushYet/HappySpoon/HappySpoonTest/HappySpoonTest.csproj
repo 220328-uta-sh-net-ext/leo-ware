@@ -22,4 +22,11 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HappySpoonBL\HappySpoonBL.csproj" />
+    <ProjectReference Include="..\HappySpoonDB\HappySpoonDL.csproj" />
+    <ProjectReference Include="..\HappySpoonModels\HappySpoonModels.csproj" />
+    <ProjectReference Include="..\HappySpoonUI\HappySpoonUI.csproj" />
+  </ItemGroup>
+
 </Project>

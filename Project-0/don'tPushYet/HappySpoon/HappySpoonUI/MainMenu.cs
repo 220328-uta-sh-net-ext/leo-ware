@@ -22,7 +22,6 @@ namespace HappySpoonUI
             Console.WriteLine("Press <1> Search Restaurants");
             Console.WriteLine("Press <2> Login");
             Console.WriteLine("Press <3> Signup");
-            Console.WriteLine("Press <4> Login as Admin");
             Console.WriteLine("Press <0> Exit Program");
             //Console.WriteLine();
             //Console.WriteLine();
@@ -41,8 +40,6 @@ namespace HappySpoonUI
                     return "LoginMenu";
                 case "3":
                     return "AddUserMenu";
-                case "4":
-                    return "AdminMenu";
                 case "0":
                     return "ExitProgram";
                 default:

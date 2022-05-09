@@ -8,16 +8,23 @@ using HappySpoonUI;
 
 IMenu menu = new MainMenu();
 bool repeat = true;
-//string connect server string stuff from text file goes her. PLEASE PUT THIS STRING IN THE .GITIGNORE FILE FIRST!!!
-//LoginSignupInterface loginSignupMenu = new LoginSignupMenu();
-//adding
-string connectionStringFilePath = "C:/../../../../../HappySpoonDB/Secrets.txt";
+
+//string connect server string stuff from text file goes here. PLEASE PUT THIS STRING IN THE .GITIGNORE FILE FIRST!!!
+string connectionStringFilePath = "C:/Revature/leo-ware/Project-0/don'tPushYet/HappySpoon/HappySpoonDB/Secrets.txt";
 string connectionString = File.ReadAllText(connectionStringFilePath);
-UserInfoLogic uLogic = new UserInfoLogic();
-RestaurantLogic rLogic = new RestaurantLogic();
+
+
+IUser urepo = new UserRepo(connectionString);
+IRestaurant RPrepo = new RestaurantRepo(connectionString);
+IUserLogic uLogic = new UserInfoLogic(urepo);
+IRestaurantLogic rLogic = new RestaurantLogic(RPrepo);
+
+
 Log.Logger = new LoggerConfiguration()
-    .WriteTo.File("C:/../../../../../HappySpoonUI/LogCabin.txt").MinimumLevel.Information()
+    .MinimumLevel.Debug()
+    .WriteTo.File("C:/Revature/leo-ware/Project-0/don'tPushYet/HappySpoon/HappySpoonUI/LogCabin.txt")
     .CreateLogger();
+
 
 while (repeat)
 {
@@ -28,6 +35,9 @@ while (repeat)
     {
         case "SearchRestaurantsMenu":
             menu = new SearchRestaurantsMenu(rLogic);
+            break;
+        case "AddReviewMenu":
+            menu = new AddReviewMenu(rLogic);
             break;
         case "LoginMenu":
             menu = new LoginMenu(uLogic);

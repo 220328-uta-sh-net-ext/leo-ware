@@ -3,27 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HappySpoonBL;
 using HappySpoonModels;
 namespace HappySpoonUI
 {
     internal class AddReviewMenu : IMenu
     {
-        /*private static RestaurantProfile Name = Name;
-        public static UserProfile UserName = UserName;
-        private readonly Review newReview = new Review(Name, UserName);
-        readonly ReviewLogic logic;
-        readonly IRepo repo;
-        public AddReviewMenu(IRepo? repo, ReviewLogic? logic)
+        public static Review newReview = new Review();
+        readonly IRestaurantLogic logic;
+        public AddReviewMenu(IRestaurantLogic logic)
         {
-            this.repo = repo;
             this.logic = logic;
-        }*/
+        }
         public void Display()
         {
             Console.WriteLine("Thank you for contributing your valuable feedbak to our platform!");
-
-            Console.WriteLine("Press <1> Add Review");
-            Console.WriteLine("Press <2> See Reviews");
+            Console.WriteLine("What type of feedback would you like to add?");
+            Console.WriteLine("Press <1> Add Comments" + newReview.Comments);
+            Console.WriteLine("Press <2> Add Stars" + newReview.Stars);
             Console.WriteLine("Press <3> Back to Main Menu");
             Console.WriteLine("Press <0> Exit Program");
         }
@@ -35,13 +32,40 @@ namespace HappySpoonUI
             switch (userInput)
             {
                 case "1":
-                    Console.WriteLine("Enter your username: ");
+                    try
+                    {
+                        Log.Information("Prompting user to add username to review" + newReview.UserName);
+                        Console.WriteLine("Enter your username: ");
+                        newReview.UserName = Console.ReadLine();
+                        Log.Information("Prompting user to add comments" + newReview.Comments);
+                        Console.WriteLine("Enter your comments: ");
+                        newReview.Comments = Console.ReadLine();
+                        Log.Information("Saving user's review");
+                        logic.AddReview(newReview);
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Warning("Failed to add review");
+                        Console.WriteLine(ex.Message);
+                    }
                     return "AddReviewMenu";
                 case "2":
-                    Console.WriteLine("Enter the restaurant's name:");
-                    /*Name = Console.ReadLine();
-                    Console.WriteLine("***********~ REVIEWS ~***********");
-                    List<Review> Name = logic.GetRestaurants(Name);*/
+                    try
+                    {
+                        Log.Information("Prompting user to add username to review" + newReview.UserName);
+                        Console.WriteLine("Enter your username: ");
+                        newReview.UserName = Console.ReadLine();
+                        Log.Information("Prompting user to add comments" + newReview.Stars);
+                        Console.WriteLine("Enter your comments: ");
+                        newReview.Stars = Convert.ToDouble(Console.ReadLine());
+                        Log.Information("Saving user's review");
+                        logic.AddReview(newReview);
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Warning("Failed to add review");
+                        Console.WriteLine(ex.Message);
+                    }
                     return "AddReviewMenu";
                 case "3":
                     return "MainMenu";
@@ -54,5 +78,6 @@ namespace HappySpoonUI
                     return "AddReviewMenu";
             }
         }
+
     }
 }

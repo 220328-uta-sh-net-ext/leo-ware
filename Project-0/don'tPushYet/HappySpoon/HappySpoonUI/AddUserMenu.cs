@@ -11,16 +11,22 @@ namespace HappySpoonUI
 {
     public class AddUserMenu : IMenu
     {
-        private UserInfoLogic uLogic;
+        
+        public static UserProfile User = new UserProfile();
+        private IUserLogic logic;
 
-        public AddUserMenu(UserInfoLogic uLogic)
+        public AddUserMenu(IUserLogic logic)
         {
-            this.uLogic = uLogic;
+            this.logic = logic;
         }
 
         public void Display()
         {
-            Console.WriteLine("<1> Enter user information");
+            Console.WriteLine("Enter user information");
+            Console.WriteLine("<1> Enter your username" + User.UserName);
+            Console.WriteLine("<2> Enter your password" + User.UserPassword);
+            Console.WriteLine("<3> Enter your email" + User.UserEmail);
+            Console.WriteLine("<4> Save your information");
             Console.WriteLine("<0> Back to Main Menu");
         }
 
@@ -31,8 +37,59 @@ namespace HappySpoonUI
             switch (userInput)
             {
                 case "1":
-                    Console.WriteLine("Creating new user profile...");
-                    
+                    try
+                    {
+                        Console.WriteLine("Creating new user profile...");
+                        Log.Information("Prompting user to add a new user: " + User.UserName);
+                        Console.Write("Enter your username: ");
+                        User.UserName = Console.ReadLine();
+                        Log.Information("Username accepted...");
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Warning("Failed to add new user :(");
+                        Console.WriteLine(ex.Message);
+                    }
+                    return "AddUserMenu";
+                    case "2":
+                    try
+                    {
+                        Log.Information("Prompting user to add a new password: " + User.UserPassword);
+                        Console.Write("Enter your username: ");
+                        User.UserPassword = Console.ReadLine();
+                        Log.Information("Password accepted...");
+                    }
+                    catch(Exception ex)
+                    {
+                        Log.Warning("Failed to add user's password :(");
+                        Console.WriteLine(ex.Message);
+                    }
+                    return "AddUserMenu";
+                    case"3":
+                    try
+                    {
+                        Log.Information("Prompting user to add a new password: " + User.UserEmail);
+                        Console.Write("Enter your email: ");
+                        User.UserEmail = Console.ReadLine();
+                        Log.Information("Email accepted...");
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Warning("Failed to add user's email :(");
+                        Console.WriteLine(ex.Message);
+                    }
+                    return "AddUserMenu";
+                    case "4":
+                    try
+                    {
+                        Log.Information("Saving to HappySpoon User database");
+                        logic.AddUser(User);
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Warning("Failed to add new user :(");
+                        Console.WriteLine(ex.Message);
+                    }
                     return "AddUserMenu";
                 case "0":
                     Console.Write("*************~ Loading Main Menu ~*************");

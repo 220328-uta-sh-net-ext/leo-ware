@@ -12,14 +12,13 @@ namespace HappySpoonUI
 {
     public class AdminMenu : IMenu
     {
-        private UserInfoLogic uLogic;
-        private RestaurantLogic rLogic;
-        public SearchRestaurantsMenu rMenu;
+        private IUserLogic logic;
+        private IRestaurantLogic logic2;
 
-        public AdminMenu(UserInfoLogic uLogic, RestaurantLogic rLogic)
+        public AdminMenu(IUserLogic logic, IRestaurantLogic logic2)
         {
-            this.uLogic = uLogic;
-            this.rLogic = rLogic;
+            this.logic = logic;
+            this.logic2 = logic2;
         }
 
         //readonly IUser urepo;
@@ -66,5 +65,6 @@ namespace HappySpoonUI
                     return "AdminMenu";
             }
         }
+
     }
 }

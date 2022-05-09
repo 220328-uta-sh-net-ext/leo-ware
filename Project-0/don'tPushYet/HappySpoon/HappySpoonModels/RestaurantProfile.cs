@@ -8,22 +8,17 @@
         public string Location { get; set; }
         public string ContactInfo { get; set; }
         public double AverageStars { get; set; }
-        public string Reviews { get; set; }
-        public int NumOfReviews { get; set; }
 
         //Rating / (Reviews * 5) -- Calculating average rating
 
         public RestaurantProfile()
         {
-            RestaurantID = RestaurantID ++;
+            RestaurantID = ++RestaurantID;
             Name = "";
             Description = "";
             Location = "";
             ContactInfo = "";
             AverageStars = 0;
-            Reviews = "";
-            NumOfReviews = Reviews.Length;
-            
         }
 
 
@@ -50,7 +45,7 @@
 
         public override string ToString()
         {
-            return $"{Name}\n{Description}\n{Location}\n{ContactInfo}\n{AverageStars}\n\n{Reviews}";
+            return $"{Name}\n{Description}\n{Location}\n{ContactInfo}\n{AverageStars}";
         }
         
 

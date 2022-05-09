@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HappySpoonDL;
 using HappySpoonBL;
 using HappySpoonModels;
 using HappySpoonUI;
@@ -11,11 +12,12 @@ namespace HappySpoonUI
 {
     public class SearchRestaurantsMenu : IMenu
     {
-        private RestaurantLogic rLogic;
+        readonly IRestaurantLogic logic;
+        private SqlRepository sqlRepository = new SqlRepository();
 
-        public SearchRestaurantsMenu(RestaurantLogic rLogic)
+        public SearchRestaurantsMenu(IRestaurantLogic logic)
         {
-            this.rLogic = rLogic;
+            this.logic = logic;
         }
 
         public void Display()
