@@ -29,11 +29,11 @@ namespace HappySpoonBL
         }
 
 
-        public List<RestaurantProfile> SearchRestaurants(string name, string input)
+        public List<RestaurantProfile> SearchRestaurants(string rName, string input)
         {
             List<RestaurantProfile>? restaurants = RPrepo.GetAllRestaurants();
             var filterRP = restaurants;
-            if(input == name)
+            if(input == rName)
                 filterRP = restaurants.Where(x => x.Name == input).ToList();
             return filterRP;
         }

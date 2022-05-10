@@ -45,12 +45,14 @@ namespace HappySpoonUI
                     {
                         if (uName == i.UserName && uPassword == i.UserPassword)
                         {
-                            Log.Debug($"User, {uName}, has logged in");
+                            Log.Information($"User, {uName}, has logged in");
+                            Console.WriteLine($"User, { uName}, is logged in");
                             return "AddReviewMenu";
                         }
                         else if (uName == i.AdminName && uPassword == i.AdminPassword)
                         {
-                            Log.Debug($"What's up, {uName}?!");
+                            Log.Information($"What's up, {uName}?!");
+                            Console.WriteLine($"What's up, {uName}?!");
                             return "AdminMenu";
                         }
                         else

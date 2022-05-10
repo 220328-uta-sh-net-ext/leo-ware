@@ -12,9 +12,9 @@ namespace HappySpoonDL
 {
     public class SqlRepository : IRestaurant//, IUser
     {
-        private const string connectionStringFilePath = "C:/Revature/leo-ware/Project-0/don'tPushYet/HappySpoon/HappySpoonDB/Secrets.txt";
         private readonly string connectionString;
-
+        private const string connectionStringFilePath = "C:/Revature/leo-ware/Project-0/don'tPushYet/HappySpoon/HappySpoonDB/Secrets.txt";
+        
         public SqlRepository(string connectionString)
         {
             connectionString = File.ReadAllText(connectionStringFilePath);

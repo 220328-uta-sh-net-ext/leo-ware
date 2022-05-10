@@ -8,7 +8,9 @@ namespace HappySpoonBL
 {
     public class UserInfoLogic : IUserLogic
     {
-        
+        /// <summary>
+        /// Instantiating my user repository interface for my business logic to use accordingly
+        /// </summary>
         readonly IUser urepo;
         public UserInfoLogic(IUser repo)
         {

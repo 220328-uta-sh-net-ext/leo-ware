@@ -60,7 +60,7 @@ while (repeat)
             break;
     }
     
-    userInput = Console.ReadLine();
+    //userInput = Console.ReadLine();
 
     ///<summary>
     ///* I set the "answer" variable outside of the while loop so that it would stop repeating my main menu and being weird.

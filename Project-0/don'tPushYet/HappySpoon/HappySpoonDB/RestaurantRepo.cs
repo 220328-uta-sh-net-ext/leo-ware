@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ namespace HappySpoonDL
     
     public class RestaurantRepo : IRestaurant
     {
+        readonly List<RestaurantProfile> restaurants = new List<RestaurantProfile>();
         private string connectionString;
 
         public RestaurantRepo(string connectionString)
@@ -50,8 +52,29 @@ namespace HappySpoonDL
 
         public List<RestaurantProfile> GetAllRestaurants()
         {
-            throw new NotImplementedException();
-            return GetAllRestaurants();
+            string commandString = "SELECT * FROM Restaurants;";
+            using SqlConnection connection = new(connectionString);
+            using SqlCommand command = new SqlCommand(commandString, connection);
+            IDataAdapter adapter = new SqlDataAdapter(command);
+            DataSet dataSet = new();
+            connection.Open();
+            adapter.Fill(dataSet);
+            connection.Close();
+            var restaurants = new List<RestaurantProfile>();
+            foreach (DataRow row in dataSet.Tables[0].Rows)
+            {
+                restaurants.Add(new RestaurantProfile
+                {
+                    RestaurantID = (int)row[0],
+                    Name = (string)row[1],
+                    Description = (string)row[2],
+                    Location = (string)row[3],
+                    ContactInfo = (string)row[4],
+                    AverageStars = (int)row[5]
+
+                });
+            }
+            return restaurants;
         }
 
         /// <summary>
