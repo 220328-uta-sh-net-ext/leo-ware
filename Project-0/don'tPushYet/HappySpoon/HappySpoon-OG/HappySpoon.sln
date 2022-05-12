@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32319.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HappySpoonModels", "HappySpoonModels\HappySpoonModels.csproj", "{02295864-A032-400C-AE39-84D165D2C021}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HappySpoonUI", "HappySpoonUI\HappySpoonUI.csproj", "{91F5C1E1-B984-43CA-9D23-1F490E2316DA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HappySpoonDL", "HappySpoonDB\HappySpoonDL.csproj", "{D222FC5A-1224-4D5E-B88D-21AB9D37F877}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HappySpoonTest", "HappySpoonTest\HappySpoonTest.csproj", "{F04D494B-BF9D-4506-B15A-F579D3F98A5D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D222FC5A-1224-4D5E-B88D-21AB9D37F877} = {D222FC5A-1224-4D5E-B88D-21AB9D37F877}
+		{02295864-A032-400C-AE39-84D165D2C021} = {02295864-A032-400C-AE39-84D165D2C021}
+		{8E3AB565-E771-4AFD-A6F9-AFB6544280B4} = {8E3AB565-E771-4AFD-A6F9-AFB6544280B4}
+		{91F5C1E1-B984-43CA-9D23-1F490E2316DA} = {91F5C1E1-B984-43CA-9D23-1F490E2316DA}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HappySpoonBL", "HappySpoonBL\HappySpoonBL.csproj", "{8E3AB565-E771-4AFD-A6F9-AFB6544280B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02295864-A032-400C-AE39-84D165D2C021}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02295864-A032-400C-AE39-84D165D2C021}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02295864-A032-400C-AE39-84D165D2C021}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02295864-A032-400C-AE39-84D165D2C021}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91F5C1E1-B984-43CA-9D23-1F490E2316DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91F5C1E1-B984-43CA-9D23-1F490E2316DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91F5C1E1-B984-43CA-9D23-1F490E2316DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91F5C1E1-B984-43CA-9D23-1F490E2316DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D222FC5A-1224-4D5E-B88D-21AB9D37F877}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D222FC5A-1224-4D5E-B88D-21AB9D37F877}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D222FC5A-1224-4D5E-B88D-21AB9D37F877}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D222FC5A-1224-4D5E-B88D-21AB9D37F877}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F04D494B-BF9D-4506-B15A-F579D3F98A5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F04D494B-BF9D-4506-B15A-F579D3F98A5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F04D494B-BF9D-4506-B15A-F579D3F98A5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F04D494B-BF9D-4506-B15A-F579D3F98A5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E3AB565-E771-4AFD-A6F9-AFB6544280B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E3AB565-E771-4AFD-A6F9-AFB6544280B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E3AB565-E771-4AFD-A6F9-AFB6544280B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E3AB565-E771-4AFD-A6F9-AFB6544280B4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4EF96ED4-83B5-4ADA-97FD-BF0DA6080ED9}
+	EndGlobalSection
+EndGlobal
