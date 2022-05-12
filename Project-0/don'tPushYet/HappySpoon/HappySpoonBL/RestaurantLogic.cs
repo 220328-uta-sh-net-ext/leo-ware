@@ -33,24 +33,32 @@ namespace HappySpoonBL
         {
             List<RestaurantProfile>? restaurants = RPrepo.GetAllRestaurants();
             var filterRP = restaurants;
-            if(input == rName)
-                filterRP = restaurants.Where(x => x.Name == input).ToList();
+            if (input == rName)
+                return filterRP;
+            filterRP = restaurants.Where(x => x.Name == input).ToList();
             return filterRP;
         }
 
         public Review AddReview(Review newReview)
         {
+            Review review = new Review()
+            {
+                Restaurant = newReview.Restaurant,
+                UserName = newReview.UserName,
+                Comments = newReview.Comments,
+                Stars = newReview.Stars
+            };
             return RPrepo.AddReview(newReview);
         }
 
         public List<RestaurantProfile> GetAllRestaurants()
         {
-           List<RestaurantProfile> restaurants = RPrepo.GetAllRestaurants();
-            foreach(var restaurant in restaurants)
+            var restaurants = new List<RestaurantProfile>();
+            if (restaurants.Count > 0)
+            foreach (RestaurantProfile? restaurant in restaurants)
             {
                 return restaurants;
             }
-
             throw new Exception("There are no restaurants by that name");
         }
 

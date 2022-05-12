@@ -12,21 +12,20 @@ namespace HappySpoonDL
 {
     public class SqlRepository : IRestaurant//, IUser
     {
-        private readonly string connectionString;
-        private const string connectionStringFilePath = "C:/Revature/leo-ware/Project-0/don'tPushYet/HappySpoon/HappySpoonDB/Secrets.txt";
-        
-        public SqlRepository(string connectionString)
+        private SqlRepository(string connectionString)
         {
-            connectionString = File.ReadAllText(connectionStringFilePath);
+            this.connectionString = File.ReadAllText(connectionStringFilePath);
         }
+        private const string connectionStringFilePath = "C:/Revature/leo-ware/Project-0/don'tPushYet/HappySpoon/HappySpoonDB/Secrets.txt";
+        readonly string connectionString;
 
         public List<RestaurantProfile> GetRestaurants()
         {
             string commandString = "SELECT * FROM Restaurants;";
             using SqlConnection connection = new(connectionString);
-            using IDbCommand command = new SqlCommand(commandString, connection);
+            using SqlCommand command = new SqlCommand(commandString, connection);
             connection.Open();
-            using IDataReader reader = command.ExecuteReader();
+            using SqlDataReader reader = command.ExecuteReader();
             var restaurants = new List<RestaurantProfile>();
             while (reader.Read())
             {
@@ -48,7 +47,7 @@ namespace HappySpoonDL
             string commandString = "SELECT * FROM Restaurants;";
             using SqlConnection connection = new(connectionString);
             using SqlCommand command = new SqlCommand(commandString, connection);
-            IDataAdapter adapter = new SqlDataAdapter(command);
+            using SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataSet dataSet = new();
             connection.Open();
             adapter.Fill(dataSet);

@@ -26,27 +26,26 @@ namespace HappySpoonDL
         /// </summary>
         /// <param name="restaurant"></param>
         /// <returns> Returns a new Restaurant Profile into the Restaurants database </returns>
-        public RestaurantProfile AddRestaurant(RestaurantProfile restaurant)
+        public RestaurantProfile AddRestaurant(RestaurantProfile restaurants)
         {
             string commandString = "INSERT INTO Restaurants (RestaurantId, Name, Description, Location, ContactInfo, AverageStars) VALUES " + "(@restaurantid, @restaurantname, @description, @location, @contactinfo, @averagestars)";
 
             using SqlConnection connection = new(connectionString);
             using SqlCommand command = new SqlCommand(commandString, connection);
-            command.Parameters.AddWithValue("@restaurantid", restaurant.RestaurantID);
-            command.Parameters.AddWithValue("@restaurantname", restaurant.Name);
-            command.Parameters.AddWithValue("@description", restaurant.Description);
-            command.Parameters.AddWithValue("@location", restaurant.Location);
-            command.Parameters.AddWithValue("@contactinfo", restaurant.ContactInfo);
-            command.Parameters.AddWithValue("@averagestars", restaurant.AverageStars);
+            command.Parameters.AddWithValue("@restaurantid", restaurants.RestaurantID);
+            command.Parameters.AddWithValue("@restaurantname", restaurants.Name);
+            command.Parameters.AddWithValue("@description", restaurants.Description);
+            command.Parameters.AddWithValue("@location", restaurants.Location);
+            command.Parameters.AddWithValue("@contactinfo", restaurants.ContactInfo);
+            command.Parameters.AddWithValue("@averagestars", restaurants.AverageStars);
             connection.Open();
             command.ExecuteNonQuery();
             connection.Close();
 
-            return restaurant;
+            return restaurants;
         }
-        public List<RestaurantProfile> SearchRestaurants()
+        public List<RestaurantProfile> SearchRestaurants(RestaurantProfile restaurants)
         {
-            throw new NotImplementedException();
             return GetAllRestaurants();
         }
 
@@ -55,15 +54,15 @@ namespace HappySpoonDL
             string commandString = "SELECT * FROM Restaurants;";
             using SqlConnection connection = new(connectionString);
             using SqlCommand command = new SqlCommand(commandString, connection);
-            IDataAdapter adapter = new SqlDataAdapter(command);
+            using SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataSet dataSet = new();
             connection.Open();
             adapter.Fill(dataSet);
             connection.Close();
-            var restaurants = new List<RestaurantProfile>();
+            var restaurant = new List<RestaurantProfile>();
             foreach (DataRow row in dataSet.Tables[0].Rows)
             {
-                restaurants.Add(new RestaurantProfile
+                restaurant.Add(new RestaurantProfile
                 {
                     RestaurantID = (int)row[0],
                     Name = (string)row[1],
@@ -71,10 +70,16 @@ namespace HappySpoonDL
                     Location = (string)row[3],
                     ContactInfo = (string)row[4],
                     AverageStars = (int)row[5]
+                    /*RestaurantID = reader.GetInt32(0),
+                    Name = reader.GetString(1),
+                    Description = reader.GetString(2),
+                    Location = reader.GetString(3),
+                    ContactInfo = reader.GetString(4),
+                    AverageStars = reader.GetInt32(5)*/
 
                 });
             }
-            return restaurants;
+            return restaurant;
         }
 
         /// <summary>

@@ -15,14 +15,14 @@ namespace HappySpoonModels
         public double Stars { get; set; }
         public string Comments { get; set; }
         public string Restaurant { get; set; }
-        //RestaurantProfile Name { get => Name; set => Restaurant = Name; }
+        
 
         public Review()
         {
-            Restaurant = Restaurant;
+            Restaurant = "";
             UserID = 0;
-            UserName = UserName;
-            Stars = 0;  //if (Stars = null) {return null;}
+            UserName = "";
+            Stars = 0;
             Comments = "";
         }
 

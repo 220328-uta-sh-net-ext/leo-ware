@@ -62,3 +62,4 @@ CREATE TABLE [dbo].[Restaurants]
 );
 INSERT INTO Restaurants (RestaurantId, Name, Description, Location, ContactInfo, AverageStars) VALUES (1, 'Bobs Burgers', 'All American fan fare', 'Boston', '1-800-BURGERS', 5);
 SELECT * FROM Restaurants;
+SELECT * FROM Users;
