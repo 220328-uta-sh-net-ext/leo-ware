@@ -58,13 +58,10 @@ namespace HappySpoonUI
                         else
                         {
                             Log.Debug("User login failed");
-                            Console.WriteLine("UserName or Password is invalid. Try again...");
-                            return "LoginMenu";
+                            throw new InvalidDataException ("UserName or Password is invalid. Try again...");
                         }
-                        return "AddReviewMenu";
                     }
-                    return "AddReviewMenu";
-
+                    return "LoginMenu";
                 case "2":
                     Log.Debug("Returning user to main menu");
                 Console.WriteLine("Returning to Main Menu.....");

@@ -47,7 +47,7 @@ namespace HappySpoonDL
         /// <returns>Gets all existing users from the database</returns>
         public List<UserProfile> GetAllUsers()
         {
-            string commandString = "SELECT * FROM Users;";
+            string commandString = "SELECT AccessID, UserName, UserEmail FROM Users;";
             using SqlConnection connection = new(connectionString);
             using SqlCommand command = new SqlCommand(commandString, connection);
             connection.Open();
@@ -64,36 +64,33 @@ namespace HappySpoonDL
                     UserPassword = reader.GetString(4)
                 });
             }
+            connection.Close();
             return user;
         }
 
-        public List<UserProfile> GetUser()
-        {
-            throw new NotImplementedException();
-        }
 
-        /*public List<UserProfile> GetUser()
+
+        public List<UserProfile> GetUser()
         {
             string commandString = "SELECT * FROM Users;";
             using SqlConnection connection = new(connectionString);
             using SqlCommand command = new SqlCommand(commandString, connection);
-            //IDataAdapter adapter = new SqlDataAdapter(command);
-            //DataSet dataSet = new();
+            using SqlDataReader reader = command.ExecuteReader();
             connection.Open();
-            adapter.Fill(dataSet);
-            connection.Close();
             var users = new List<UserProfile>();
-            foreach (DataRow row in dataSet.Tables[0].Rows)
+            while (reader.Read())
             {
                 users.Add(new UserProfile
                 {
-                    UserID = (int)row[0],
-                    UserName = (string)row[1],
-                    UserEmail = (string)row[2],
-                    UserPassword = (string)row[3]
+                    UserAccess = reader.GetString(0),
+                    UserID = reader.GetInt32(1),
+                    UserName = reader.GetString(2),
+                    UserEmail = reader.GetString(3),
+                    UserPassword = reader.GetString(4)
                 });
             }
+            connection.Close();
             return users;
-        }*/
+        }
     }
 }

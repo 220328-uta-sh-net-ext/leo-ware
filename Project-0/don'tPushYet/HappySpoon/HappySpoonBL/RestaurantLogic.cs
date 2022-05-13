@@ -29,15 +29,23 @@ namespace HappySpoonBL
         }
 
 
-        public List<RestaurantProfile> SearchRestaurants(string rName, string input)
+        public List<RestaurantProfile> SearchRestaurants(string rName)
         {
             List<RestaurantProfile>? restaurants = RPrepo.GetAllRestaurants();
             var filterRP = restaurants;
-            if (input == rName)
-                return filterRP;
-            filterRP = restaurants.Where(x => x.Name == input).ToList();
+            filterRP = restaurants.Where(x => x.Name == rName).ToList();
+            if (! rName.Equals(rName))
+                throw new InvalidDataException("There are no restaurants by that name");
+            else
             return filterRP;
         }
+
+        /*public List<RestaurantProfile> GetRestaurant()
+        {
+            RestaurantRepo repo = new RestaurantRepo();
+            var restaurant = repo.GetAllRestaurants();
+            return restaurant;
+        }*/
 
         public Review AddReview(Review newReview)
         {
@@ -53,13 +61,14 @@ namespace HappySpoonBL
 
         public List<RestaurantProfile> GetAllRestaurants()
         {
-            var restaurants = new List<RestaurantProfile>();
-            if (restaurants.Count > 0)
-            foreach (RestaurantProfile? restaurant in restaurants)
-            {
-                return restaurants;
-            }
-            throw new Exception("There are no restaurants by that name");
+
+
+
+            IRestaurant RPrepo = new List<RestaurantProfile>();
+            var restaurant = RPrepo.GetAllRestaurants();
+            //if (restaurant.Count > 0)
+                return restaurant;
+            throw new InvalidDataException("There are no restaurants by that name");
         }
 
 

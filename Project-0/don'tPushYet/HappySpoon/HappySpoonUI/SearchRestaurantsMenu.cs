@@ -12,20 +12,23 @@ namespace HappySpoonUI
 {
     public class SearchRestaurantsMenu : IMenu
     {
-        public static RestaurantProfile rName = new RestaurantProfile();
-
+        public RestaurantProfile restaurant = new RestaurantProfile();
+        public static List<RestaurantProfile> rp = new List<RestaurantProfile>();
+        string rName = "";
         readonly IRestaurantLogic logic;
+        readonly IRestaurant repo;
 
-        public SearchRestaurantsMenu(IRestaurantLogic logic)
+        public SearchRestaurantsMenu(IRestaurantLogic logic, IRestaurant repo)
         {
             this.logic = logic;
+            this.repo = repo;
         }
 
         public void Display()
         {
             Console.WriteLine("Please enter input to search restaurants");
-            Console.WriteLine("<1> See all restaurants\n  ");
-            Console.WriteLine("<2> Search restaurants by name\n   " + rName.Name);
+            Console.WriteLine("<1> See all restaurants\n  " + rp);
+            Console.WriteLine("<2> Search restaurants by name\n   " + rName);
             Console.WriteLine("<0> Back to Main Menu");
         }
 
@@ -38,14 +41,24 @@ namespace HappySpoonUI
                 case "1":
                     Console.WriteLine(" ");
                     Console.WriteLine("********************~ SHOWING ALL RESTAURANTS ~**********************");
-                    logic.GetAllRestaurants();
+                    repo.GetAllRestaurants();
                     return "SearchRestaurants";
                 case "2":
-                    Console.WriteLine("**************************************");
-                    Console.WriteLine("Search by name view a restaurant");
-                    Console.WriteLine("Enter restaurant's name: ");
-                    string rName = Console.ReadLine();
-                    logic.SearchRestaurants(rName, userInput);
+                    try
+                    {
+                        Log.Information("User is attempting to search fpr a restaurant by name.");
+                        Console.WriteLine("**************************************");
+                        Console.WriteLine("Search by name view a restaurant");
+                        Console.WriteLine("Enter restaurant's name: ");
+                        Log.Information("Prompting user for restaurant search input.");
+                        rName = Console.ReadLine();
+                        repo.SearchRestaurants(rName);
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Debug(ex.Message);
+                        Console.WriteLine(ex.Message);
+                    }
                     return "SearchRestaurants";
                 case "0":
                     return "MainMenu";

@@ -34,7 +34,7 @@ while (repeat)
     switch (userInput)
     {
         case "SearchRestaurantsMenu":
-            menu = new SearchRestaurantsMenu(rLogic);
+            menu = new SearchRestaurantsMenu(rLogic, RPrepo);
             break;
         case "AddReviewMenu":
             menu = new AddReviewMenu(rLogic);
@@ -56,6 +56,7 @@ while (repeat)
             break;
         default:
             Console.WriteLine("View not found \nPlease press <enter> to continue.");
+            Console.ReadLine();
             menu = new MainMenu();
             break;
     }

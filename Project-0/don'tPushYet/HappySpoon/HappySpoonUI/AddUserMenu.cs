@@ -23,9 +23,7 @@ namespace HappySpoonUI
         public void Display()
         {
             Console.WriteLine("Enter user information");
-            Console.WriteLine("<1> Enter your username        " + User.UserName + User.UserPassword + User.UserEmail);
-            //Console.WriteLine("<2> Enter your password        " + User.UserPassword);
-            //Console.WriteLine("<3> Enter your email           " + User.UserEmail);
+            Console.WriteLine("<1> Enter your username     " + User.UserName + User.UserPassword + User.UserEmail);
             Console.WriteLine("<2> Save your information");
             Console.WriteLine("<0> Back to Main Menu");
         }
@@ -59,39 +57,11 @@ namespace HappySpoonUI
                         Console.WriteLine(ex.Message);
                     }
                     return "AddUserMenu";
-                    /*case "2":
-                    try
-                    {
-                        Log.Information("Prompting user to add a new password: " + User.UserPassword);
-                        Console.Write("Enter your password: ");
-                        User.UserPassword = Console.ReadLine();
-                        Log.Information("Password accepted...");
-                    }
-                    catch(Exception ex)
-                    {
-                        Log.Warning("Failed to add user's password :(");
-                        Console.WriteLine(ex.Message);
-                    }
-                    return "AddUserMenu";
-                    case"3":
-                    try
-                    {
-                        Log.Information("Prompting user to add a new email: " + User.UserEmail);
-                        Console.Write("Enter your email: ");
-                        User.UserEmail = Console.ReadLine();
-                        Log.Information("Email accepted...");
-                    }
-                    catch (Exception ex)
-                    {
-                        Log.Warning("Failed to add user's email :(");
-                        Console.WriteLine(ex.Message);
-                    }
-                    return "AddUserMenu";*/
                     case "4":
                     try
                     {
                         Log.Information("Saving to HappySpoon User database");
-                        Console.WriteLine($"User was saved! Welcome, {User.UserName}");
+                        Console.WriteLine($"User was saved!\n Welcome, {User.UserName}");
                         logic.AddUser(User);
                     }
                     catch (Exception ex)

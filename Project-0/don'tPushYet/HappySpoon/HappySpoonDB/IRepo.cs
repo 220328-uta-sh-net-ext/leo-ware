@@ -12,12 +12,13 @@ namespace HappySpoonDL
         //**************************************~ RESTAURANT INTERFACE ~****************************************
         public RestaurantProfile AddRestaurant(RestaurantProfile Restaurant);
         public List<RestaurantProfile> GetAllRestaurants();
-        
+        public List<RestaurantProfile> GetRestaurant(RestaurantProfile rp);
+
+        public List<RestaurantProfile> SearchRestaurants(string rName);
 
         //***************************************~ REVIEW ~********************************************
 
         Review AddReview(Review newReview);
-        //List<Review> AverageStars { get; }
     }
 
     public interface IUser

@@ -21,6 +21,7 @@ namespace HappySpoonDL
 
         public List<RestaurantProfile> GetRestaurants()
         {
+
             string commandString = "SELECT * FROM Restaurants;";
             using SqlConnection connection = new(connectionString);
             using SqlCommand command = new SqlCommand(commandString, connection);
@@ -40,38 +41,43 @@ namespace HappySpoonDL
                     
                 });
             }
+            connection.Close();
             return restaurants;
         }
+
+
+
+
+
         public List<RestaurantProfile> GetAllRestaurants()
         {
             string commandString = "SELECT * FROM Restaurants;";
             using SqlConnection connection = new(connectionString);
             using SqlCommand command = new SqlCommand(commandString, connection);
-            using SqlDataAdapter adapter = new SqlDataAdapter(command);
-            DataSet dataSet = new();
+            using SqlDataReader reader = command.ExecuteReader();
             connection.Open();
-            adapter.Fill(dataSet);
-            connection.Close();
+            
             var restaurants = new List<RestaurantProfile>();
-            foreach (DataRow row in dataSet.Tables[0].Rows)
+            while (reader.Read())
             {
                 restaurants.Add(new RestaurantProfile
                 {
-                    RestaurantID = (int)row[0],
-                    Name = (string)row[1],
-                    Description = (string)row[2],
-                    Location = (string)row[3],
-                    ContactInfo = (string)row[4],
-                    AverageStars = (int)row[5]
+                    RestaurantID = reader.GetInt32(0),
+                    Name = reader.GetString(1),
+                    Description = reader.GetString(2),
+                    Location = reader.GetString(3),
+                    ContactInfo = reader.GetString(4),
+                    AverageStars = reader.GetDouble(5)
 
                 });
             }
+            connection.Close();
             return restaurants;
         }
 
         public List<Review> GetReviews()
         {
-            string commandString = "SELECT * FROM dbo.Review GROUP BY Restaurant;";
+            string commandString = "SELECT * FROM Review GROUP BY Restaurant;";
             using SqlConnection connection = new(connectionString);
             using SqlCommand command = new SqlCommand(@commandString, connection);
             connection.Open();
@@ -88,13 +94,14 @@ namespace HappySpoonDL
                     Stars = reader.GetDouble(4)
                 });
             }
+            connection.Close();
             return reviews;
         }
 
 
         public Review AddReview(Review newReview)
         {
-            string commandString = "INSERT INTO dbo.Reviews (Restaurant, UserName, Comments, Stars) VALUES (@username, @restaurant, @comments, @stars)";
+            string commandString = "INSERT INTO Reviews (Restaurant, UserName, Comments, Stars) VALUES (@username, @restaurant, @comments, @stars)";
 
             using SqlConnection connection = new(connectionString);
             using SqlCommand command = new SqlCommand(commandString, connection);
@@ -104,7 +111,7 @@ namespace HappySpoonDL
             command.Parameters.AddWithValue("@stars", newReview.Stars);
             connection.Open();
             command.ExecuteNonQuery();
-
+            connection.Close();
             return newReview;
         }
 
@@ -122,71 +129,19 @@ namespace HappySpoonDL
             command.Parameters.AddWithValue("@averagestars", restaurant.AverageStars);
             connection.Open();
             command.ExecuteNonQuery();
-
+            connection.Close();
             return restaurant;
         }
-        /*public List<UserProfile> GetAllUsers()
-        {
-            string commandString = "SELECT * FROM Users;";
-            using SqlConnection connection = new(connectionString);
-            using SqlCommand command = new SqlCommand(commandString, connection);
-            connection.Open();
-            using IDataReader reader = command.ExecuteReader();
-            var user = new List<UserProfile>();
-            while (reader.Read())
-            {
-                user.Add(new UserProfile
-                {
-                    UserID = (int)reader[0],
-                    UserName = reader.GetString(0),
-                    UserPassword = reader.GetString(1),
-                    UserEmail = reader.GetString(2)
-                });
-            }
-            return user;
-        }*/
-        /*public List<UserProfile> GetUser()
-        {
-            string commandString = "SELECT * FROM Users;";
-            using SqlConnection connection = new(connectionString);
-            using SqlCommand command = new SqlCommand(commandString, connection);
-            IDataAdapter adapter = new SqlDataAdapter(command);
-            DataSet dataSet = new();
-            connection.Open();
-            adapter.Fill(dataSet);
-            connection.Close();
-            var users = new List<UserProfile>();
-            foreach (DataRow row in dataSet.Tables[0].Rows)
-            {
-                users.Add(new UserProfile
-                {
-                    UserID= (int)row[0],
-                    UserName = (string)row[1],
-                    UserEmail = (string)row[2],
-                    UserPassword = (string)row[3]
-                });
-            }
-            return users;
-        }*/
-       
 
-       /* public UserProfile AddUser(UserProfile user)
+        public List<RestaurantProfile> GetRestaurant(RestaurantProfile rp)
         {
-            string commandString = "INSERT INTO Users (AccessID, UserId, Username, Email, Password) VALUES " + "(@access, @userid, @username, @useremail, @password);";
+            throw new NotImplementedException();
+        }
 
-            using SqlConnection connection = new(connectionString);
-            using SqlCommand command = new SqlCommand(commandString, connection);
-            command.Parameters.AddWithValue("@access", user.UserAccess);
-            command.Parameters.AddWithValue("@userid", user.UserID);
-            command.Parameters.AddWithValue("@username", user.UserName);
-            command.Parameters.AddWithValue("@useremail", user.UserEmail);
-            command.Parameters.AddWithValue("@password", user.UserPassword);
-            connection.Open();
-            command.ExecuteNonQuery();
-            connection.Close();
-
-            return user;
-        }*/
+        public List<RestaurantProfile> SearchRestaurants(string rName)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

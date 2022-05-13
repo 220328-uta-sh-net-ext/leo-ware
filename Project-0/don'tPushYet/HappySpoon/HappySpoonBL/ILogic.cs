@@ -12,8 +12,9 @@ namespace HappySpoonBL
     {
         RestaurantProfile AddRestaurant(RestaurantProfile rp);
         Review AddReview(Review newReview);
-        List<RestaurantProfile> GetAllRestaurants();
-        List<RestaurantProfile> SearchRestaurants(string rName, string uInput);
+        List<RestaurantProfile> GetAllRestaurants(List<RestaurantProfile> restaurants);
+        List<RestaurantProfile> SearchRestaurants(string rName);
+        List<RestaurantProfile> GetRestaurant(RestaurantProfile rp);
     }
 
     public interface IUserLogic

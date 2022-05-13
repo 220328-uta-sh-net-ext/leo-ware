@@ -14,7 +14,8 @@ namespace HappySpoonDL
     
     public class RestaurantRepo : IRestaurant
     {
-        readonly List<RestaurantProfile> restaurants = new List<RestaurantProfile>();
+        readonly List<RestaurantProfile> rp = new List<RestaurantProfile>();
+
         private string connectionString;
 
         public RestaurantRepo(string connectionString)
@@ -24,29 +25,33 @@ namespace HappySpoonDL
         /// <summary>
         /// Method to add a new restaurant
         /// </summary>
-        /// <param name="restaurant"></param>
+        /// <param name="rp"></param>
         /// <returns> Returns a new Restaurant Profile into the Restaurants database </returns>
-        public RestaurantProfile AddRestaurant(RestaurantProfile restaurants)
+        public RestaurantProfile AddRestaurant(RestaurantProfile rp)
         {
             string commandString = "INSERT INTO Restaurants (RestaurantId, Name, Description, Location, ContactInfo, AverageStars) VALUES " + "(@restaurantid, @restaurantname, @description, @location, @contactinfo, @averagestars)";
 
             using SqlConnection connection = new(connectionString);
             using SqlCommand command = new SqlCommand(commandString, connection);
-            command.Parameters.AddWithValue("@restaurantid", restaurants.RestaurantID);
-            command.Parameters.AddWithValue("@restaurantname", restaurants.Name);
-            command.Parameters.AddWithValue("@description", restaurants.Description);
-            command.Parameters.AddWithValue("@location", restaurants.Location);
-            command.Parameters.AddWithValue("@contactinfo", restaurants.ContactInfo);
-            command.Parameters.AddWithValue("@averagestars", restaurants.AverageStars);
+            command.Parameters.AddWithValue("@restaurantid", rp.RestaurantID);
+            command.Parameters.AddWithValue("@restaurantname", rp.Name);
+            command.Parameters.AddWithValue("@description", rp.Description);
+            command.Parameters.AddWithValue("@location", rp.Location);
+            command.Parameters.AddWithValue("@contactinfo", rp.ContactInfo);
+            command.Parameters.AddWithValue("@averagestars", rp.AverageStars);
             connection.Open();
             command.ExecuteNonQuery();
             connection.Close();
 
-            return restaurants;
+            return rp;
         }
-        public List<RestaurantProfile> SearchRestaurants(RestaurantProfile restaurants)
+        public List<RestaurantProfile> SearchRestaurants(string rName)
         {
-            return GetAllRestaurants();
+            var retsaurants = GetAllRestaurants();
+            var filterRP = from restaurant in retsaurants
+                           where restaurant.Name.ToLower().Contains(rName.ToLower())
+                           select restaurant;
+            return filterRP.ToList();
         }
 
         public List<RestaurantProfile> GetAllRestaurants()
@@ -54,28 +59,20 @@ namespace HappySpoonDL
             string commandString = "SELECT * FROM Restaurants;";
             using SqlConnection connection = new(connectionString);
             using SqlCommand command = new SqlCommand(commandString, connection);
-            using SqlDataAdapter adapter = new SqlDataAdapter(command);
-            DataSet dataSet = new();
+            using SqlDataReader reader = command.ExecuteReader();
             connection.Open();
-            adapter.Fill(dataSet);
-            connection.Close();
+            
             var restaurant = new List<RestaurantProfile>();
-            foreach (DataRow row in dataSet.Tables[0].Rows)
+            while (reader.Read())
             {
                 restaurant.Add(new RestaurantProfile
                 {
-                    RestaurantID = (int)row[0],
-                    Name = (string)row[1],
-                    Description = (string)row[2],
-                    Location = (string)row[3],
-                    ContactInfo = (string)row[4],
-                    AverageStars = (int)row[5]
-                    /*RestaurantID = reader.GetInt32(0),
+                    RestaurantID = reader.GetInt32(0),
                     Name = reader.GetString(1),
                     Description = reader.GetString(2),
                     Location = reader.GetString(3),
                     ContactInfo = reader.GetString(4),
-                    AverageStars = reader.GetInt32(5)*/
+                    AverageStars = reader.GetDouble(5)
 
                 });
             }
@@ -90,6 +87,11 @@ namespace HappySpoonDL
         public Review AddReview(Review newReview)
         {
             return AddReview(newReview);
+        }
+
+        public List<RestaurantProfile> GetRestaurant(RestaurantProfile rp)
+        {
+            return GetRestaurant(rp);
         }
     }
 
