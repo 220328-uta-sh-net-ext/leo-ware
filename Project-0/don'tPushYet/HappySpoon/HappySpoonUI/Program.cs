@@ -14,10 +14,10 @@ string connectionStringFilePath = "C:/Revature/leo-ware/Project-0/don'tPushYet/H
 string connectionString = File.ReadAllText(connectionStringFilePath);
 
 
-IUser urepo = new UserRepo(connectionString);
-IRestaurant RPrepo = new RestaurantRepo(connectionString);
-IUserLogic uLogic = new UserInfoLogic(urepo);
-IRestaurantLogic rLogic = new RestaurantLogic(RPrepo);
+IRepo repo = new Repo(connectionString);
+
+ILogic logic = new Logic(repo);
+
 
 
 Log.Logger = new LoggerConfiguration()
@@ -34,19 +34,19 @@ while (repeat)
     switch (userInput)
     {
         case "SearchRestaurantsMenu":
-            menu = new SearchRestaurantsMenu(rLogic, RPrepo);
+            menu = new SearchRestaurantsMenu(logic, repo);
             break;
         case "AddReviewMenu":
-            menu = new AddReviewMenu(rLogic);
+            menu = new AddReviewMenu(logic);
             break;
         case "LoginMenu":
-            menu = new LoginMenu(uLogic);
+            menu = new LoginMenu(logic);
             break;
         case "AddUserMenu":
-            menu = new AddUserMenu(uLogic);
+            menu = new AddUserMenu(logic);
             break;
         case "AdminMenu":
-            menu = new AdminMenu(uLogic, rLogic);
+            menu = new AdminMenu(logic);
             break;
         case "MainMenu":
             menu = new MainMenu();

@@ -11,9 +11,9 @@ namespace HappySpoonUI
 {
     public class LoginMenu : IMenu
     {
-        readonly IUserLogic logic;
+        readonly ILogic logic;
 
-        public LoginMenu(IUserLogic logic)
+        public LoginMenu(ILogic logic)
         {
             this.logic = logic;
         }

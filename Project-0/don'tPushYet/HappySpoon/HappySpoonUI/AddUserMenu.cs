@@ -13,9 +13,9 @@ namespace HappySpoonUI
     {
         
         public static UserProfile User = new UserProfile();
-        private IUserLogic logic;
+        private ILogic logic;
 
-        public AddUserMenu(IUserLogic logic)
+        public AddUserMenu(ILogic logic)
         {
             this.logic = logic;
         }

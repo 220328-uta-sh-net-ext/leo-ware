@@ -15,10 +15,10 @@ namespace HappySpoonUI
         public RestaurantProfile restaurant = new RestaurantProfile();
         public static List<RestaurantProfile> rp = new List<RestaurantProfile>();
         string rName = "";
-        readonly IRestaurantLogic logic;
-        readonly IRestaurant repo;
+        readonly ILogic logic;
+        readonly IRepo repo;
 
-        public SearchRestaurantsMenu(IRestaurantLogic logic, IRestaurant repo)
+        public SearchRestaurantsMenu(ILogic logic, IRepo repo)
         {
             this.logic = logic;
             this.repo = repo;
@@ -46,13 +46,13 @@ namespace HappySpoonUI
                 case "2":
                     try
                     {
-                        Log.Information("User is attempting to search fpr a restaurant by name.");
+                        Log.Information("User is attempting to search for a restaurant by name.");
                         Console.WriteLine("**************************************");
                         Console.WriteLine("Search by name view a restaurant");
                         Console.WriteLine("Enter restaurant's name: ");
                         Log.Information("Prompting user for restaurant search input.");
                         rName = Console.ReadLine();
-                        repo.SearchRestaurants(rName);
+                        logic.SearchRestaurants(rName);
                     }
                     catch (Exception ex)
                     {

@@ -10,8 +10,8 @@ namespace HappySpoonUI
     internal class AddReviewMenu : IMenu
     {
         public static Review newReview = new Review();
-        readonly IRestaurantLogic logic;
-        public AddReviewMenu(IRestaurantLogic logic)
+        readonly ILogic logic;
+        public AddReviewMenu(ILogic logic)
         {
             this.logic = logic;
         }
@@ -19,8 +19,8 @@ namespace HappySpoonUI
         {
             Console.WriteLine("Thank you for contributing your valuable feedbak to our platform!");
             Console.WriteLine("What type of feedback would you like to add?");
-            Console.WriteLine("Press <1> Add Comments" + newReview.Comments);
-            Console.WriteLine("Press <2> Add Stars" + newReview.Stars);
+            Console.WriteLine("Press <1> Add Comments     " + newReview.Restaurant + newReview.UserName + newReview.Comments);
+            Console.WriteLine("Press <2> Add Stars     " + newReview.Restaurant + newReview.UserName + newReview.Stars);
             Console.WriteLine("Press <3> Back to Main Menu");
             Console.WriteLine("Press <0> Exit Program");
         }
@@ -34,11 +34,14 @@ namespace HappySpoonUI
                 case "1":
                     try
                     {
-                        Log.Information("Prompting user to add username to review" + newReview.UserName);
-                        Console.WriteLine("Enter your username: ");
+                        Log.Information("Prompting user to add the restaurant's name to review" + newReview.Restaurant);
+                        Console.WriteLine("Enter the name of the restaurant you're reviewing:  ");
+                        newReview.Restaurant = Console.ReadLine();
+                        Log.Information("Prompting user to add username to review  " + newReview.UserName);
+                        Console.WriteLine("Enter your username:  ");
                         newReview.UserName = Console.ReadLine();
-                        Log.Information("Prompting user to add comments" + newReview.Comments);
-                        Console.WriteLine("Enter your comments: ");
+                        Log.Information("Prompting user to add comments  " + newReview.Comments);
+                        Console.WriteLine("Enter your comments:  ");
                         newReview.Comments = Console.ReadLine();
                         Log.Information("Saving user's review");
                         logic.AddReview(newReview);
@@ -52,11 +55,14 @@ namespace HappySpoonUI
                 case "2":
                     try
                     {
+                        Log.Information("Prompting user to add the restaurant's name to review" + newReview.Restaurant);
+                        Console.WriteLine("Enter the name of the restaurant you're reviewing:  ");
+                        newReview.Restaurant = Console.ReadLine();
                         Log.Information("Prompting user to add username to review" + newReview.UserName);
-                        Console.WriteLine("Enter your username: ");
+                        Console.WriteLine("Enter your username:  ");
                         newReview.UserName = Console.ReadLine();
                         Log.Information("Prompting user to add comments" + newReview.Stars);
-                        Console.WriteLine("Enter your comments: ");
+                        Console.WriteLine("Enter your comments:  ");
                         newReview.Stars = Convert.ToDouble(Console.ReadLine());
                         Log.Information("Saving user's review");
                         logic.AddReview(newReview);
@@ -74,7 +80,7 @@ namespace HappySpoonUI
                 default:
                     Console.WriteLine("Please enter a valid option.");
                     Console.WriteLine("Press <Enter> to continue");
-                    Console.ReadLine();
+                    Console.ReadKey();
                     return "AddReviewMenu";
             }
         }

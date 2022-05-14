@@ -12,8 +12,8 @@ namespace HappySpoonTest
 {
     public class RestaurantTests
     {
-        private readonly IRestaurant repo;
-        private readonly IRestaurantLogic logic;
+        //private readonly IRestaurant repo;
+        //private readonly IRestaurantLogic logic;
        
 
         //[Fact]

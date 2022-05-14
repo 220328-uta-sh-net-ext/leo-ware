@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "secretStore": null,
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/leo-net-training/databases/HappySpoonRestaurantReviewApp",
+      "type": "mssql.azure",
+      "connectionId": "HPConnectionString",
+      "dynamicId": null
+    }
+  }
+}

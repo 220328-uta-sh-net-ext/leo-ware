@@ -14,13 +14,11 @@ namespace HappySpoonUI
     {
         public static RestaurantProfile rp = new RestaurantProfile();
         
-        private IUserLogic logic;
-        private IRestaurantLogic logic2;
+        private ILogic logic;
 
-        public AdminMenu(IUserLogic logic, IRestaurantLogic logic2)
+        public AdminMenu(ILogic logic)
         {
             this.logic = logic;
-            this.logic2 = logic2;
         }
 
         //readonly IUser urepo;
@@ -64,7 +62,7 @@ namespace HappySpoonUI
                         Console.WriteLine("Enter restaurant's contact information:    ");
                         rp.ContactInfo = Console.ReadLine();
                         Console.WriteLine("Restaurant has been saved!");
-                        logic2.AddRestaurant(rp);
+                        logic.AddRestaurant(rp);
                     }
                     catch (Exception ex)
                     {
