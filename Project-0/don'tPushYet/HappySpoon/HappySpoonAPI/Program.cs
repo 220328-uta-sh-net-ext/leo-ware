@@ -11,19 +11,19 @@ using System.Text;
 
             // Add services to the container.
 
-            builder.Services.AddAuthentication(options => {
+            /*builder.Services.AddAuthentication(options => {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 
             }).AddJwtBearer(o => {
-                var jwtKey = Encoding.UTF8.GetBytes(Config["JWT:Key"]);
+                var Key = Encoding.UTF8.GetBytes(Config["JWT:Key"]);
                 o.SaveToken = true;
                 o.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
                     ValidIssuer = Config["JWT:Issuer"],
                     ValidAudience = Config["JWT:Audience"],
-                    IssuerSigningKey = new SymmetricSecurityKey(jwtKey),
+                    IssuerSigningKey = new SymmetricSecurityKey(Key),
                     ValidateLifetime = true,
                     ValidateIssuer = false,
                     ValidateAudience = false
@@ -33,7 +33,7 @@ using System.Text;
             builder.Services.AddControllers(options =>
                 options.RespectBrowserAcceptHeader = true
                 )
-                .AddXmlSerializerFormatters();
+                .AddXmlSerializerFormatters();*/
             builder.Services.AddControllers();
 
 

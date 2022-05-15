@@ -77,3 +77,5 @@ C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonAPI\bin\Debug\n
 C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonAPI\bin\Debug\net6.0\HappySpoonBL.pdb
 C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonAPI\bin\Debug\net6.0\HappySpoonDL.pdb
 C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonAPI\bin\Debug\net6.0\HappySpoonModels.pdb
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonAPI\bin\Debug\net6.0\ServiceStack.Text.dll

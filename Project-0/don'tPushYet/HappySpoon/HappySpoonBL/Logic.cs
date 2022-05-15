@@ -37,7 +37,7 @@ namespace HappySpoonBL
             if (! rName.Equals(rName))
                 throw new InvalidDataException("There are no restaurants by that name");
             else
-            return filterRP;
+            return repo.GetAllRestaurants();
         }
 
         public List<RestaurantProfile> GetRestaurant(RestaurantProfile rp)
@@ -60,10 +60,10 @@ namespace HappySpoonBL
 
         public List<RestaurantProfile> GetAllRestaurants()
         {
-
+            
             return repo.GetAllRestaurants();
 
-            throw new InvalidDataException("There are no restaurants by that name");
+            //throw new InvalidDataException("There are no restaurants by that name");
         }
 
 

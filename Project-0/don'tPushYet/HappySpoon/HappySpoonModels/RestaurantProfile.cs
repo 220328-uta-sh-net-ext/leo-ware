@@ -13,7 +13,7 @@
 
         public RestaurantProfile()
         {
-            RestaurantID +=1 ;
+            RestaurantID = 0 ;
             Name = "";
             Description = "";
             Location = "";

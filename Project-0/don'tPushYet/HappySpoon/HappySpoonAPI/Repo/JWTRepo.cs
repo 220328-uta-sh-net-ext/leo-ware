@@ -15,7 +15,7 @@ namespace HappySpoonAPI.Repo
             this.config = config;
         }
 
-        public Token Authenticate(UserProfile User)
+        /*public Token Authenticate(UserProfile User)
         {
             if (!UserProfile.Equals(a => a.Key == User.UserName && a.Value == User.UserPassword))
             {
@@ -35,6 +35,6 @@ namespace HappySpoonAPI.Repo
                 Expires = DateTime.UtcNow.AddHours(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tKey), SecurityAlgorithms.HmacSha256)
             };
-        }
+        }*/
     }
 }

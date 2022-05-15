@@ -41,15 +41,7 @@ C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\ne
 C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
 C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
 C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
-C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
-C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
-C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
-C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
-C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
 C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\net6.0\Microsoft.Identity.Client.dll
 C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\net6.0\Microsoft.Identity.Client.Extensions.Msal.dll
 C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
@@ -88,3 +80,4 @@ C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\ne
 C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\net6.0\Serilog.Sinks.Console.dll
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonUI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

@@ -52,7 +52,7 @@ namespace HappySpoonUI
                         Console.WriteLine("Enter restaurant's name: ");
                         Log.Information("Prompting user for restaurant search input.");
                         rName = Console.ReadLine();
-                        logic.SearchRestaurants(rName);
+                        repo.SearchRestaurants(rName);
                     }
                     catch (Exception ex)
                     {

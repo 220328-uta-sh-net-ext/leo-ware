@@ -60,7 +60,7 @@ namespace HappySpoonDL
             return filterRP.ToList();
         }
 
-        public List<RestaurantProfile> GetAllRestaurants()
+        /*public List<RestaurantProfile> GetAllRestaurants()
         {
             string commandString = "SELECT Name, Description, Location, ContactInfo, AverageStars FROM Restaurants;";
             using SqlConnection connection = new(connectionString);
@@ -83,7 +83,54 @@ namespace HappySpoonDL
                 });
             }
             return restaurant;
+        }*/
+        //**************************************************************
+
+        public List<RestaurantProfile> GetAllRestaurants()
+        {
+            string commandString = "SELECT * FROM Restaurants;";
+
+            using SqlConnection connection = new(connectionString);
+            using SqlCommand command = new(commandString, connection);
+            IDataAdapter adapter = new SqlDataAdapter(command);
+            DataSet dataSet = new();
+            try
+            {
+                connection.Open();
+                adapter.Fill(dataSet); // this sends the query. DataAdapter uses a DataReader to read.}
+            }
+            catch (SqlException ex)
+            {
+                throw;//rethrow the exception
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            // TODO: leaving out the abilities for now
+            var restaurants = new List<RestaurantProfile>();
+            //DataColumn levelColumn = dataSet.Tables[0].Columns[2];
+            foreach (DataRow row in dataSet.Tables[0].Rows)
+            {
+                restaurants.Add(new RestaurantProfile
+                {
+                    RestaurantID = (int)row[0],
+                    Name = (string)row[1],
+                    Description = (string)row[2],
+                    Location = (string)row[3],
+                    ContactInfo = (string)row[4],
+                    AverageStars = (int)row[5]
+                });
+            }
+            return restaurants;
         }
+
+        //**************************************************
 
         /// <summary>
         /// Method to add a new review
