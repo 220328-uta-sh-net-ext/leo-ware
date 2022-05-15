@@ -10,8 +10,8 @@ namespace HappySpoonTest
 {
     public class HappySpoonUnitTest
     {
-        private readonly IUserLogic logic;
-        private IUser repo;
+        private readonly ILogic logic;
+        private IRepo repo;
 
         [Fact]
         public void AddUserTest()
