@@ -27,6 +27,7 @@ namespace HappySpoonAPI.Controllers
         }*/
 
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<List<RestaurantProfile>> Get()
         {
             return Ok(_profiles);
@@ -42,6 +43,8 @@ namespace HappySpoonAPI.Controllers
         }*/
 
         [HttpGet("name")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public ActionResult<List<RestaurantProfile>> Get(string name)
         {
             var restaurant = _profiles.Where(x => x.Name.Contains(name)).ToList();
@@ -49,5 +52,7 @@ namespace HappySpoonAPI.Controllers
                 return BadRequest($"Restaurant {name} is not in the Happy Spoon database");
             return Ok(restaurant);
         }
+
+
     }
 }
