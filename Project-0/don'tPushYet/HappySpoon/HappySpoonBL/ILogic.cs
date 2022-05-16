@@ -11,16 +11,14 @@ namespace HappySpoonBL
     public interface ILogic
     {
         RestaurantProfile AddRestaurant(RestaurantProfile rp);
-        List<RestaurantProfile> GetAllRestaurants();
         List<RestaurantProfile> SearchRestaurants(string rName);
-        List<RestaurantProfile> GetRestaurant(RestaurantProfile rp);
         Review AddReview(Review newReview);
+        List<Review> SearchReviews(string rName);
 
         //*************************************************~ USER ~*************************************************
 
         UserProfile AddUser(UserProfile User);
-        List<UserProfile> GetAllUsers();
-        List<UserProfile> SearchAllUsers(string uName, string userInput);
+        List<UserProfile> SearchUsers(string uName);
         List<UserProfile> GetUser(string uName, string uPassword);
 
     }

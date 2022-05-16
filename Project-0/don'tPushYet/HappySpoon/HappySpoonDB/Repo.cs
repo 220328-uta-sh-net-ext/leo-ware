@@ -45,7 +45,7 @@ namespace HappySpoonDL
 
             return rp;
         }
-        public List<RestaurantProfile> SearchRestaurants(string rName)
+        /*public List<RestaurantProfile> SearchRestaurants(string rName)
         {
             string commandString = "SELECT * FROM Restaurants;";
             using SqlConnection connection = new (connectionString);
@@ -58,7 +58,7 @@ namespace HappySpoonDL
                            select restaurant;
             
             return filterRP.ToList();
-        }
+        }*/
 
         /*public List<RestaurantProfile> GetAllRestaurants()
         {
@@ -112,9 +112,8 @@ namespace HappySpoonDL
                 connection.Close();
             }
 
-            // TODO: leaving out the abilities for now
+            // TODO: 
             var restaurants = new List<RestaurantProfile>();
-            //DataColumn levelColumn = dataSet.Tables[0].Columns[2];
             foreach (DataRow row in dataSet.Tables[0].Rows)
             {
                 restaurants.Add(new RestaurantProfile
@@ -139,12 +138,61 @@ namespace HappySpoonDL
         /// <returns> A new review in the form of comments and stars </returns>
         public Review AddReview(Review newReview)
         {
-            return AddReview(newReview);
+            string commandString = "INSERT INTO Reviews (Restaurant, Username, Stars, Comments) VALUES " + "(@restaurant, @username, @stars, @comments)";
+
+            using SqlConnection connection = new(connectionString);
+            using SqlCommand command = new SqlCommand(commandString, connection);
+            command.Parameters.AddWithValue("@restaurant", newReview.Restaurant);
+            command.Parameters.AddWithValue("@username", newReview.UserName);
+            command.Parameters.AddWithValue("@stars", newReview.Stars);
+            command.Parameters.AddWithValue("@comments", newReview.Comments);
+            connection.Open();
+            command.ExecuteNonQuery();
+            connection.Close();
+
+            return newReview;
         }
 
-        public List<RestaurantProfile> GetRestaurant(RestaurantProfile rp)
+
+        public List<Review> GetReviews()
         {
-            return GetRestaurant(rp);
+            string commandString = "SELECT * FROM Reviews;";
+
+            using SqlConnection connection = new(connectionString);
+            using SqlCommand command = new(commandString, connection);
+            IDataAdapter adapter = new SqlDataAdapter(command);
+            DataSet dataSet = new();
+            try
+            {
+                connection.Open();
+                adapter.Fill(dataSet); // this sends the query. DataAdapter uses a DataReader to read.}
+            }
+            catch (SqlException ex)
+            {
+                throw;//rethrow the exception
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            var reviews = new List<Review>();
+            foreach (DataRow row in dataSet.Tables[0].Rows)
+            {
+                reviews.Add(new Review
+                {
+                    Restaurant = (string)row[0],
+                    UserName = (string)row[1],
+                    Stars = (int)row[2],
+                    Comments = (string)row[3],
+                });
+            }
+            return reviews;
+
         }
 
 
@@ -194,35 +242,9 @@ namespace HappySpoonDL
                     UserID = reader.GetInt32(1),
                     UserName = reader.GetString(2),
                     UserEmail = reader.GetString(3),
-                    UserPassword = reader.GetString(4)
                 });
             }
             return user;
-        }
-
-
-
-        public List<UserProfile> GetUser()
-        {
-            string commandString = "SELECT * FROM Users;";
-            using SqlConnection connection = new(connectionString);
-            using SqlCommand command = new SqlCommand(commandString, connection);
-            using SqlDataReader reader = command.ExecuteReader();
-            connection.Open();
-            var users = new List<UserProfile>();
-            while (reader.Read())
-            {
-                users.Add(new UserProfile
-                {
-                    UserAccess = reader.GetString(0),
-                    UserID = reader.GetInt32(1),
-                    UserName = reader.GetString(2),
-                    UserEmail = reader.GetString(3),
-                    UserPassword = reader.GetString(4)
-                });
-            }
-            connection.Close();
-            return users;
         }
 
     }

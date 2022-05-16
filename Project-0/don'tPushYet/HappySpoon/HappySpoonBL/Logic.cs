@@ -2,6 +2,7 @@
 using HappySpoonDL;
 using HappySpoonModels;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace HappySpoonBL
 {
@@ -16,7 +17,7 @@ namespace HappySpoonBL
 
         public RestaurantProfile AddRestaurant(RestaurantProfile rp)
         {
-            RestaurantProfile restaurant = new RestaurantProfile
+            /*RestaurantProfile restaurant = new RestaurantProfile
             {
                 RestaurantID = rp.RestaurantID,
                 Name = rp.Name,
@@ -24,7 +25,20 @@ namespace HappySpoonBL
                 Location = rp.Location,
                 ContactInfo = rp.ContactInfo,
                 AverageStars = 0
-            };
+            };*/
+
+            if (rp.Name == null || rp.Description == null || rp.Location == null)
+            {
+                throw new InvalidDataException("Restaurant name, description and/or location may not be null. Please enter valid input");
+            }
+
+            List<RestaurantProfile>? restaurants = repo.GetAllRestaurants();
+            foreach (var userExists in restaurants)
+            {
+                if (rp.Name != userExists.Name)
+                    continue;
+                throw new Exception("This restaurant already exists. Please enter an alternate username or password.");
+            }
             return repo.AddRestaurant(rp);
         }
 
@@ -32,59 +46,63 @@ namespace HappySpoonBL
         public List<RestaurantProfile> SearchRestaurants(string rName)
         {
             List<RestaurantProfile>? restaurants = repo.GetAllRestaurants();
+
             var filterRP = restaurants;
             filterRP = restaurants.Where(x => x.Name == rName).ToList();
-            if (! rName.Equals(rName))
+            if (filterRP == null)
                 throw new InvalidDataException("There are no restaurants by that name");
             else
             return repo.GetAllRestaurants();
         }
 
-        public List<RestaurantProfile> GetRestaurant(RestaurantProfile rp)
-        {
-           
-            return repo.GetAllRestaurants();
-        }
 
         public Review AddReview(Review newReview)
         {
-            Review review = new Review()
-            {
-                Restaurant = newReview.Restaurant,
-                UserName = newReview.UserName,
-                Comments = newReview.Comments,
-                Stars = newReview.Stars
-            };
             return repo.AddReview(newReview);
         }
 
-        public List<RestaurantProfile> GetAllRestaurants()
+        public List<Review> SearchReviews(string rName)
         {
-            
-            return repo.GetAllRestaurants();
+            List<Review>? reviews = repo.GetReviews();
 
-            //throw new InvalidDataException("There are no restaurants by that name");
+            var filterRP = reviews;
+            filterRP = reviews.Where(x => x.Restaurant == rName).ToList();
+            if (filterRP == null)
+                throw new InvalidDataException("There are no restaurants by that name");
+            else
+                return repo.GetReviews();
         }
-
 
         // *****************************************~ USER ~************************************************
 
         public UserProfile AddUser(UserProfile User)
         {
+            
 
+            if (User.UserPassword == null || User.UserName == null || User.UserEmail == null)
+            {
+                throw new InvalidDataException("Username and/or password may not be null. Please enter valid input");
+            }
+            
+            List<UserProfile>? users = repo.GetAllUsers();
+            foreach (var userExists in users)
+            {
+                if (User.UserName != userExists.UserName || User.UserEmail != userExists.UserEmail)
+                    continue;
+                throw new Exception("This user already exists. Please enter an alternate username or password.");
+            }
+            //var userExists = users;
+            //userExists = (List<UserProfile>)users.Where(x => (x.UserName.Equals(User.UserName) && (x.UserEmail.Equals(User.UserEmail))));
+            //throw new Exception("This user already exists. Please enter an alternate username or password.");
             return repo.AddUser(User);
         }
 
-        public List<UserProfile> GetAllUsers()
-        {
-            return repo.GetAllUsers();
-        }
         /// <summary>
-        /// Method to 
+        /// Method to let users login with their username and password
         /// </summary>
         /// <param name="uName"></param>
         /// <param name="uPassword"></param>
-        /// <returns></returns>
+        /// <returns> name="users" </returns>
         /// <exception cref="InvalidDataException"></exception>
         public List<UserProfile> GetUser(string uName, string uPassword)
         {
@@ -114,12 +132,11 @@ namespace HappySpoonBL
         /// <returns>
         /// filters users by username.
         /// </returns>
-        public List<UserProfile> SearchAllUsers(string uName, string input)
+        public List<UserProfile> SearchUsers(string uName)
         {
             List<UserProfile>? users = repo.GetAllUsers();
             var filterRP = users;
-            if (input == "name")
-                filterRP = users.Where(x => x.UserName == input).ToList();
+                filterRP = users.Where(x => x.UserName.Contains(uName)).ToList();
             return filterRP;
         }
 

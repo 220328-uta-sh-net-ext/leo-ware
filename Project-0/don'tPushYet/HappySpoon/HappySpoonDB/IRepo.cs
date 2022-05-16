@@ -10,20 +10,20 @@ namespace HappySpoonDL
     public interface IRepo
     {
         //*********************************~ RESTAURANT INTERFACE ~************************************
-        public RestaurantProfile AddRestaurant(RestaurantProfile Restaurant);
-        public List<RestaurantProfile> GetAllRestaurants();
-        public List<RestaurantProfile> GetRestaurant(RestaurantProfile rp);
-        public List<RestaurantProfile> SearchRestaurants(string rName);
+        RestaurantProfile AddRestaurant(RestaurantProfile Restaurant);
+        List<RestaurantProfile> GetAllRestaurants();
+
+        /*public List<RestaurantProfile> SearchRestaurants(string rName);*/
 
         //***************************************~ REVIEW ~********************************************
         Review AddReview(Review newReview);
+        List<Review> GetReviews();
 
         //***************************************~ USERS ~*********************************************
-        public List<UserProfile> GetAllUsers();
+        List<UserProfile> GetAllUsers();
 
-        public UserProfile AddUser(UserProfile User);
+        UserProfile AddUser(UserProfile User);
 
-        public List<UserProfile> GetUser();
 
     }
 
