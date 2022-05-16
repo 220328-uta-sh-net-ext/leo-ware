@@ -11,7 +11,7 @@ using HappySpoonModels;
 
 namespace HappySpoonDL
 {
-    
+
     public class Repo : IRepo
     {
         public Repo(string connectionString)
@@ -188,7 +188,7 @@ namespace HappySpoonDL
                     Restaurant = (string)row[0],
                     UserName = (string)row[1],
                     Stars = (int)row[2],
-                    Comments = (string)row[3],
+                    Comments = (string)row[3]
                 });
             }
             return reviews;
@@ -228,27 +228,46 @@ namespace HappySpoonDL
         /// <returns>Gets all existing users from the database</returns>
         public List<UserProfile> GetAllUsers()
         {
-            string commandString = "SELECT AccessID, UserName, UserEmail FROM Users;";
+            string commandString = "SELECT * FROM Users;";
+
             using SqlConnection connection = new(connectionString);
-            using SqlCommand command = new SqlCommand(commandString, connection);
-            connection.Open();
-            using SqlDataReader reader = command.ExecuteReader();
-            var user = new List<UserProfile>();
-            while (reader.Read())
+            using SqlCommand command = new(commandString, connection);
+            IDataAdapter adapter = new SqlDataAdapter(command);
+            DataSet dataSet = new();
+            try
             {
-                user.Add(new UserProfile
+                connection.Open();
+                adapter.Fill(dataSet); // this sends the query. DataAdapter uses a DataReader to read.}
+            }
+            catch (SqlException ex)
+            {
+                throw;//rethrow the exception
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            var users = new List<UserProfile>();
+            foreach (DataRow row in dataSet.Tables[0].Rows)
+            {
+                users.Add(new UserProfile
                 {
-                    UserAccess = reader.GetString(0),
-                    UserID = reader.GetInt32(1),
-                    UserName = reader.GetString(2),
-                    UserEmail = reader.GetString(3),
+                    UserAccess = (string)row[0],
+                    UserID = (int)row[1],
+                    UserName = (string)row[2],
+                    UserEmail = (string)row[3],
+                    UserPassword = (string)row[4]
                 });
             }
-            return user;
+            return users;
+
         }
-
     }
-
 
 }
 //C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoon.sln

@@ -40,7 +40,7 @@ while (repeat)
             menu = new AddReviewMenu(logic);
             break;
         case "LoginMenu":
-            menu = new LoginMenu(logic);
+            menu = new LoginMenu(logic, repo);
             break;
         case "AddUserMenu":
             menu = new AddUserMenu(logic);

@@ -5,24 +5,27 @@ using System.Text;
 using System.Threading.Tasks;
 using HappySpoonUI;
 using HappySpoonModels;
+using HappySpoonDL;
 using HappySpoonBL;
 
 namespace HappySpoonUI
 {
     public class LoginMenu : IMenu
     {
+        private readonly List<UserProfile> users = new List<UserProfile>();
         readonly ILogic logic;
-
-        public LoginMenu(ILogic logic)
+        readonly IRepo repo;
+        public LoginMenu(ILogic logic, IRepo repo)
         {
             this.logic = logic;
+            this.repo = repo;
         }
 
         public void Display()
         {
             Console.WriteLine("Welcome back, user!");
             Console.WriteLine("Please log in to continue");
-            Console.WriteLine("Press <1> Enter your account information");
+            Console.WriteLine("Press <1> Enter your account information" );
             Console.WriteLine("Press <2> Back to Main Menu");
             Console.WriteLine("Press <0> Exit Program");
         }
@@ -40,7 +43,7 @@ namespace HappySpoonUI
                     Log.Debug("Prompting password");
                     Console.WriteLine("Enter Password: ");
                     string uPassword = Console.ReadLine();
-                    var info = logic.GetAllUsers();
+                    var info = logic.GetUser(uName, uPassword);
                     foreach(var i in info)
                     {
                         if (uName == i.UserName && uPassword == i.UserPassword)

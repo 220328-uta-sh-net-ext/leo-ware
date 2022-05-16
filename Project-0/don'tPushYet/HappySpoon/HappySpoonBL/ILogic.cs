@@ -20,6 +20,7 @@ namespace HappySpoonBL
         UserProfile AddUser(UserProfile User);
         List<UserProfile> SearchUsers(string uName);
         List<UserProfile> GetUser(string uName, string uPassword);
+        //List<UserProfile> GetAllUsers();
 
     }
        

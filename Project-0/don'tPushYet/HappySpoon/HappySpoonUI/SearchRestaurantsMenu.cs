@@ -12,9 +12,9 @@ namespace HappySpoonUI
 {
     public class SearchRestaurantsMenu : IMenu
     {
-        public RestaurantProfile restaurant = new RestaurantProfile();
+        //public RestaurantProfile restaurant = new RestaurantProfile();
         public static List<RestaurantProfile> rp = new List<RestaurantProfile>();
-        string rName = "";
+        
         readonly ILogic logic;
         readonly IRepo repo;
 
@@ -27,8 +27,8 @@ namespace HappySpoonUI
         public void Display()
         {
             Console.WriteLine("Please enter input to search restaurants");
-            Console.WriteLine("<1> See all restaurants\n  " + rp);
-            Console.WriteLine("<2> Search restaurants by name\n   " + rName);
+            Console.WriteLine("<1> See all restaurants");
+            Console.WriteLine("<2> Search restaurants by name  ");
             Console.WriteLine("<0> Back to Main Menu");
         }
 
@@ -48,11 +48,11 @@ namespace HappySpoonUI
                     {
                         Log.Information("User is attempting to search for a restaurant by name.");
                         Console.WriteLine("**************************************");
-                        Console.WriteLine("Search by name view a restaurant");
+                        Console.WriteLine("Search by name to view a restaurant");
                         Console.WriteLine("Enter restaurant's name: ");
                         Log.Information("Prompting user for restaurant search input.");
-                        rName = Console.ReadLine();
-                        repo.SearchRestaurants(rName);
+                        string rName = Console.ReadLine();
+                        logic.SearchRestaurants(rName);
                     }
                     catch (Exception ex)
                     {

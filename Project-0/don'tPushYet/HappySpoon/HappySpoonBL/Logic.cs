@@ -47,12 +47,20 @@ namespace HappySpoonBL
         {
             List<RestaurantProfile>? restaurants = repo.GetAllRestaurants();
 
-            var filterRP = restaurants;
+            /*var filterRP = restaurants;
             filterRP = restaurants.Where(x => x.Name == rName).ToList();
             if (filterRP == null)
                 throw new InvalidDataException("There are no restaurants by that name");
-            else
-            return repo.GetAllRestaurants();
+            else*/
+            foreach (var rp in restaurants)
+            {
+                if (rName.Contains(rp.Name))
+                    continue;
+            }
+            if (rName == null || rName.Length == 0)
+                throw new InvalidDataException("Search input may not be empty. Please enter valid input to search restaurants");
+
+            return restaurants;
         }
 
 
@@ -75,6 +83,13 @@ namespace HappySpoonBL
 
         // *****************************************~ USER ~************************************************
 
+        /// <summary>
+        /// Adds a new user to the HappySpoon database.
+        /// </summary>
+        /// <param name="User"></param>
+        /// <returns></returns>
+        /// <exception cref="InvalidDataException"></exception>
+        /// <exception cref="Exception"></exception>
         public UserProfile AddUser(UserProfile User)
         {
             
@@ -102,7 +117,7 @@ namespace HappySpoonBL
         /// </summary>
         /// <param name="uName"></param>
         /// <param name="uPassword"></param>
-        /// <returns> name="users" </returns>
+        /// <returns users="UserProfile"></returns>
         /// <exception cref="InvalidDataException"></exception>
         public List<UserProfile> GetUser(string uName, string uPassword)
         {
@@ -110,19 +125,26 @@ namespace HappySpoonBL
             foreach (var u in users)
             {
                 if (uName == u.UserName && uPassword == u.UserPassword)
+                    continue;
+                else if (uName == u.AdminName && uPassword == u.AdminPassword)
+                    continue;
+                /*if (uName == u.UserName && uPassword == u.UserPassword)
                 {
                     return users;
                 }
-                else if (u.AdminName.Equals("El Jefe") && u.AdminPassword.Equals(1234))
+                else if (u.AdminName.Equals("El Jefe") && u.AdminPassword.Equals("1234"))
                 {
                     return users;
-                }
+                }*/
                 else
                     throw new InvalidDataException("Please input a valid username and password to use this feature");
 
             }
             return users;
         }
+
+        //public List<UserProfile> GetAllUsers()
+        //{ return repo.GetAllUsers(); }
 
         /// <summary>
         /// Search users by username.
