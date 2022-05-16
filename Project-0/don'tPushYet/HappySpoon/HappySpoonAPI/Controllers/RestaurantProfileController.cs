@@ -14,65 +14,64 @@ namespace HappySpoonAPI.Controllers
     public class RestaurantProfileController : ControllerBase
     {
         readonly IRepo repo;
-        public RestaurantProfileController(IRepo repo)
+        readonly ILogic logic;
+        public RestaurantProfileController(IRepo repo, ILogic logic)
         {
             this.repo = repo;
+            this.logic = logic;
         }
 
-        private static List<RestaurantProfile> _profiles = new List<RestaurantProfile>();
-        
-        /*{
-            new RestaurantProfile { Name = "Bob's Burgers", Description = "classic all-american", Location = "Boston", ContactInfo = "438579375998795", AverageStars = 0},
-            new RestaurantProfile { Name = "Mrs. Lovette's Meat Pies", Description = "western european cusine that's to die for", Location = "London", ContactInfo = "9374569672396", AverageStars = 0}
+        private static List<RestaurantProfile> rp = new List<RestaurantProfile>();
 
-        };*/
-        
+
         //Action Methods are used to access or manipulate resources.
         //They use the HTTP verbs: GET, PUT, POST DELETE, PATCH, HEAD, OPTIONS, TRACE, etc...
-        
-        /*[HttpGet]
-        public List<RestaurantProfile> Get()
-        {
-            return _profiles;
-        }*/
+
+//***********************~ PRACTICE GET METHOD ~***********************
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<List<RestaurantProfile>> Get()
         {
-            return Ok(_profiles);
+            return Ok(rp);
         }
 
-        /*[HttpGet("name")]
-        public List<RestaurantProfile> Get(string name)
-        {
-            var restaurant = _profiles.Where(x => x.Name.Contains(name)).ToList();
-            if (restaurant == null)
-                return null;
-            return restaurant;
-        }*/
+//***********************~ SEARCH BY NAME ~***********************
 
-        [HttpGet("name")]
+        [HttpGet("Search by Name")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public ActionResult<List<RestaurantProfile>> Get(string name)
         {
-            var restaurant = _profiles.Where(x => x.Name.Contains(name)).ToList();
-            if (restaurant == null)
-                return BadRequest($"Restaurant {name} is not in the HappySpoon database");
-            return Ok(restaurant);
+            string rName = name;
+            List<RestaurantProfile> restaurants = logic.SearchRestaurants(rName);
+            if (restaurants == null)
+                return BadRequest($"Restaurant {rName} is not in the HappySpoon database");
+            return Ok(restaurants);
         }
 
-        [HttpGet("restaurants")]
+//*************************~ VIEW ALL RESTAURANTS ~*************************
+
+        [HttpGet("See all restaurants")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<List<RestaurantProfile>> GetAllRestaurants()
         {
 
             List<RestaurantProfile> restaurants = repo.GetAllRestaurants();
-            //if (resturaunts == null)
-                //return NotFound("There are no existing restaurants in the HappySpoon database");
             return Ok(restaurants);
         }
 
+//**************************~ ADD A RESTAURANT ~**************************
+
+        [HttpPost("Add a new restaurant")]
+        public ActionResult<RestaurantProfile> AddRestaurant(RestaurantProfile rp)
+        {
+            if (rp.Name == null || rp.Description == null || rp.Location == null)
+                return BadRequest("Name, Description and/or Location fields may not be empty. Please enter valid input");
+            repo.AddRestaurant(rp);
+            
+            return CreatedAtAction("Get",rp);
+        }
 
     }
 }

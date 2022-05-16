@@ -11,7 +11,7 @@ using System.Text;
 
             // Add services to the container.
 
-            builder.Services.AddAuthentication(options => {
+            /*builder.Services.AddAuthentication(options => {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 
@@ -33,7 +33,7 @@ using System.Text;
             builder.Services.AddControllers(options =>
                 options.RespectBrowserAcceptHeader = true
                 )
-                .AddXmlSerializerFormatters();
+                .AddXmlSerializerFormatters();*/
             builder.Services.AddControllers();
 
 

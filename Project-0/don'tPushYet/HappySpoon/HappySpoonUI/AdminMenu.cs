@@ -28,7 +28,7 @@ namespace HappySpoonUI
             Console.WriteLine("You have unlocked the Admin Menu.\nWhat would you like to do?");
             Console.WriteLine("<1>Search Users");
             Console.WriteLine("<2>Search Restaurants");
-            Console.WriteLine("<3>Add Restaurant Profile\n" + rp.RestaurantID + rp.Name + rp.Description + rp.Location + rp.ContactInfo + rp.AverageStars);
+            Console.WriteLine("<3>Add Restaurant Profile");
             Console.WriteLine("<4>Back to Main Menu");
             Console.WriteLine("<0>Exit Program");
         }

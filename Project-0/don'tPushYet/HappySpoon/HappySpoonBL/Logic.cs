@@ -19,11 +19,11 @@ namespace HappySpoonBL
         {
             /*RestaurantProfile restaurant = new RestaurantProfile
             {
-                RestaurantID = rp.RestaurantID,
-                Name = rp.Name,
-                Description = rp.Description,
-                Location = rp.Location,
-                ContactInfo = rp.ContactInfo,
+                RestaurantID = 0,
+                Name = "",
+                Description = "",
+                Location = "",
+                ContactInfo = "",
                 AverageStars = 0
             };*/
 
@@ -35,8 +35,8 @@ namespace HappySpoonBL
             List<RestaurantProfile>? restaurants = repo.GetAllRestaurants();
             foreach (var userExists in restaurants)
             {
-                if (rp.Name != userExists.Name)
-                    continue;
+                if (userExists.Name.Equals(rp.Name))
+                    //continue;
                 throw new Exception("This restaurant already exists. Please enter an alternate username or password.");
             }
             return repo.AddRestaurant(rp);
@@ -47,20 +47,19 @@ namespace HappySpoonBL
         {
             List<RestaurantProfile>? restaurants = repo.GetAllRestaurants();
 
-            /*var filterRP = restaurants;
-            filterRP = restaurants.Where(x => x.Name == rName).ToList();
-            if (filterRP == null)
-                throw new InvalidDataException("There are no restaurants by that name");
-            else*/
-            foreach (var rp in restaurants)
+            var filterRP = restaurants;
+            filterRP = restaurants.Where(x => x.Name.Contains(rName)).ToList();
+            foreach (var rp in filterRP)
             {
-                if (rName.Contains(rp.Name))
-                    continue;
+                if (rp == null)
+                    throw new InvalidDataException("There are no restaurants by that name");
+                else
+                return filterRP;
             }
             if (rName == null || rName.Length == 0)
                 throw new InvalidDataException("Search input may not be empty. Please enter valid input to search restaurants");
 
-            return restaurants;
+            return filterRP;
         }
 
 
