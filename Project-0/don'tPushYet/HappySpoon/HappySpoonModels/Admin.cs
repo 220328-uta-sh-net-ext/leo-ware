@@ -12,12 +12,7 @@ namespace HappySpoonModels
     {
         public string AdminAccess { get; set; }
         public int AdminID { get; set; }
-        
-        [BindRequired]
         public string AdminName { get; set; }
-
-        [DataType(DataType.Password)]
-        [BindRequired]
         public string AdminPassword { get; set; }
 
         public Admin()

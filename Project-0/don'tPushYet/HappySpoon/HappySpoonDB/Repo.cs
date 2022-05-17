@@ -45,45 +45,7 @@ namespace HappySpoonDL
 
             return rp;
         }
-        /*public List<RestaurantProfile> SearchRestaurants(string rName)
-        {
-            string commandString = "SELECT * FROM Restaurants;";
-            using SqlConnection connection = new (connectionString);
-            using SqlCommand command = new SqlCommand(commandString, connection);
-            using SqlDataReader reader = command.ExecuteReader();
-            connection.Open();
-            var restaurants = new List<RestaurantProfile>();
-            var filterRP = from restaurant in restaurants
-                           where restaurant.Name.ToLower().Contains(rName.ToLower())
-                           select restaurant;
-            
-            return filterRP.ToList();
-        }*/
 
-        /*public List<RestaurantProfile> GetAllRestaurants()
-        {
-            string commandString = "SELECT Name, Description, Location, ContactInfo, AverageStars FROM Restaurants;";
-            using SqlConnection connection = new(connectionString);
-            using SqlCommand command = new SqlCommand(commandString, connection);
-            using SqlDataReader reader = command.ExecuteReader();
-            connection.Open();
-            
-            var restaurant = new List<RestaurantProfile>();
-            while (reader.Read())
-            {
-                restaurant.Add(new RestaurantProfile
-                {
-                    //RestaurantID = reader.GetInt32(0),
-                    Name = reader.GetString(1),
-                    Description = reader.GetString(2),
-                    Location = reader.GetString(3),
-                    ContactInfo = reader.GetString(4),
-                    AverageStars = reader.GetDouble(5)
-
-                });
-            }
-            return restaurant;
-        }*/
         //**************************************************************
 
         public List<RestaurantProfile> GetAllRestaurants()
@@ -226,7 +188,7 @@ namespace HappySpoonDL
         /// </summary>
         /// <params> </params>
         /// <returns>Gets all existing users from the database</returns>
-        public List<UserProfile> GetAllUsers()
+        public List<UserProfile> GetUser()
         {
             string commandString = "SELECT * FROM Users;";
 
@@ -312,4 +274,3 @@ namespace HappySpoonDL
     }
 
 }
-//C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoon.sln

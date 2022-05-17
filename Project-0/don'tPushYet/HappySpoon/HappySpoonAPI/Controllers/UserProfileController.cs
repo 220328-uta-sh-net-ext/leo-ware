@@ -5,6 +5,7 @@ using HappySpoonDL;
 using HappySpoonModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Caching.Memory;
+using HappySpoonAPI.Repo;
 
 namespace HappySpoonAPI.Controllers
 {
@@ -15,11 +16,13 @@ namespace HappySpoonAPI.Controllers
         readonly IRepo repo;
         readonly ILogic logic;
         private IMemoryCache mCache;
-        public UserProfileController(IRepo repo, ILogic logic, IMemoryCache mCache)
+        private IJWTRepo jRepo;
+        public UserProfileController(IRepo repo, ILogic logic, IMemoryCache mCache, IJWTRepo jRepo)
         {
             this.repo = repo;
             this.logic = logic;
             this.mCache = mCache;
+            this.jRepo = jRepo;
         }
 
         private static List<UserProfile> up = new List<UserProfile>();
@@ -36,21 +39,21 @@ namespace HappySpoonAPI.Controllers
         [HttpGet("Login")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<List<UserProfile>> GetUser(string name, string password)
+        public ActionResult<UserProfile> GetUser(string name, string password)
         {
             string uName = name;
             string uPassword = password;
-            List<UserProfile> up = logic.GetUser(uName, uPassword);
+            var up = logic.GetUser(uName, uPassword);
             foreach (UserProfile upItem in up)
             {
                 if (upItem.UserName == uName && upItem.UserPassword == uPassword)
-                    continue;
-                
-                if (up == null)
-                    return NotFound($"Username and/or password is not in the HappySpoon database\n Would you like to sign up for an account?");
-            }    
-            
-            return Ok(up);
+                {
+                    
+                    return Ok(upItem);
+                }
+
+            }
+            return NotFound($"Username and/or password is not in the HappySpoon database\n Would you like to sign up for an account?");
         }
 
         /// <summary>
@@ -60,20 +63,18 @@ namespace HappySpoonAPI.Controllers
         /// <param name="password"></param>
         /// <returns></returns>
         [HttpGet("Admin Login")]
+        //[Route("Get Admin")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<List<Admin>> GetAdmin(string name, string password)
+        public ActionResult <UserProfile> GetAdmin(string name, string password)
         {
-            List<Admin> up = logic.GetAdmin();
+            var up = logic.GetAdmin();
             foreach (var upItem in up)
             {
                 if (upItem.AdminName == name && upItem.AdminPassword == password)
-                    continue;
-                if (up == null)
-                    return NotFound($"Username and/or password is not in the HappySpoon database\n Would you like to sign up for an account?");
+                    return Ok(upItem);
             }
-
-            return Ok(up);
+            return NotFound($"Username and/or password is not in the HappySpoon database\n Would you like to sign up for an account?");
         }
 
         //*************************~ SEARCH USERS ~*************************
@@ -91,9 +92,14 @@ namespace HappySpoonAPI.Controllers
         {
             string uName = username;
             List<UserProfile> up = logic.SearchUsers(uName);
-            if (up == null)
-                return BadRequest($"Restaurant {username} is not in the HappySpoon database");
-            return Ok(up);
+            foreach (UserProfile upItem in up)
+            {
+
+                    return Ok(upItem);
+
+            }
+         return BadRequest($"Restaurant {username} is not in the HappySpoon database");
+           
         }
 
         //*************************~ VIEW ALL USERS ~*************************
@@ -102,30 +108,29 @@ namespace HappySpoonAPI.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
-        [Authorize(Roles = "admin")]
+
         [HttpGet("See all users")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<List<UserProfile>> GetAllUsers()
         {
-            List<UserProfile> up = repo.GetAllUsers();
+            List<UserProfile> up = repo.GetUser();
             return Ok(up);
         }
 
         //**************************~ ADD A NEW USER ~**************************
 
         /// <summary>
-        /// 
+        /// Adding a new user to the database
         /// </summary>
         /// <param name="User"></param>
         /// <returns></returns>
-        [AllowAnonymous]
-        [HttpPost("Signup for a new account")]
-        public ActionResult<UserProfile> AddUser(UserProfile User)
+        [HttpPost("Signup to add a new account")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        public ActionResult <UserProfile> AddUser(UserProfile user)
         {
+            logic.AddUser(user);
 
-            repo.AddUser(User);
-
-            return CreatedAtAction("Get", User);
+            return CreatedAtAction("Get", user);
         }
 
     }

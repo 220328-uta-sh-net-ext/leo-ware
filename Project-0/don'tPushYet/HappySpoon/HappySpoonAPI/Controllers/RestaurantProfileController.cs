@@ -33,9 +33,6 @@ namespace HappySpoonAPI.Controllers
 
         //***********************~ PRACTICE GET METHOD ~***********************
 
-
-
-
         //***********************~ SEARCH BY NAME ~***********************
 
         /// <summary>
@@ -79,7 +76,7 @@ namespace HappySpoonAPI.Controllers
         /// <param name="rp"></param>
         /// <returns></returns>
         [HttpPost("Add a new restaurant")]
-
+        [ProducesResponseType(StatusCodes.Status201Created)]
         public ActionResult<RestaurantProfile> AddRestaurant(RestaurantProfile rp)
         {
            repo.AddRestaurant(rp);

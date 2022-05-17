@@ -20,7 +20,7 @@ namespace HappySpoonDL
         List<Review> GetReviews();
 
         //***************************************~ USERS ~*********************************************
-        List<UserProfile> GetAllUsers();
+        List<UserProfile> GetUser();
 
         UserProfile AddUser(UserProfile User);
 

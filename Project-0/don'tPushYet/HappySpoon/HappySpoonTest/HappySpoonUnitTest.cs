@@ -4,14 +4,15 @@ using HappySpoonModels;
 using HappySpoonUI;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 
 namespace HappySpoonTest
 {
     public class HappySpoonUnitTest
     {
-        private readonly ILogic logic;
-        private IRepo repo;
+        //private readonly ILogic logic;
+        //private IRepo repo;
 
         [Fact]
         public void AddUserTest()
@@ -31,21 +32,33 @@ namespace HappySpoonTest
 
    
 
-        //[Theory]
-        //[InlineData("AmericaChavez", )]
-        //public void SearchUserTest()
-        //{
-            //List<UserProfile> user = new List<UserProfile>();
-            //IUser repo = this.repo;
+        [Fact]
+        public void LoginSuccess()
+        {
+           var uName = "AmericaChavez";
+           var  uPass = "Password";
 
-                //user.UserName = Console.ReadLine();
-                //foreach (var i in user.UserName)
-                //{
-                  //  if (i.Equals(user.UserName))
-                 //   repo.GetUser(user);
-                //}
+            List<UserProfile> user = new List<UserProfile>();
+
+            if (uName.Equals(user) && uPass.Equals(user))
                 
-        //}
+            Assert.Equal(user, user);
+
+        }
+
+
+        /*[Fact]
+        public void SearchUser(List<UserProfile> user)
+        {
+           var uName = "Amer";
+
+            List<UserProfile> user = new List<UserProfile>();
+
+            if (uName.Contains(user))
+
+            Assert.Equal("AmericaChavez", user);
+
+        }*/
 
     }
 }
