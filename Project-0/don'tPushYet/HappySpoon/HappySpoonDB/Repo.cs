@@ -267,6 +267,48 @@ namespace HappySpoonDL
             return users;
 
         }
+
+        public List<Admin> GetAdmin()
+        {
+            string commandString = "SELECT * FROM Users;";
+
+            using SqlConnection connection = new(connectionString);
+            using SqlCommand command = new(commandString, connection);
+            IDataAdapter adapter = new SqlDataAdapter(command);
+            DataSet dataSet = new();
+            try
+            {
+                connection.Open();
+                adapter.Fill(dataSet); // this sends the query. DataAdapter uses a DataReader to read.}
+            }
+            catch (SqlException ex)
+            {
+                throw;//rethrow the exception
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            var admin = new List<Admin>();
+            foreach (DataRow row in dataSet.Tables[0].Rows)
+            {
+                admin.Add(new Admin
+                {
+                    AdminAccess = (string)row[0],
+                    AdminID = (int)row[1],
+                    AdminName = (string)row[2],
+                    AdminPassword = (string)row[4]
+                });
+            }
+            return admin;
+
+        }
+
     }
 
 }

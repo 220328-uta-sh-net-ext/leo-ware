@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using HappySpoonBL;
 using HappySpoonDL;
 using HappySpoonModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HappySpoonAPI.Controllers
 {
@@ -29,15 +30,12 @@ namespace HappySpoonAPI.Controllers
 
 //***********************~ PRACTICE GET METHOD ~***********************
 
-        [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        public ActionResult<List<RestaurantProfile>> Get()
-        {
-            return Ok(rp);
-        }
+        
+        
 
-//***********************~ SEARCH BY NAME ~***********************
+        //***********************~ SEARCH BY NAME ~***********************
 
+        
         [HttpGet("Search by Name")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -46,12 +44,13 @@ namespace HappySpoonAPI.Controllers
             string rName = name;
             List<RestaurantProfile> restaurants = logic.SearchRestaurants(rName);
             if (restaurants == null)
-                return BadRequest($"Restaurant {rName} is not in the HappySpoon database");
+                return BadRequest($"Restaurant {name} is not in the HappySpoon database");
             return Ok(restaurants);
         }
 
-//*************************~ VIEW ALL RESTAURANTS ~*************************
+        //*************************~ VIEW ALL RESTAURANTS ~*************************
 
+        
         [HttpGet("See all restaurants")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<List<RestaurantProfile>> GetAllRestaurants()
@@ -61,16 +60,16 @@ namespace HappySpoonAPI.Controllers
             return Ok(restaurants);
         }
 
-//**************************~ ADD A RESTAURANT ~**************************
+        //**************************~ ADD A RESTAURANT ~**************************
+
 
         [HttpPost("Add a new restaurant")]
+
         public ActionResult<RestaurantProfile> AddRestaurant(RestaurantProfile rp)
         {
-            if (rp.Name == null || rp.Description == null || rp.Location == null)
-                return BadRequest("Name, Description and/or Location fields may not be empty. Please enter valid input");
-            repo.AddRestaurant(rp);
-            
-            return CreatedAtAction("Get",rp);
+           repo.AddRestaurant(rp);
+
+            return CreatedAtAction("Get", rp);
         }
 
     }

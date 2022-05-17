@@ -13,6 +13,7 @@ namespace HappySpoonUI
     public class LoginMenu : IMenu
     {
         private readonly List<UserProfile> users = new List<UserProfile>();
+        private readonly List<Admin> admins = new List<Admin>();
         readonly ILogic logic;
         readonly IRepo repo;
         public LoginMenu(ILogic logic, IRepo repo)
@@ -52,7 +53,16 @@ namespace HappySpoonUI
                             Console.WriteLine($"User, { uName}, is logged in");
                             return "AddReviewMenu";
                         }
-                        else if (uName == i.AdminName && uPassword == i.AdminPassword)
+                        else
+                        {
+                            Log.Debug("User login failed");
+                            throw new InvalidDataException ("UserName or Password is invalid. Try again...");
+                        }
+                    }
+                    var admin = logic.GetAdmin();
+                    foreach (var a in admin)
+                    {
+                        if (uName == a.AdminName && uPassword == a.AdminPassword)
                         {
                             Log.Information($"What's up, {uName}?!");
                             Console.WriteLine($"What's up, {uName}?!");
@@ -61,7 +71,7 @@ namespace HappySpoonUI
                         else
                         {
                             Log.Debug("User login failed");
-                            throw new InvalidDataException ("UserName or Password is invalid. Try again...");
+                            throw new InvalidDataException("UserName or Password is invalid. Try again...");
                         }
                     }
                     return "LoginMenu";

@@ -10,7 +10,6 @@ namespace HappySpoonModels
     public class Review
     {
 
-        public int UserID { get; set; }
         public string UserName { get; set; }
         public double Stars { get; set; }
         public string Comments { get; set; }
@@ -20,7 +19,6 @@ namespace HappySpoonModels
         public Review()
         {
             Restaurant = "";
-            UserID = 0;
             UserName = "";
             Stars = 0;
             Comments = "";

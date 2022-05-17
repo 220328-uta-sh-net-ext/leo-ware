@@ -21,6 +21,7 @@ namespace HappySpoonBL
         List<UserProfile> SearchUsers(string uName);
         List<UserProfile> GetUser(string uName, string uPassword);
         //List<UserProfile> GetAllUsers();
+        List<Admin> GetAdmin();
 
     }
        

@@ -69,6 +69,10 @@
               "target": "Package",
               "version": "[1.15.1, )"
             },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
             "ServiceStack.Text": {
               "target": "Package",
               "version": "[6.0.2, )"

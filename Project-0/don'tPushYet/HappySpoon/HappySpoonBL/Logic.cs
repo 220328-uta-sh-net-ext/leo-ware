@@ -65,6 +65,19 @@ namespace HappySpoonBL
 
         public Review AddReview(Review newReview)
         {
+            List<RestaurantProfile>? restaurants = repo.GetAllRestaurants();
+            foreach (var userExists in restaurants)
+            {
+                if (userExists.Name.Equals(restaurants))
+                    continue;
+
+            }
+            List<UserProfile>? users = repo.GetAllUsers();
+            foreach (var user in users)
+            {
+                if (user.UserName.Equals(users))
+                    continue;
+            }
             return repo.AddReview(newReview);
         }
 
@@ -121,12 +134,13 @@ namespace HappySpoonBL
         public List<UserProfile> GetUser(string uName, string uPassword)
         {
             List<UserProfile>? users = repo.GetAllUsers();
+            
             foreach (var u in users)
             {
                 if (uName == u.UserName && uPassword == u.UserPassword)
                     continue;
-                else if (uName == u.AdminName && uPassword == u.AdminPassword)
-                    continue;
+                //else if (uName == u.AdminName && uPassword == u.AdminPassword)
+                    //continue;
                 /*if (uName == u.UserName && uPassword == u.UserPassword)
                 {
                     return users;
@@ -140,6 +154,19 @@ namespace HappySpoonBL
 
             }
             return users;
+        }
+
+        public List<Admin> GetAdmin()
+        {
+            List<Admin>? user = repo.GetAdmin();
+
+            foreach (var admin in user)
+            {
+                if (admin.AdminName.Equals("El Jefe") && admin.AdminPassword.Equals("1234"))
+                    continue;
+            }
+
+            return user;
         }
 
         //public List<UserProfile> GetAllUsers()

@@ -24,7 +24,7 @@ namespace HappySpoonDL
 
         UserProfile AddUser(UserProfile User);
 
-
+        List<Admin> GetAdmin();
     }
 
 }
