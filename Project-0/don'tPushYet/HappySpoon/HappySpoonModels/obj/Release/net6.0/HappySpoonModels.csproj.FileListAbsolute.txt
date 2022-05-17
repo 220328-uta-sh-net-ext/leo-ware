@@ -1,0 +1,12 @@
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonModels\bin\Release\net6.0\HappySpoonModels.deps.json
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonModels\bin\Release\net6.0\HappySpoonModels.dll
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonModels\bin\Release\net6.0\HappySpoonModels.pdb
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonModels\obj\Release\net6.0\HappySpoonModels.csproj.AssemblyReference.cache
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonModels\obj\Release\net6.0\HappySpoonModels.GeneratedMSBuildEditorConfig.editorconfig
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonModels\obj\Release\net6.0\HappySpoonModels.AssemblyInfoInputs.cache
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonModels\obj\Release\net6.0\HappySpoonModels.AssemblyInfo.cs
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonModels\obj\Release\net6.0\HappySpoonModels.csproj.CoreCompileInputs.cache
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonModels\obj\Release\net6.0\HappySpoonModels.dll
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonModels\obj\Release\net6.0\refint\HappySpoonModels.dll
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonModels\obj\Release\net6.0\HappySpoonModels.pdb
+C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonModels\obj\Release\net6.0\ref\HappySpoonModels.dll

@@ -20,9 +20,9 @@ namespace HappySpoonBL
         UserProfile AddUser(UserProfile User);
         List<UserProfile> SearchUsers(string uName);
         List<UserProfile> GetUser(string uName, string uPassword);
-        //List<UserProfile> GetAllUsers();
         List<Admin> GetAdmin();
-
+        bool RegAccount(UserProfile user);
+        bool AdminAccount(Admin admin);
     }
        
 }

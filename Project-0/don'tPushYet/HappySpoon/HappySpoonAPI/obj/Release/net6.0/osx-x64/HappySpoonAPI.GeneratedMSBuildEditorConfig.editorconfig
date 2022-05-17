@@ -1,0 +1,24 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = HappySpoonAPI
+build_property.RootNamespace = HappySpoonAPI
+build_property.ProjectDir = C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonAPI\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Revature\leo-ware\Project-0\don'tPushYet\HappySpoon\HappySpoonAPI
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Revature/leo-ware/Project-0/don'tPushYet/HappySpoon/HappySpoonAPI/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Revature/leo-ware/Project-0/don'tPushYet/HappySpoon/HappySpoonAPI/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

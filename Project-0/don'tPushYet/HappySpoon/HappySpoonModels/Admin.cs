@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +12,12 @@ namespace HappySpoonModels
     {
         public string AdminAccess { get; set; }
         public int AdminID { get; set; }
+        
+        [BindRequired]
         public string AdminName { get; set; }
+
+        [DataType(DataType.Password)]
+        [BindRequired]
         public string AdminPassword { get; set; }
 
         public Admin()
@@ -18,7 +25,6 @@ namespace HappySpoonModels
             AdminAccess = "A";
             AdminID = 0;
             AdminName = "El Jefe";
-            //[DataType(DataType.Password)]
             AdminPassword = "1234";
         }
 

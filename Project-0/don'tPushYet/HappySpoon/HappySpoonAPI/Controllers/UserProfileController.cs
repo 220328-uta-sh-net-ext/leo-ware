@@ -4,19 +4,22 @@ using HappySpoonBL;
 using HappySpoonDL;
 using HappySpoonModels;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace HappySpoonAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class UserProfileController : ControllerBase
     {
         readonly IRepo repo;
         readonly ILogic logic;
-        public UserProfileController(IRepo repo, ILogic logic)
+        private IMemoryCache mCache;
+        public UserProfileController(IRepo repo, ILogic logic, IMemoryCache mCache)
         {
             this.repo = repo;
             this.logic = logic;
+            this.mCache = mCache;
         }
 
         private static List<UserProfile> up = new List<UserProfile>();
@@ -24,6 +27,12 @@ namespace HappySpoonAPI.Controllers
 
         //***********************~ USER LOGIN FEATURE ~***********************
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         [HttpGet("Login")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -44,7 +53,12 @@ namespace HappySpoonAPI.Controllers
             return Ok(up);
         }
 
-        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         [HttpGet("Admin Login")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -63,7 +77,13 @@ namespace HappySpoonAPI.Controllers
         }
 
         //*************************~ SEARCH USERS ~*************************
-        
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
+        /// 
         [HttpGet("Search users by username")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -77,7 +97,12 @@ namespace HappySpoonAPI.Controllers
         }
 
         //*************************~ VIEW ALL USERS ~*************************
-        
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        [Authorize(Roles = "admin")]
         [HttpGet("See all users")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<List<UserProfile>> GetAllUsers()
@@ -88,7 +113,12 @@ namespace HappySpoonAPI.Controllers
 
         //**************************~ ADD A NEW USER ~**************************
 
-        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="User"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
         [HttpPost("Signup for a new account")]
         public ActionResult<UserProfile> AddUser(UserProfile User)
         {

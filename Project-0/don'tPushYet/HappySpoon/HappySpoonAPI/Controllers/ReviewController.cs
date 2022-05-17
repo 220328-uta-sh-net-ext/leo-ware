@@ -6,7 +6,7 @@ using HappySpoonModels;
 
 namespace HappySpoonAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class ReviewController : ControllerBase
     {
@@ -51,7 +51,7 @@ namespace HappySpoonAPI.Controllers
         //**************************~ ADD A REVIEW ~**************************
 
 
-        [HttpPost("Add a new restaurant")]
+        [HttpPost("Add a new review")]
         public ActionResult<Review> AddReview(Review newReview)
         {
             repo.AddReview(newReview);

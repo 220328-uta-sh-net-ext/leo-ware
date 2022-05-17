@@ -188,6 +188,27 @@ namespace HappySpoonBL
             return filterRP;
         }
 
+        public bool RegAccount(UserProfile user)
+        {
+            List<UserProfile> users = repo.GetAllUsers();
+            
+            if (users.Exists(u => u.UserName == user.UserName && u.UserPassword == user.UserPassword))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool AdminAccount(Admin admin)
+        {
+            List<Admin> admins = repo.GetAdmin();
+            if (admins.Exists(a => a.AdminName == admin.AdminName && a.AdminPassword == admin.AdminPassword))
+            {
+                return true;
+            }
+            else
+                return false;
+        }
 
     }
 

@@ -3,6 +3,7 @@ namespace HappySpoonAPI.Repo
 {
     public interface IJWTRepo
     {
-        //Token Authenticate(UserProfile User);
+        Tokens RegAccount(UserProfile user);
+        Tokens AdminAccount(Admin admin);
     }
 }
